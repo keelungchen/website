@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Field Journal 田野日誌 — Guan-Yan Chen 陳冠言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <!-- Facebook SDK (for FB post embeds) -->
+  <div id="fb-root"></div>
+  <script async defer crossorigin="anonymous"
+    src="https://connect.facebook.net/zh_TW/sdk.js#xfbml=1&version=v19.0">
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', 'Noto Serif TC', sans-serif; color: #1a1a2e; background: #f5f7fa; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      height: 70px; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 36px;
+      transition: box-shadow 0.3s;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    .nav-group { display: flex; gap: 28px; align-items: center; }
+    .nav-brand { text-align: center; }
+    .nav-brand .en { font-family: 'Playfair Display', serif; font-size: 0.95rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #1B2A4A; display: block; }
+    .nav-brand .zh { font-family: 'Noto Serif TC', serif; font-size: 0.68rem; color: #7a8599; letter-spacing: 0.25em; display: block; margin-top: 1px; }
+    .nav-link { font-size: 0.68rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1B2A4A; transition: color 0.2s; display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .nav-link .zh { font-size: 0.6rem; letter-spacing: 0.12em; font-weight: 400; color: #8a96a8; font-family: 'Noto Serif TC', serif; }
+    .nav-link:hover, .nav-link.active { color: #2a9d8f; }
+    .nav-link:hover .zh, .nav-link.active .zh { color: #2a9d8f; }
+    @media (max-width: 900px) { #navbar { padding: 0 18px; } .nav-group { gap: 16px; } .nav-link .zh { display: none; } }
+    @media (max-width: 620px) { .nav-group:first-child { display: none; } }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      margin-top: 70px; height: 46vh; min-height: 320px;
+      position: relative; display: flex; align-items: flex-end; overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover; background-position: center 60%;
+    }
+    .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(8,18,40,0.85) 0%, rgba(8,18,40,0.18) 60%); }
+    .hero-content { position: relative; z-index: 2; padding: 0 56px 48px; color: #fff; }
+    .hero-content .breadcrumb { font-size: 0.68rem; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,0.42); margin-bottom: 12px; }
+    .hero-content .breadcrumb a { color: #a8e6df; }
+    .hero-content .en { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 5vw, 3.4rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; }
+    .hero-content .zh { font-family: 'Noto Serif TC', serif; font-size: clamp(0.85rem, 2vw, 1rem); letter-spacing: 0.42em; opacity: 0.72; margin-top: 10px; }
+
+    /* ── LAYOUT ── */
+    .page-wrap { max-width: 900px; margin: 0 auto; padding: 56px 32px 100px; }
+
+    /* ── FILTER BAR ── */
+    .filter-bar {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      margin-bottom: 44px; justify-content: center;
+    }
+    .fbtn {
+      padding: 6px 18px; border-radius: 30px;
+      border: 1.5px solid #d0dce8; background: #fff;
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: #6a7a8c;
+      cursor: pointer; transition: all 0.2s;
+      display: flex; flex-direction: column; align-items: center; gap: 1px;
+    }
+    .fbtn .zh { font-family: 'Noto Serif TC', serif; font-size: 0.62rem; font-weight: 400; }
+    .fbtn:hover { border-color: #2a9d8f; color: #2a9d8f; }
+    .fbtn.active { background: #1B2A4A; border-color: #1B2A4A; color: #fff; }
+    .fbtn.active .zh { color: rgba(255,255,255,0.75); }
+
+    /* ── JOURNAL CARD ── */
+    .journal-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 1px 12px rgba(0,0,0,0.06);
+      border: 1px solid rgba(0,0,0,0.05);
+      margin-bottom: 28px; transition: box-shadow 0.22s;
+    }
+    .journal-card:hover { box-shadow: 0 6px 28px rgba(0,0,0,0.11); }
+
+    .card-header { padding: 20px 24px 14px; display: flex; align-items: flex-start; gap: 14px; }
+    .date-block {
+      flex-shrink: 0; background: #1B2A4A; color: #fff;
+      border-radius: 10px; padding: 8px 12px; text-align: center; min-width: 52px;
+    }
+    .date-block .day { font-size: 1.4rem; font-weight: 700; line-height: 1; }
+    .date-block .mon { font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.75; margin-top: 2px; }
+    .date-block .year { font-size: 0.6rem; opacity: 0.55; margin-top: 1px; }
+
+    .card-meta { flex: 1; }
+    .card-meta .tags { display: flex; gap: 7px; flex-wrap: wrap; margin-bottom: 7px; }
+    .tag {
+      font-size: 0.6rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 2px 9px; border-radius: 20px;
+    }
+    .tag-field       { background: #d4f4ef; color: #1a7a6e; }
+    .tag-event       { background: #e8ecf4; color: #3a4a7a; }
+    .tag-media       { background: #fde8e0; color: #b04020; }
+    .tag-ig          { background: linear-gradient(135deg, #f9ce34, #ee2a7b, #6228d7); color: #fff; }
+    .tag-fb          { background: #1877F2; color: #fff; }
+    .tag-publication { background: #e8f5e9; color: #2a6a3a; }
+
+    .card-title-en {
+      font-family: 'Playfair Display', serif; font-size: 1.05rem;
+      font-weight: 700; color: #1B2A4A; line-height: 1.4;
+    }
+    .card-title-zh {
+      font-family: 'Noto Serif TC', serif; font-size: 0.8rem;
+      color: #8a96a8; margin-top: 2px; letter-spacing: 0.06em;
+    }
+
+    .card-body { padding: 0 24px 20px; }
+    .card-text { font-size: 0.92rem; line-height: 1.85; color: #3a4a5c; }
+    .card-text .zh { font-family: 'Noto Serif TC', serif; font-size: 0.85rem; color: #6a7a8a; display: block; margin-top: 8px; line-height: 2; }
+
+    /* Photo grid inside card */
+    .card-photos { display: grid; gap: 6px; margin: 12px 0 0; }
+    .card-photos.cols-1 { grid-template-columns: 1fr; }
+    .card-photos.cols-2 { grid-template-columns: 1fr 1fr; }
+    .card-photos.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+    .card-photos img { width: 100%; height: 200px; object-fit: cover; border-radius: 8px; }
+    .card-photos.cols-1 img { height: 280px; }
+
+    /* Social embed wrapper */
+    .social-embed {
+      margin: 14px 0 0;
+      background: #f8fafc; border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid #e4eaf2;
+      display: flex; justify-content: center; align-items: flex-start;
+      padding: 12px;
+    }
+    /* Instagram blockquote override */
+    .social-embed .instagram-media {
+      margin: 0 auto !important;
+      max-width: 100% !important;
+      min-width: 0 !important;
+    }
+    /* Facebook post override */
+    .social-embed .fb-post { width: 100%; }
+    .social-embed .fb-post span,
+    .social-embed .fb-post iframe { max-width: 100% !important; }
+
+    /* Embed notice (shown when no real post URL yet) */
+    .embed-placeholder {
+      background: linear-gradient(135deg, #f0f4f8 0%, #e8ecf4 100%);
+      border-radius: 10px; border: 2px dashed #c8d4e0;
+      padding: 28px 20px; text-align: center; margin: 14px 0 0;
+      color: #6a7a8c;
+    }
+    .embed-placeholder .icon { font-size: 2rem; margin-bottom: 8px; }
+    .embed-placeholder p { font-size: 0.82rem; line-height: 1.6; }
+    .embed-placeholder code { background: #fff; padding: 2px 6px; border-radius: 4px; font-size: 0.78rem; color: #2a9d8f; }
+
+    /* Card footer */
+    .card-footer {
+      padding: 12px 24px; border-top: 1px solid #f0f4f8;
+      display: flex; align-items: center; justify-content: space-between;
+      background: #fafbfc;
+    }
+    .card-location { font-size: 0.75rem; color: #8a96a8; display: flex; align-items: center; gap: 5px; }
+    .card-location svg { width: 13px; height: 13px; flex-shrink: 0; }
+    .card-ext-link {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+      color: #2a9d8f; display: flex; align-items: center; gap: 5px;
+    }
+    .card-ext-link svg { width: 12px; height: 12px; }
+
+    /* Load more */
+    .load-more-wrap { text-align: center; margin-top: 12px; }
+    .load-more-btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 11px 32px; border-radius: 30px;
+      border: 1.5px solid #d0dce8; background: #fff;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #4a5a6c; cursor: pointer; transition: all 0.2s;
+    }
+    .load-more-btn:hover { border-color: #2a9d8f; color: #2a9d8f; }
+
+    /* Scroll animation */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: opacity 0.55s ease, transform 0.55s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { background: #1B2A4A; color: rgba(255,255,255,0.35); text-align: center; padding: 26px 20px; font-size: 0.75rem; letter-spacing: 0.08em; }
+    footer span { margin: 0 8px; }
+    footer a { color: rgba(255,255,255,0.5); }
+    footer a:hover { color: rgba(255,255,255,0.8); }
+
+    @media (max-width: 560px) {
+      .card-photos.cols-3 { grid-template-columns: 1fr 1fr; }
+      .hero-content { padding: 0 24px 36px; }
+      .page-wrap { padding: 40px 16px 80px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-group">
+    <a href="index.html#about" class="nav-link"><span>About</span><span class="zh">關於</span></a>
+    <a href="research.html" class="nav-link"><span>Research</span><span class="zh">研究</span></a>
+    <a href="index.html#publications" class="nav-link"><span>Publications</span><span class="zh">發表</span></a>
+  </div>
+  <a href="index.html" class="nav-brand">
+    <span class="en">GUAN-YAN CHEN</span>
+    <span class="zh">陳冠言</span>
+  </a>
+  <div class="nav-group">
+    <a href="journal.html" class="nav-link active"><span>Journal</span><span class="zh">日誌</span></a>
+    <a href="index.html#photos" class="nav-link"><span>Photos</span><span class="zh">照片</span></a>
+    <a href="index.html#contact" class="nav-link"><span>Contact</span><span class="zh">聯絡</span></a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="page-hero">
+  <div class="hero-bg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Journal</div>
+    <div class="en">Field Journal</div>
+    <div class="zh">田野日誌</div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<div class="page-wrap">
+
+  <!-- Filter -->
+  <div class="filter-bar fade-up">
+    <button class="fbtn active" onclick="filterJournal('all',this)">
+      <span>All</span><span class="zh">全部</span>
+    </button>
+    <button class="fbtn" onclick="filterJournal('field',this)">
+      <span>Field Work</span><span class="zh">田野調查</span>
+    </button>
+    <button class="fbtn" onclick="filterJournal('event',this)">
+      <span>Events</span><span class="zh">活動研討</span>
+    </button>
+    <button class="fbtn" onclick="filterJournal('media',this)">
+      <span>Media</span><span class="zh">媒體科普</span>
+    </button>
+    <button class="fbtn" onclick="filterJournal('ig',this)">
+      <span>Instagram</span><span class="zh">IG 分享</span>
+    </button>
+    <button class="fbtn" onclick="filterJournal('fb',this)">
+      <span>Facebook</span><span class="zh">FB 分享</span>
+    </button>
+  </div>
+
+  <!-- ══════════════════════════════════════════
+       JOURNAL ENTRIES — 由新到舊
+       ══════════════════════════════════════════ -->
+
+  <!-- ENTRY 1 — Instagram embed 範例 -->
+  <div class="journal-card fade-up" data-type="ig">
+    <div class="card-header">
+      <div class="date-block">
+        <div class="day">18</div>
+        <div class="mon">Mar</div>
+        <div class="year">2025</div>
+      </div>
+      <div class="card-meta">
+        <div class="tags">
+          <span class="tag tag-ig">Instagram</span>
+          <span class="tag tag-field">Field Work</span>
+        </div>
+        <div class="card-title-en">Spring Survey Dive — Green Island</div>
+        <div class="card-title-zh">春季田野潛水調查 — 綠島</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        First dive of the 2025 spring survey season at Green Island. Water visibility was exceptional at around 25 m. Found encouraging signs of juvenile coral recruitment on the northern slope — a hopeful note after last year's bleaching event.
+        <span class="zh">2025 年春季調查季的第一次潛水，在綠島北岸斜坡發現令人振奮的珊瑚幼苗補充跡象——去年白化事件後的一個希望訊號。能見度約 25 公尺，海況極佳。</span>
+      </p>
+
+      <!-- ═══ 貼上你的 IG 嵌入碼 ═══
+           到 Instagram 貼文 → 右上角「...」→「嵌入」→ 複製碼，貼在這裡
+           下方為示意佔位符，換成真實 IG 嵌入碼後刪除此佔位符 -->
+      <div class="embed-placeholder">
+        <div class="icon">📷</div>
+        <p>
+          貼上你的 Instagram 嵌入碼到這裡<br/>
+          <strong>操作步驟：</strong>到 IG 貼文 → 右上角「⋯」→「嵌入」→ 複製碼 → 貼到
+          <code>&lt;!-- IG embed --&gt;</code> 區塊
+        </p>
+      </div>
+      <!--
+      ═══ 真實 IG 嵌入碼範例（取消下方註解並換成你的網址）═══
+      <div class="social-embed">
+        <blockquote class="instagram-media"
+          data-instgrm-captioned
+          data-instgrm-permalink="https://www.instagram.com/p/你的貼文ID/?utm_source=ig_embed"
+          data-instgrm-version="14"
+          style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,.5),0 1px 10px 0 rgba(0,0,0,.15);margin:1px;max-width:540px;width:calc(100% - 2px);">
+        </blockquote>
+      </div>
+      <script async src="//www.instagram.com/embed.js"></script>
+      -->
+    </div>
+    <div class="card-footer">
+      <span class="card-location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Green Island, Taiwan 綠島，台灣
+      </span>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="card-ext-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+        View on Instagram
+      </a>
+    </div>
+  </div>
+
+  <!-- ENTRY 2 — Facebook embed 範例 -->
+  <div class="journal-card fade-up" data-type="fb">
+    <div class="card-header">
+      <div class="date-block">
+        <div class="day">08</div>
+        <div class="mon">Mar</div>
+        <div class="year">2025</div>
+      </div>
+      <div class="card-meta">
+        <div class="tags">
+          <span class="tag tag-fb">Facebook</span>
+          <span class="tag tag-event">Event</span>
+        </div>
+        <div class="card-title-en">Talk at National Museum of Marine Biology</div>
+        <div class="card-title-zh">國立海洋生物博物館公開演講</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Gave a public talk on coral bleaching and climate change to a general audience at the National Museum of Marine Biology and Aquarium. Wonderful to connect with curious visitors of all ages — from primary school kids to retired marine enthusiasts.
+        <span class="zh">在國立海洋生物博物館進行珊瑚礁白化與氣候變遷的公開演講，與各年齡層的好奇訪客交流——從國小學童到退休的海洋愛好者——令人心情愉快。</span>
+      </p>
+
+      <!-- ═══ 貼上你的 FB 嵌入碼 ═══
+           到 Facebook 貼文 → 右上角「...」→「嵌入」→ 複製碼，貼在這裡
+           下方為示意佔位符 -->
+      <div class="embed-placeholder" style="background:linear-gradient(135deg,#e8f0fe,#d4e3fc);">
+        <div class="icon">👥</div>
+        <p>
+          貼上你的 Facebook 嵌入碼到這裡<br/>
+          <strong>操作步驟：</strong>到 FB 貼文 → 右上角「⋯」→「嵌入」→ 複製碼 → 貼到
+          <code>&lt;!-- FB embed --&gt;</code> 區塊
+        </p>
+      </div>
+      <!--
+      ═══ 真實 FB 嵌入碼範例（取消下方註解並換成你的貼文網址）═══
+      <div class="social-embed">
+        <div class="fb-post"
+          data-href="https://www.facebook.com/你的粉絲頁/posts/貼文ID"
+          data-width="500"
+          data-show-text="true">
+        </div>
+      </div>
+      -->
+    </div>
+    <div class="card-footer">
+      <span class="card-location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Pingtung, Taiwan 屏東，台灣
+      </span>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener" class="card-ext-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="#1877F2" stroke-width="2"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        View on Facebook
+      </a>
+    </div>
+  </div>
+
+  <!-- ENTRY 3 — 田野日誌（純文字 + 照片）-->
+  <div class="journal-card fade-up" data-type="field">
+    <div class="card-header">
+      <div class="date-block" style="background:#2a9d8f;">
+        <div class="day">22</div>
+        <div class="mon">Feb</div>
+        <div class="year">2025</div>
+      </div>
+      <div class="card-meta">
+        <div class="tags">
+          <span class="tag tag-field">Field Work</span>
+        </div>
+        <div class="card-title-en">Quarterly Survey — Kenting Monitoring Stations</div>
+        <div class="card-title-zh">季度調查 — 墾丁長期監測站</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Completed Q1 2025 surveys at all six Kenting monitoring stations. Hard coral cover at Station 3 (Houbi Lake) has declined by ~4% since the autumn survey, consistent with thermal stress recorded in Jan–Feb. Installed two new temperature loggers at depth.
+        <span class="zh">完成 2025 年第一季墾丁六個監測站的調查。後壁湖（3 號站）的硬珊瑚覆蓋率自秋季調查以來下降約 4%，與 1–2 月記錄的熱壓力相符。在深水處新安裝兩個溫度記錄器。</span>
+      </p>
+      <div class="card-photos cols-3">
+        <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=500&q=75&auto=format&fit=crop" alt="Survey" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=500&q=75&auto=format&fit=crop" alt="Coral" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=500&q=75&auto=format&fit=crop" alt="Reef" loading="lazy" />
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Kenting National Park, Taiwan 墾丁國家公園
+      </span>
+    </div>
+  </div>
+
+  <!-- ENTRY 4 — 媒體科普 -->
+  <div class="journal-card fade-up" data-type="media">
+    <div class="card-header">
+      <div class="date-block" style="background:#e76f51;">
+        <div class="day">14</div>
+        <div class="mon">Jan</div>
+        <div class="year">2025</div>
+      </div>
+      <div class="card-meta">
+        <div class="tags">
+          <span class="tag tag-media">Media</span>
+          <span class="tag tag-publication">Publication</span>
+        </div>
+        <div class="card-title-en">Science Magazine Feature: "Taiwan's Coral in the Crosshairs"</div>
+        <div class="card-title-zh">科學人雜誌專題報導：「台灣珊瑚礁的危機」</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Very happy to share a feature article on the 2024 mass bleaching event published in this month's issue of <em>Scientific American Taiwan</em>. Grateful to the editors for the opportunity to bring this story to a broader readership.
+        <span class="zh">很高興在本期《科學人》雜誌分享一篇關於 2024 年大規模白化事件的專題報導，感謝編輯讓這個故事得以傳達給更廣泛的讀者。</span>
+      </p>
+      <div class="card-photos cols-1">
+        <img src="https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=900&q=80&auto=format&fit=crop" alt="Bleaching" loading="lazy" />
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+        Scientific American Taiwan 科學人雜誌
+      </span>
+      <a href="#" class="card-ext-link">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        Read Article 閱讀文章
+      </a>
+    </div>
+  </div>
+
+  <!-- ENTRY 5 — 研討會 -->
+  <div class="journal-card fade-up" data-type="event">
+    <div class="card-header">
+      <div class="date-block" style="background:#3a5a8a;">
+        <div class="day">10</div>
+        <div class="mon">Dec</div>
+        <div class="year">2024</div>
+      </div>
+      <div class="card-meta">
+        <div class="tags">
+          <span class="tag tag-event">Conference</span>
+        </div>
+        <div class="card-title-en">Poster Presentation at ICRS 2024 — Hawaii</div>
+        <div class="card-title-zh">ICRS 2024 海報發表 — 夏威夷</div>
+      </div>
+    </div>
+    <div class="card-body">
+      <p class="card-text">
+        Presented our latest findings on latitudinal bleaching thresholds at the International Coral Reef Symposium in Honolulu. Great conversations with researchers from across the Indo-Pacific. The conference energy was equal parts urgent and hopeful.
+        <span class="zh">在火奴魯魯國際珊瑚礁研討會（ICRS）發表關於白化閾值緯度差異的最新研究成果。與來自印度洋—太平洋各地的研究者進行了深刻的交流——會議氣氛既緊迫又充滿希望。</span>
+      </p>
+      <div class="card-photos cols-2">
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=500&q=75&auto=format&fit=crop" alt="Conference" loading="lazy" />
+        <img src="https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?w=500&q=75&auto=format&fit=crop" alt="Hawaii" loading="lazy" />
+      </div>
+    </div>
+    <div class="card-footer">
+      <span class="card-location">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Honolulu, Hawai'i, USA
+      </span>
+    </div>
+  </div>
+
+  <div class="load-more-wrap fade-up">
+    <button class="load-more-btn" onclick="alert('更多日誌紀錄陸續更新中 · More entries coming soon')">
+      Load More 載入更多
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+    </button>
+  </div>
+
+</div><!-- /page-wrap -->
+
+<footer>
+  <span><a href="index.html">← Back to Home 回到首頁</a></span>
+  <span>·</span>
+  <span>© 2025 Guan-Yan Chen 陳冠言</span>
+  <span>·</span>
+  <span>Taiwan 台灣</span>
+</footer>
+
+<script>
+  // Navbar
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Filter
+  function filterJournal(type, btn) {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.journal-card').forEach(card => {
+      card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
+    });
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.08 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

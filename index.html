@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Guan-Yan Chen 陳冠言 | Coral Reef Ecologist 珊瑚礁生態研究者</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
+
+  <style>
+    /* ── RESET & BASE ── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: 'Lato', 'Noto Serif TC', sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      overflow-x: hidden;
+    }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 1000;
+      background: rgba(255,255,255,0.97);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 40px;
+      transition: box-shadow 0.3s;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    .nav-left, .nav-right {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    .nav-brand {
+      text-align: center;
+      flex: 0 0 auto;
+    }
+    .nav-brand .en {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1B2A4A;
+      display: block;
+    }
+    .nav-brand .zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.72rem;
+      color: #7a8599;
+      letter-spacing: 0.25em;
+      display: block;
+      margin-top: 1px;
+    }
+    .nav-link {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #1B2A4A;
+      transition: color 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1px;
+    }
+    .nav-link .zh { font-size: 0.65rem; letter-spacing: 0.15em; font-weight: 400; color: #8a96a8; font-family: 'Noto Serif TC', serif; }
+    .nav-link:hover, .nav-link.active { color: #2a9d8f; }
+    .nav-link:hover .zh, .nav-link.active .zh { color: #2a9d8f; }
+
+    /* ── HERO ── */
+    #hero {
+      height: 100vh;
+      min-height: 600px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center 40%;
+      transform: scale(1.04);
+      transition: transform 0.1s linear;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(
+        to bottom,
+        rgba(10,20,40,0.15) 0%,
+        rgba(10,20,40,0.35) 60%,
+        rgba(10,20,40,0.55) 100%
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      padding: 0 20px;
+    }
+    .hero-content .en-name {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.8rem, 7vw, 5.5rem);
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      line-height: 1;
+      text-shadow: 0 2px 20px rgba(0,0,0,0.4);
+    }
+    .hero-content .zh-name {
+      font-family: 'Noto Serif TC', serif;
+      font-size: clamp(1.2rem, 3vw, 2rem);
+      font-weight: 400;
+      letter-spacing: 0.6em;
+      margin-top: 14px;
+      opacity: 0.9;
+      text-shadow: 0 1px 10px rgba(0,0,0,0.4);
+    }
+    .hero-content .subtitle {
+      margin-top: 20px;
+      font-size: clamp(0.8rem, 1.8vw, 1rem);
+      font-weight: 300;
+      letter-spacing: 0.28em;
+      text-transform: uppercase;
+      opacity: 0.8;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      color: rgba(255,255,255,0.65);
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll svg { width: 20px; height: 20px; }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50% { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* ── SECTION COMMON ── */
+    section { position: relative; }
+    .section-inner {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+    .section-label {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 56px;
+    }
+    .section-label .en {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #1B2A4A;
+    }
+    .section-label .zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.35em;
+      color: #8a96a8;
+    }
+    .section-label .divider {
+      width: 48px;
+      height: 2px;
+      background: #2a9d8f;
+      margin-top: 10px;
+    }
+
+    /* ── WELCOME ── */
+    #welcome {
+      background: #fff;
+      text-align: center;
+    }
+    #welcome .welcome-text {
+      font-size: 1.05rem;
+      line-height: 1.9;
+      color: #3a4a5c;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    #welcome .welcome-text .zh-para {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.92rem;
+      color: #6a7a8c;
+      margin-top: 20px;
+      line-height: 2;
+    }
+
+    /* ── ABOUT ── */
+    #about {
+      background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+    }
+    #about::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(10,25,50,0.72);
+    }
+    #about .section-inner { position: relative; z-index: 1; }
+    #about .section-label .en { color: #fff; }
+    #about .section-label .zh { color: rgba(255,255,255,0.55); }
+    #about .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      #about .about-grid { grid-template-columns: 1fr; gap: 32px; }
+    }
+    .about-col p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.88);
+    }
+    .about-col p + p { margin-top: 16px; }
+    .about-col .zh-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      line-height: 2;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 28px;
+    }
+    .about-tag {
+      background: rgba(42,157,143,0.25);
+      border: 1px solid rgba(42,157,143,0.5);
+      color: #a8e6df;
+      padding: 5px 14px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── RESEARCH ── */
+    #research { background: #f7f9fc; }
+    .research-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 52px;
+      border-bottom: 2px solid #e0e8f0;
+    }
+    .rtab {
+      padding: 12px 32px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8a96a8;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .rtab .zh { font-family: 'Noto Serif TC', serif; font-size: 0.7rem; font-weight: 400; }
+    .rtab.active, .rtab:hover { color: #2a9d8f; border-bottom-color: #2a9d8f; }
+    .research-panel { display: none; }
+    .research-panel.active { display: block; }
+    .project-card {
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 36px;
+      align-items: center;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      margin-bottom: 28px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .project-card:hover { box-shadow: 0 6px 32px rgba(0,0,0,0.12); transform: translateY(-2px); }
+    @media (max-width: 700px) {
+      .project-card { grid-template-columns: 1fr; }
+    }
+    .project-img {
+      height: 220px;
+      overflow: hidden;
+    }
+    .project-img img {
+      width: 100%; height: 100%; object-fit: cover;
+      transition: transform 0.4s;
+    }
+    .project-card:hover .project-img img { transform: scale(1.05); }
+    .project-body { padding: 28px 28px 28px 0; }
+    @media (max-width: 700px) {
+      .project-body { padding: 20px; }
+    }
+    .project-status {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      padding: 3px 10px;
+      border-radius: 20px;
+      margin-bottom: 10px;
+    }
+    .project-status.ongoing { background: #d4f4ef; color: #1a7a6e; }
+    .project-status.past { background: #e8ecf4; color: #4a5a7a; }
+    .project-title-en {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      line-height: 1.4;
+    }
+    .project-title-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.82rem;
+      color: #6a7a8c;
+      margin-top: 4px;
+      letter-spacing: 0.08em;
+    }
+    .project-desc {
+      font-size: 0.88rem;
+      line-height: 1.8;
+      color: #4a5a6a;
+      margin-top: 12px;
+    }
+    .project-desc .zh { font-family: 'Noto Serif TC', serif; color: #7a8a9a; font-size: 0.82rem; display: block; margin-top: 6px; }
+    .project-year {
+      margin-top: 14px;
+      font-size: 0.72rem;
+      color: #2a9d8f;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+    }
+
+    /* ── PUBLICATIONS ── */
+    #publications { background: #fff; }
+    .pub-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin-bottom: 52px;
+      border-bottom: 2px solid #e0e8f0;
+    }
+    .ptab {
+      padding: 12px 32px;
+      cursor: pointer;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #8a96a8;
+      border-bottom: 3px solid transparent;
+      margin-bottom: -2px;
+      transition: all 0.2s;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 3px;
+    }
+    .ptab .zh { font-family: 'Noto Serif TC', serif; font-size: 0.7rem; font-weight: 400; }
+    .ptab.active, .ptab:hover { color: #e76f51; border-bottom-color: #e76f51; }
+    .pub-panel { display: none; }
+    .pub-panel.active { display: block; }
+    .pub-item {
+      border-left: 3px solid #e0e8f0;
+      padding: 18px 20px 18px 24px;
+      margin-bottom: 20px;
+      transition: border-color 0.2s;
+    }
+    .pub-item:hover { border-left-color: #2a9d8f; }
+    .pub-item.pop:hover { border-left-color: #e76f51; }
+    .pub-title-en {
+      font-family: 'Playfair Display', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      color: #1B2A4A;
+      line-height: 1.5;
+    }
+    .pub-title-zh {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.82rem;
+      color: #6a7a8c;
+      margin-top: 3px;
+    }
+    .pub-meta {
+      font-size: 0.8rem;
+      color: #8a96a8;
+      margin-top: 8px;
+      line-height: 1.6;
+    }
+    .pub-meta em { font-style: italic; color: #2a9d8f; }
+    .pub-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #2a9d8f;
+      border-bottom: 1px solid rgba(42,157,143,0.3);
+      transition: border-color 0.2s;
+    }
+    .pub-link:hover { border-color: #2a9d8f; }
+    .pub-badge {
+      display: inline-block;
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 2px 8px;
+      border-radius: 10px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .pub-badge.academic { background: #e8ecf4; color: #3a4a6a; }
+    .pub-badge.popular { background: #fde8e0; color: #c05030; }
+
+    /* ── PHOTOS ── */
+    #photos {
+      background-image: url('https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1600&q=80&auto=format&fit=crop');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
+      color: #fff;
+    }
+    #photos::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(8,20,42,0.70);
+    }
+    #photos .section-inner { position: relative; z-index: 1; }
+    #photos .section-label .en { color: #fff; }
+    #photos .section-label .zh { color: rgba(255,255,255,0.55); }
+    #photos .section-label .divider { background: #e76f51; }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-auto-rows: 220px;
+      gap: 10px;
+    }
+    @media (max-width: 700px) {
+      .photo-grid { grid-template-columns: repeat(2, 1fr); grid-auto-rows: 160px; }
+    }
+    .photo-item {
+      overflow: hidden;
+      border-radius: 6px;
+      position: relative;
+      cursor: pointer;
+    }
+    .photo-item.tall { grid-row: span 2; }
+    .photo-item.wide { grid-column: span 2; }
+    .photo-item img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+    }
+    .photo-item:hover img { transform: scale(1.07); }
+    .photo-caption {
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      background: linear-gradient(to top, rgba(0,0,0,0.65), transparent);
+      color: #fff;
+      padding: 20px 14px 10px;
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .photo-item:hover .photo-caption { opacity: 1; }
+    .photo-note {
+      text-align: center;
+      margin-top: 28px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.55);
+      letter-spacing: 0.08em;
+    }
+    .photo-note a {
+      color: #a8e6df;
+      border-bottom: 1px solid rgba(168,230,223,0.4);
+      transition: border-color 0.2s;
+    }
+    .photo-note a:hover { border-color: #a8e6df; }
+
+    /* ── CONTACT ── */
+    #contact { background: #1B2A4A; color: #fff; }
+    #contact .section-label .en { color: #fff; }
+    #contact .section-label .zh { color: rgba(255,255,255,0.45); }
+    #contact .section-label .divider { background: #2a9d8f; }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+    @media (max-width: 700px) {
+      .contact-grid { grid-template-columns: 1fr; gap: 36px; }
+    }
+    .contact-info p {
+      font-size: 0.92rem;
+      line-height: 1.9;
+      color: rgba(255,255,255,0.72);
+    }
+    .contact-info .zh-text {
+      font-family: 'Noto Serif TC', serif;
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.5);
+      margin-top: 16px;
+      line-height: 2;
+    }
+    .contact-detail {
+      margin-top: 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .contact-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .contact-row .icon {
+      width: 36px; height: 36px;
+      background: rgba(42,157,143,0.2);
+      border: 1px solid rgba(42,157,143,0.35);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0;
+    }
+    .contact-row .icon svg { width: 16px; height: 16px; stroke: #2a9d8f; fill: none; stroke-width: 2; }
+    .contact-row .text { font-size: 0.88rem; color: rgba(255,255,255,0.75); }
+    .contact-row .text a { color: #a8e6df; }
+    .contact-row .text a:hover { text-decoration: underline; }
+    .social-links {
+      display: flex;
+      gap: 14px;
+      margin-top: 24px;
+    }
+    .social-btn {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 20px;
+      border: 1px solid rgba(255,255,255,0.2);
+      border-radius: 30px;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.75);
+      transition: all 0.2s;
+    }
+    .social-btn:hover { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.4); color: #fff; }
+    .social-btn svg { width: 16px; height: 16px; }
+    .contact-form { display: flex; flex-direction: column; gap: 14px; }
+    .contact-form input,
+    .contact-form textarea {
+      background: rgba(255,255,255,0.07);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 6px;
+      padding: 12px 16px;
+      color: #fff;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.88rem;
+      outline: none;
+      transition: border-color 0.2s;
+      resize: vertical;
+    }
+    .contact-form input::placeholder,
+    .contact-form textarea::placeholder { color: rgba(255,255,255,0.35); }
+    .contact-form input:focus,
+    .contact-form textarea:focus { border-color: #2a9d8f; }
+    .contact-form textarea { min-height: 110px; }
+    .contact-form button {
+      align-self: flex-start;
+      background: #2a9d8f;
+      color: #fff;
+      border: none;
+      border-radius: 30px;
+      padding: 12px 32px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.15s;
+    }
+    .contact-form button:hover { background: #238076; transform: translateY(-1px); }
+    .form-label {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: -8px;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0f1a2e;
+      color: rgba(255,255,255,0.35);
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.75rem;
+      letter-spacing: 0.08em;
+    }
+    footer span { margin: 0 8px; }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.92);
+      z-index: 9999;
+      align-items: center;
+      justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img {
+      max-width: 90vw;
+      max-height: 85vh;
+      border-radius: 4px;
+      box-shadow: 0 8px 60px rgba(0,0,0,0.8);
+    }
+    #lightbox-close {
+      position: absolute;
+      top: 20px; right: 24px;
+      color: #fff;
+      font-size: 2rem;
+      cursor: pointer;
+      opacity: 0.7;
+      transition: opacity 0.2s;
+      line-height: 1;
+    }
+    #lightbox-close:hover { opacity: 1; }
+
+    /* ── SCROLL ANIMATIONS ── */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ── RESPONSIVE NAV ── */
+    @media (max-width: 860px) {
+      #navbar { padding: 0 20px; }
+      .nav-left, .nav-right { gap: 16px; }
+      .nav-link .zh { display: none; }
+    }
+    @media (max-width: 600px) {
+      .nav-left { display: none; }
+      .nav-right { gap: 12px; }
+      .nav-brand .en { font-size: 0.85rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── NAVBAR ── -->
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="#about" class="nav-link"><span>About</span><span class="zh">關於</span></a>
+    <a href="research.html" class="nav-link"><span>Research</span><span class="zh">研究</span></a>
+    <a href="#publications" class="nav-link"><span>Publications</span><span class="zh">發表</span></a>
+  </div>
+  <a href="#hero" class="nav-brand">
+    <span class="en">GUAN-YAN CHEN</span>
+    <span class="zh">陳冠言</span>
+  </a>
+  <div class="nav-right">
+    <a href="journal.html" class="nav-link"><span>Journal</span><span class="zh">日誌</span></a>
+    <a href="#photos" class="nav-link"><span>Photos</span><span class="zh">照片</span></a>
+    <a href="#contact" class="nav-link"><span>Contact</span><span class="zh">聯絡</span></a>
+  </div>
+</nav>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="en-name">GUAN-YAN CHEN</div>
+    <div class="zh-name">陳冠言</div>
+    <div class="subtitle">Coral Reef Ecologist &nbsp;·&nbsp; 珊瑚礁生態研究者</div>
+  </div>
+  <div class="hero-scroll">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+      <path d="M12 5v14M5 12l7 7 7-7"/>
+    </svg>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- ── WELCOME ── -->
+<section id="welcome">
+  <div class="section-inner" style="padding: 80px 40px;">
+    <div class="welcome-text fade-up">
+      Welcome. This site documents my research on coral reef ecosystems — from fieldwork beneath the waves to data, publications, and ongoing conservation efforts.
+      <div class="zh-para">
+        歡迎來到我的個人網站。這裡記錄了我在珊瑚礁生態系統上的研究歷程——從水下田野調查到資料分析、學術發表與保育工作。
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-label fade-up">
+      <div class="en">ABOUT</div>
+      <div class="zh">關於我</div>
+      <div class="divider"></div>
+    </div>
+    <div class="about-grid fade-up">
+      <div class="about-col">
+        <p>
+          I am a coral reef ecologist based in Taiwan, investigating how climate change, human disturbance, and ecological processes shape reef communities. My work integrates underwater surveys, remote sensing, and ecological modelling to understand reef resilience and inform conservation strategy.
+        </p>
+        <p class="zh-text">
+          我是一位珊瑚礁生態學家，目前任職於台灣。研究聚焦於氣候變遷、人為干擾與生態過程如何共同塑造礁體群聚結構，結合水下調查、遙測技術與生態模型，探討珊瑚礁的韌性並提供保育決策依據。
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">Coral Reef Ecology 珊瑚礁生態</span>
+          <span class="about-tag">Climate Change 氣候變遷</span>
+          <span class="about-tag">Coral Bleaching 珊瑚白化</span>
+          <span class="about-tag">Underwater Survey 水下調查</span>
+          <span class="about-tag">Remote Sensing 遙測</span>
+          <span class="about-tag">Conservation 保育</span>
+        </div>
+      </div>
+      <div class="about-col">
+        <p>
+          I completed my Ph.D. in Marine Biology and have been conducting long-term monitoring of reef communities across the Indo-Pacific. I am passionate about communicating science to the public and have contributed to both academic journals and popular science media.
+        </p>
+        <p style="margin-top:16px;">
+          When I am not diving, I write about ocean science and collaborate with photographers and filmmakers to bring reef stories to wider audiences.
+        </p>
+        <p class="zh-text" style="margin-top:16px;">
+          取得海洋生物學博士學位後，我長期在印度洋—太平洋地區進行礁體群聚監測。我同時致力於科學傳播，曾在學術期刊與科普媒體發表作品，也與攝影師及紀錄片工作者合作，將珊瑚礁的故事帶給更廣泛的受眾。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── RESEARCH PREVIEW ── -->
+<section id="research" style="background:#f7f9fc;">
+  <div class="section-inner">
+    <div class="section-label fade-up">
+      <div class="en">RESEARCH</div>
+      <div class="zh">研究計畫</div>
+      <div class="divider"></div>
+    </div>
+
+    <!-- Featured 2-up preview -->
+    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:36px;" class="fade-up">
+
+      <a href="project-thermal.html" style="display:block; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.06); transition:transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 36px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 18px rgba(0,0,0,0.07)'">
+        <div style="height:190px;overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=600&q=80&auto=format&fit=crop" alt="Coral bleaching" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div style="position:absolute;top:12px;left:12px;background:rgba(231,111,81,0.88);color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Climate &amp; Bleaching</div>
+          <div style="position:absolute;top:12px;right:12px;background:rgba(42,157,143,0.22);border:1px solid rgba(42,157,143,0.5);color:#a8e6df;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Ongoing</div>
+        </div>
+        <div style="padding:20px 22px 22px;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1B2A4A;line-height:1.4;margin-bottom:4px;">Thermal Tolerance Thresholds of Reef-Building Corals</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:0.78rem;color:#8a96a8;margin-bottom:10px;">台灣造礁珊瑚的熱耐受閾值研究</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2a9d8f;">2023 – Present &nbsp;→</div>
+        </div>
+      </a>
+
+      <a href="project-monitoring.html" style="display:block; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.06); transition:transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 36px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 18px rgba(0,0,0,0.07)'">
+        <div style="height:190px;overflow:hidden;position:relative;">
+          <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=600&q=80&auto=format&fit=crop" alt="Reef monitoring" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div style="position:absolute;top:12px;left:12px;background:rgba(42,157,143,0.88);color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Long-term Monitoring</div>
+          <div style="position:absolute;top:12px;right:12px;background:rgba(42,157,143,0.22);border:1px solid rgba(42,157,143,0.5);color:#a8e6df;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Ongoing</div>
+        </div>
+        <div style="padding:20px 22px 22px;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1B2A4A;line-height:1.4;margin-bottom:4px;">Long-Term Reef Monitoring Network — Southern Taiwan</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:0.78rem;color:#8a96a8;margin-bottom:10px;">台灣南部珊瑚礁長期監測網絡</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2a9d8f;">2022 – Present &nbsp;→</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- See all -->
+    <div style="text-align:center;" class="fade-up">
+      <a href="research.html" style="display:inline-flex;align-items:center;gap:10px;padding:13px 36px;background:#1B2A4A;color:#fff;border-radius:30px;font-size:0.78rem;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;transition:background 0.2s;" onmouseover="this.style.background='#2a9d8f'" onmouseout="this.style.background='#1B2A4A'">
+        View All Projects 查看所有計畫
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ── PUBLICATIONS ── -->
+<section id="publications">
+  <div class="section-inner">
+    <div class="section-label fade-up">
+      <div class="en">PUBLICATIONS</div>
+      <div class="zh">發表作品</div>
+      <div class="divider" style="background:#e76f51;"></div>
+    </div>
+
+    <div class="pub-tabs fade-up">
+      <div class="ptab active" onclick="switchTab('pub','academic',this)">
+        <span>Academic</span><span class="zh">學術論文</span>
+      </div>
+      <div class="ptab" onclick="switchTab('pub','popular',this)">
+        <span>Popular Science</span><span class="zh">科普文章</span>
+      </div>
+    </div>
+
+    <!-- Academic -->
+    <div class="pub-panel active" id="pub-academic">
+
+      <div class="pub-item fade-up">
+        <span class="pub-badge academic">Peer-Reviewed</span>
+        <div class="pub-title-en">Latitudinal patterns of thermal bleaching susceptibility in Indo-Pacific reef corals</div>
+        <div class="pub-title-zh">印度洋—太平洋珊瑚礁珊瑚熱白化敏感性的緯度分布格局</div>
+        <div class="pub-meta">
+          <strong>Chen, G.-Y.</strong>, Lin, C.-H., & Wang, T.-Y. (2024). <em>Coral Reefs</em>, 43(2), 415–430.
+        </div>
+        <a href="#" class="pub-link">DOI →</a>
+      </div>
+
+      <div class="pub-item fade-up">
+        <span class="pub-badge academic">Peer-Reviewed</span>
+        <div class="pub-title-en">Herbivore biomass mediates coral recovery following disturbance on Taiwanese reefs</div>
+        <div class="pub-title-zh">草食性生物量介導台灣珊瑚礁受擾後的恢復過程</div>
+        <div class="pub-meta">
+          <strong>Chen, G.-Y.</strong>, Huang, S.-F., Wu, M.-H., & Dai, C.-F. (2023). <em>Marine Ecology Progress Series</em>, 715, 57–73.
+        </div>
+        <a href="#" class="pub-link">DOI →</a>
+      </div>
+
+      <div class="pub-item fade-up">
+        <span class="pub-badge academic">Peer-Reviewed</span>
+        <div class="pub-title-en">Structural complexity loss following typhoon disturbance reduces reef fish diversity on southern Taiwan reefs</div>
+        <div class="pub-title-zh">颱風干擾後結構複雜度喪失降低台灣南部珊瑚礁魚類多樣性</div>
+        <div class="pub-meta">
+          Lin, C.-H., <strong>Chen, G.-Y.</strong>, & Wang, T.-Y. (2022). <em>Journal of Experimental Marine Biology and Ecology</em>, 552, 151749.
+        </div>
+        <a href="#" class="pub-link">DOI →</a>
+      </div>
+
+      <div class="pub-item fade-up">
+        <span class="pub-badge academic">Peer-Reviewed</span>
+        <div class="pub-title-en">Three-dimensional photogrammetry reveals reef structural changes across a typhoon disturbance gradient</div>
+        <div class="pub-title-zh">三維攝影測量揭示颱風干擾梯度下的珊瑚礁結構變化</div>
+        <div class="pub-meta">
+          <strong>Chen, G.-Y.</strong>, Wu, M.-H., & Huang, S.-F. (2021). <em>Methods in Ecology and Evolution</em>, 12(8), 1550–1563.
+        </div>
+        <a href="#" class="pub-link">DOI →</a>
+      </div>
+
+    </div>
+
+    <!-- Popular Science -->
+    <div class="pub-panel" id="pub-popular">
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">Why Taiwan's Coral Reefs Are Bleaching — and What We Can Do</div>
+        <div class="pub-title-zh">台灣的珊瑚為什麼在白化？我們能做什麼？</div>
+        <div class="pub-meta">
+          <strong>陳冠言</strong>（2024年7月）。<em>科學人雜誌</em>。
+        </div>
+        <a href="#" class="pub-link">閱讀全文 →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">The Invisible Crisis Beneath the Waves: Ocean Heatwaves and Coral Reefs</div>
+        <div class="pub-title-zh">水面下的無聲危機：海洋熱浪與珊瑚礁</div>
+        <div class="pub-meta">
+          <strong>Chen, G.-Y.</strong> (2023, March). <em>The Reporter 報導者</em>.
+        </div>
+        <a href="#" class="pub-link">Read Article →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">After the Storm: How Coral Reefs Recover from Typhoons</div>
+        <div class="pub-title-zh">風暴過後：珊瑚礁如何從颱風中復原</div>
+        <div class="pub-meta">
+          <strong>陳冠言</strong>（2022年10月）。<em>泛科學 PanSci</em>。
+        </div>
+        <a href="#" class="pub-link">閱讀全文 →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">Counting Fish Without Getting Wet — Advances in Reef Survey Technology</div>
+        <div class="pub-title-zh">不用下水也能數魚？珊瑚礁調查技術的新發展</div>
+        <div class="pub-meta">
+          <strong>Chen, G.-Y.</strong> (2021, June). <em>National Geographic Taiwan 國家地理雜誌中文版</em>.
+        </div>
+        <a href="#" class="pub-link">Read Article →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── PHOTOS ── -->
+<section id="photos">
+  <div class="section-inner">
+    <div class="section-label fade-up">
+      <div class="en">PHOTOS</div>
+      <div class="zh">田野照片</div>
+      <div class="divider"></div>
+    </div>
+
+    <div class="photo-grid fade-up">
+      <div class="photo-item tall" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=80&auto=format&fit=crop" alt="Coral reef" loading="lazy" />
+        <div class="photo-caption">Coral Reef · 珊瑚礁</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=600&q=80&auto=format&fit=crop" alt="Coral colony" loading="lazy" />
+        <div class="photo-caption">Coral Colony · 珊瑚群體</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=600&q=80&auto=format&fit=crop" alt="Reef fish" loading="lazy" />
+        <div class="photo-caption">Reef Fish · 礁魚</div>
+      </div>
+      <div class="photo-item wide" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=900&q=80&auto=format&fit=crop" alt="Underwater survey" loading="lazy" />
+        <div class="photo-caption">Underwater Survey · 水下調查</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1437719417032-8595fd9e9dc6?w=600&q=80&auto=format&fit=crop" alt="Ocean" loading="lazy" />
+        <div class="photo-caption">Pacific Ocean · 太平洋</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=600&q=80&auto=format&fit=crop" alt="Bleached coral" loading="lazy" />
+        <div class="photo-caption">Bleaching Event · 白化事件</div>
+      </div>
+      <div class="photo-item" onclick="openLightbox(this)">
+        <img src="https://images.unsplash.com/photo-1682687982502-1529b3b33959?w=600&q=80&auto=format&fit=crop" alt="Marine life" loading="lazy" />
+        <div class="photo-caption">Marine Life · 海洋生物</div>
+      </div>
+    </div>
+
+    <p class="photo-note">
+      更多田野照片請至 Instagram &nbsp;→&nbsp;
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener">@guanyan.reef</a>
+    </p>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-label fade-up">
+      <div class="en">CONTACT</div>
+      <div class="zh">聯絡我</div>
+      <div class="divider"></div>
+    </div>
+
+    <div class="contact-grid fade-up">
+      <div class="contact-info">
+        <p>
+          I welcome collaborations, media inquiries, and conversations about coral reef science and conservation. Feel free to reach out via email or Instagram.
+        </p>
+        <p class="zh-text">
+          歡迎有興趣合作的研究者、媒體或關心珊瑚礁保育的朋友與我聯絡，可透過電子郵件或 Instagram 私訊。
+        </p>
+
+        <div class="contact-detail">
+          <div class="contact-row">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="text"><a href="mailto:guanyan.chen@example.com">guanyan.chen@example.com</a></div>
+          </div>
+          <div class="contact-row">
+            <div class="icon">
+              <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="text">Institute of Marine Biology, Taiwan<br/>
+              <span style="font-size:0.78rem;opacity:0.6;">台灣 海洋生物研究所</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+            Instagram
+          </a>
+          <a href="#" class="social-btn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
+            </svg>
+            GitHub
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <div class="contact-form fade-up">
+          <div class="form-label">Send a Message &nbsp;/&nbsp; 傳送訊息</div>
+          <input type="text" placeholder="Your Name / 姓名" />
+          <input type="email" placeholder="Email" />
+          <textarea placeholder="Message / 訊息內容"></textarea>
+          <button type="button">Send &nbsp;/&nbsp; 送出</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <span>© 2025 Guan-Yan Chen 陳冠言</span>
+  <span>·</span>
+  <span>Coral Reef Ecologist 珊瑚礁生態研究者</span>
+  <span>·</span>
+  <span>Taiwan 台灣</span>
+</footer>
+
+<!-- ── LIGHTBOX ── -->
+<div id="lightbox" onclick="closeLightbox()">
+  <span id="lightbox-close" onclick="closeLightbox()">×</span>
+  <img id="lightbox-img" src="" alt="" />
+</div>
+
+<!-- ── SCRIPTS ── -->
+<script>
+  // Navbar scroll effect
+  const navbar = document.getElementById('navbar');
+  window.addEventListener('scroll', () => {
+    navbar.classList.toggle('scrolled', window.scrollY > 50);
+    // Parallax hero
+    const heroBg = document.getElementById('heroBg');
+    heroBg.style.transform = `scale(1.04) translateY(${window.scrollY * 0.25}px)`;
+    // Active nav link
+    const sections = ['about','research','publications','photos','contact'];
+    let current = '';
+    sections.forEach(id => {
+      const el = document.getElementById(id);
+      if (el && window.scrollY >= el.offsetTop - 100) current = id;
+    });
+    document.querySelectorAll('.nav-link').forEach(link => {
+      const href = link.getAttribute('href').replace('#','');
+      link.classList.toggle('active', href === current);
+    });
+  });
+
+  // Tabs
+  function switchTab(group, id, btn) {
+    // Deactivate all
+    const prefix = group === 'research' ? 'research-' : 'pub-';
+    const tabClass = group === 'research' ? 'rtab' : 'ptab';
+    document.querySelectorAll('.' + tabClass).forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('[id^="' + prefix + '"]').forEach(p => p.classList.remove('active'));
+    // Activate
+    btn.classList.add('active');
+    document.getElementById(prefix + id).classList.add('active');
+  }
+
+  // Lightbox
+  function openLightbox(el) {
+    const img = el.querySelector('img');
+    document.getElementById('lightbox-img').src = img.src.replace('w=600','w=1400');
+    document.getElementById('lightbox-img').alt = img.alt;
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Scroll animations
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 80);
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

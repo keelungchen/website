@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Research 研究計畫 — Guan-Yan Chen 陳冠言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Lato', 'Noto Serif TC', sans-serif; color: #1a1a2e; background: #fff; overflow-x: hidden; }
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    /* ── NAVBAR ── */
+    #navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: rgba(255,255,255,0.97); backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
+      height: 70px; display: flex; align-items: center;
+      justify-content: space-between; padding: 0 40px;
+      transition: box-shadow 0.3s;
+    }
+    #navbar.scrolled { box-shadow: 0 2px 20px rgba(0,0,0,0.1); }
+    .nav-left, .nav-right { display: flex; gap: 32px; align-items: center; }
+    .nav-brand { text-align: center; flex: 0 0 auto; }
+    .nav-brand .en { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #1B2A4A; display: block; }
+    .nav-brand .zh { font-family: 'Noto Serif TC', serif; font-size: 0.72rem; color: #7a8599; letter-spacing: 0.25em; display: block; margin-top: 1px; }
+    .nav-link { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: #1B2A4A; transition: color 0.2s; display: flex; flex-direction: column; align-items: center; gap: 1px; }
+    .nav-link .zh { font-size: 0.65rem; letter-spacing: 0.15em; font-weight: 400; color: #8a96a8; font-family: 'Noto Serif TC', serif; }
+    .nav-link:hover, .nav-link.active { color: #2a9d8f; }
+    .nav-link:hover .zh, .nav-link.active .zh { color: #2a9d8f; }
+    @media (max-width: 860px) { #navbar { padding: 0 20px; } .nav-left,.nav-right { gap: 16px; } .nav-link .zh { display: none; } }
+    @media (max-width: 600px) { .nav-left { display: none; } .nav-right { gap: 12px; } }
+
+    /* ── PAGE HERO ── */
+    .page-hero {
+      height: 52vh; min-height: 360px;
+      position: relative; display: flex; align-items: flex-end;
+      overflow: hidden; margin-top: 70px;
+    }
+    .page-hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop');
+      background-size: cover; background-position: center 50%;
+    }
+    .page-hero-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(to top, rgba(10,20,40,0.82) 0%, rgba(10,20,40,0.2) 60%);
+    }
+    .page-hero-content {
+      position: relative; z-index: 2;
+      padding: 0 60px 52px; color: #fff;
+    }
+    .page-hero-content .en { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; line-height: 1; }
+    .page-hero-content .zh { font-family: 'Noto Serif TC', serif; font-size: 1rem; letter-spacing: 0.4em; opacity: 0.75; margin-top: 10px; }
+    .breadcrumb { font-size: 0.72rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 14px; }
+    .breadcrumb a { color: #a8e6df; } .breadcrumb a:hover { text-decoration: underline; }
+
+    /* ── TIMELINE LAYOUT ── */
+    .page-body { max-width: 1060px; margin: 0 auto; padding: 72px 40px 100px; }
+
+    .section-intro { text-align: center; max-width: 680px; margin: 0 auto 64px; }
+    .section-intro p { font-size: 1rem; line-height: 1.9; color: #4a5a6c; }
+    .section-intro .zh { font-family: 'Noto Serif TC', serif; font-size: 0.9rem; color: #7a8a9a; margin-top: 14px; line-height: 2; }
+
+    /* Filter bar */
+    .filter-bar {
+      display: flex; gap: 10px; flex-wrap: wrap;
+      margin-bottom: 52px; justify-content: center;
+    }
+    .filter-btn {
+      padding: 7px 22px; border-radius: 30px; border: 1.5px solid #d0dce8;
+      font-size: 0.73rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #6a7a8c; cursor: pointer; background: #fff; transition: all 0.2s;
+      display: flex; flex-direction: column; align-items: center; gap: 1px;
+    }
+    .filter-btn .zh { font-family: 'Noto Serif TC', serif; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.12em; }
+    .filter-btn:hover { border-color: #2a9d8f; color: #2a9d8f; }
+    .filter-btn.active { background: #2a9d8f; border-color: #2a9d8f; color: #fff; }
+    .filter-btn.active .zh { color: rgba(255,255,255,0.85); }
+
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 32px;
+    }
+    @media (max-width: 720px) { .projects-grid { grid-template-columns: 1fr; } }
+
+    .project-card {
+      background: #fff; border-radius: 14px; overflow: hidden;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.07);
+      transition: box-shadow 0.25s, transform 0.25s;
+      display: flex; flex-direction: column;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .project-card:hover { box-shadow: 0 10px 40px rgba(0,0,0,0.13); transform: translateY(-4px); }
+
+    .project-img { height: 220px; overflow: hidden; position: relative; flex-shrink: 0; }
+    .project-img img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+    .project-card:hover .project-img img { transform: scale(1.06); }
+
+    .project-year-badge {
+      position: absolute; top: 14px; left: 14px;
+      background: rgba(10,20,40,0.72); backdrop-filter: blur(4px);
+      color: #fff; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; padding: 4px 12px; border-radius: 20px;
+    }
+    .project-theme-badge {
+      position: absolute; top: 14px; right: 14px;
+      font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em;
+      padding: 4px 10px; border-radius: 20px;
+      text-transform: uppercase;
+    }
+    .theme-climate   { background: rgba(231,111,81,0.9);  color: #fff; }
+    .theme-monitoring { background: rgba(42,157,143,0.9); color: #fff; }
+    .theme-recovery  { background: rgba(38,70,83,0.85);   color: #fff; }
+    .theme-biodiversity { background: rgba(100,140,180,0.9); color: #fff; }
+
+    .project-body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
+    .project-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+    .project-status {
+      font-size: 0.64rem; font-weight: 700; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+    }
+    .status-ongoing { background: #d4f4ef; color: #1a7a6e; }
+    .status-completed { background: #e8ecf4; color: #4a5a7a; }
+    .project-title-en { font-family: 'Playfair Display', serif; font-size: 1.12rem; font-weight: 700; color: #1B2A4A; line-height: 1.4; margin-bottom: 4px; }
+    .project-title-zh { font-family: 'Noto Serif TC', serif; font-size: 0.8rem; color: #7a8a9a; margin-bottom: 12px; letter-spacing: 0.06em; }
+    .project-excerpt { font-size: 0.88rem; line-height: 1.8; color: #4a5a6a; flex: 1; }
+    .project-excerpt .zh { font-family: 'Noto Serif TC', serif; font-size: 0.82rem; color: #7a8a9a; display: block; margin-top: 6px; }
+    .project-footer { margin-top: 18px; display: flex; align-items: center; justify-content: space-between; }
+    .project-year-text { font-size: 0.72rem; color: #2a9d8f; font-weight: 700; letter-spacing: 0.1em; }
+    .project-link {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: #1B2A4A; border-bottom: 1.5px solid rgba(27,42,74,0.25);
+      padding-bottom: 1px; transition: color 0.2s, border-color 0.2s;
+    }
+    .project-link:hover { color: #2a9d8f; border-color: #2a9d8f; }
+    .project-link svg { width: 12px; height: 12px; transition: transform 0.2s; }
+    .project-link:hover svg { transform: translateX(3px); }
+
+    /* Featured card — full width */
+    .project-card.featured { grid-column: 1 / -1; flex-direction: row; }
+    .project-card.featured .project-img { width: 42%; height: auto; min-height: 280px; }
+    @media (max-width: 720px) { .project-card.featured { flex-direction: column; } .project-card.featured .project-img { width: 100%; height: 220px; } }
+
+    /* Scroll animations */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* Footer */
+    footer { background: #1B2A4A; color: rgba(255,255,255,0.35); text-align: center; padding: 28px 20px; font-size: 0.75rem; letter-spacing: 0.08em; }
+    footer span { margin: 0 8px; }
+    footer a { color: rgba(255,255,255,0.5); }
+    footer a:hover { color: rgba(255,255,255,0.8); }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="index.html#about" class="nav-link"><span>About</span><span class="zh">關於</span></a>
+    <a href="research.html" class="nav-link active"><span>Research</span><span class="zh">研究</span></a>
+    <a href="index.html#publications" class="nav-link"><span>Publications</span><span class="zh">發表</span></a>
+  </div>
+  <a href="index.html" class="nav-brand">
+    <span class="en">GUAN-YAN CHEN</span>
+    <span class="zh">陳冠言</span>
+  </a>
+  <div class="nav-right">
+    <a href="journal.html" class="nav-link"><span>Journal</span><span class="zh">日誌</span></a>
+    <a href="index.html#photos" class="nav-link"><span>Photos</span><span class="zh">照片</span></a>
+    <a href="index.html#contact" class="nav-link"><span>Contact</span><span class="zh">聯絡</span></a>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-overlay"></div>
+  <div class="page-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; Research</div>
+    <div class="en">Research</div>
+    <div class="zh">研究計畫</div>
+  </div>
+</div>
+
+<!-- BODY -->
+<div class="page-body">
+
+  <div class="section-intro fade-up">
+    <p>My research explores the ecology, resilience, and conservation of coral reef ecosystems across the Indo-Pacific. Below is a chronological overview of my projects, from the most recent to earlier work.</p>
+    <p class="zh">我的研究探討珊瑚礁生態系統的生態學、韌性與保育議題，研究範圍涵蓋整個印度洋—太平洋地區。以下依時間順序呈現各研究計畫，由最新至較早期的工作。</p>
+  </div>
+
+  <!-- Filter bar -->
+  <div class="filter-bar fade-up">
+    <button class="filter-btn active" onclick="filterProjects('all', this)">
+      <span>All Projects</span><span class="zh">全部計畫</span>
+    </button>
+    <button class="filter-btn" onclick="filterProjects('climate', this)">
+      <span>Climate &amp; Bleaching</span><span class="zh">氣候與白化</span>
+    </button>
+    <button class="filter-btn" onclick="filterProjects('monitoring', this)">
+      <span>Long-term Monitoring</span><span class="zh">長期監測</span>
+    </button>
+    <button class="filter-btn" onclick="filterProjects('recovery', this)">
+      <span>Disturbance &amp; Recovery</span><span class="zh">干擾與恢復</span>
+    </button>
+    <button class="filter-btn" onclick="filterProjects('biodiversity', this)">
+      <span>Biodiversity</span><span class="zh">生物多樣性</span>
+    </button>
+  </div>
+
+  <!-- Projects grid -->
+  <div class="projects-grid" id="projectsGrid">
+
+    <!-- PROJECT 1 — 2023–Present -->
+    <div class="project-card featured fade-up" data-theme="climate">
+      <div class="project-img">
+        <img src="https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=900&q=80&auto=format&fit=crop" alt="Coral bleaching" loading="lazy" />
+        <div class="project-year-badge">2023 – Present</div>
+        <div class="project-theme-badge theme-climate">Climate &amp; Bleaching</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-status status-ongoing">Ongoing · 進行中</span>
+        </div>
+        <div class="project-title-en">Thermal Tolerance Thresholds of Reef-Building Corals in Taiwan</div>
+        <div class="project-title-zh">台灣造礁珊瑚的熱耐受閾值研究</div>
+        <div class="project-excerpt">
+          Investigating the thermal stress response of dominant coral genera across latitudinal gradients in Taiwan, using bleaching indices and photophysiology to predict future bleaching vulnerability under various climate scenarios. This project tracks in-situ temperature anomalies and monitors the photosynthetic efficiency of symbiotic algae (Symbiodiniaceae) during thermal events.
+          <span class="zh">透過白化指數與光生理量測，探討台灣不同緯度主要珊瑚屬對熱壓力的反應，預測未來氣候情境下的白化脆弱性。計畫追蹤原位溫度異常並監測熱事件期間共生藻（Symbiodiniaceae）的光合效率。</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-year-text">2023 – Present</span>
+          <a href="project-thermal.html" class="project-link">
+            View Project 查看計畫
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 2 — 2022–Present -->
+    <div class="project-card fade-up" data-theme="monitoring">
+      <div class="project-img">
+        <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=700&q=80&auto=format&fit=crop" alt="Reef monitoring" loading="lazy" />
+        <div class="project-year-badge">2022 – Present</div>
+        <div class="project-theme-badge theme-monitoring">Long-term Monitoring</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-status status-ongoing">Ongoing · 進行中</span>
+        </div>
+        <div class="project-title-en">Long-Term Reef Monitoring Network — Southern Taiwan</div>
+        <div class="project-title-zh">台灣南部珊瑚礁長期監測網絡</div>
+        <div class="project-excerpt">
+          Standardised monitoring stations from Kenting to Lyudao track coral cover, diversity, and herbivore biomass across seasons and disturbance events — building a multi-year dataset for reef trajectory analysis.
+          <span class="zh">從墾丁至綠島建立標準化監測站，追蹤珊瑚覆蓋率、多樣性及草食性魚類生物量的季節與干擾動態，建立多年期礁體軌跡資料庫。</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-year-text">2022 – Present</span>
+          <a href="project-monitoring.html" class="project-link">
+            View Project 查看計畫
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 3 — 2019–2022 -->
+    <div class="project-card fade-up" data-theme="recovery">
+      <div class="project-img">
+        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80&auto=format&fit=crop" alt="Coral recovery" loading="lazy" />
+        <div class="project-year-badge">2019 – 2022</div>
+        <div class="project-theme-badge theme-recovery">Disturbance &amp; Recovery</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-status status-completed">Completed · 已完成</span>
+        </div>
+        <div class="project-title-en">Post-Typhoon Recovery Trajectories of Coral Reef Communities</div>
+        <div class="project-title-zh">颱風後珊瑚礁群聚恢復軌跡</div>
+        <div class="project-excerpt">
+          Documenting recovery dynamics at typhoon-impacted reefs and comparing structural recovery rates between sites with contrasting herbivore densities and disturbance histories.
+          <span class="zh">記錄颱風衝擊後珊瑚礁的恢復動態，比較不同草食性生物密度與歷史干擾背景礁體的結構恢復速率。</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-year-text">2019 – 2022</span>
+          <a href="project-typhoon.html" class="project-link">
+            View Project 查看計畫
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- PROJECT 4 — 2017–2021 -->
+    <div class="project-card fade-up" data-theme="biodiversity">
+      <div class="project-img">
+        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80&auto=format&fit=crop" alt="Reef fish" loading="lazy" />
+        <div class="project-year-badge">2017 – 2021</div>
+        <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-status status-completed">Completed · 已完成</span>
+        </div>
+        <div class="project-title-en">Reef Fish Assemblages and Habitat Complexity Across Disturbance Gradients</div>
+        <div class="project-title-zh">干擾梯度下礁魚群聚與棲地複雜度關係</div>
+        <div class="project-excerpt">
+          Using 3D photogrammetry and underwater visual census to examine how structural complexity and coral cover shape reef fish assemblages across sites with contrasting disturbance histories.
+          <span class="zh">結合三維攝影測量與水下目視調查，分析結構複雜度與珊瑚覆蓋率如何形塑不同干擾史礁區的礁魚群聚。</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-year-text">2017 – 2021</span>
+          <a href="project-fish.html" class="project-link">
+            View Project 查看計畫
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /projects-grid -->
+</div><!-- /page-body -->
+
+<footer>
+  <span><a href="index.html">← Back to Home 回到首頁</a></span>
+  <span>·</span>
+  <span>© 2025 Guan-Yan Chen 陳冠言</span>
+  <span>·</span>
+  <span>Taiwan 台灣</span>
+</footer>
+
+<script>
+  // Navbar scroll
+  window.addEventListener('scroll', () => {
+    document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
+  });
+
+  // Filter
+  function filterProjects(theme, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.project-card').forEach(card => {
+      const match = theme === 'all' || card.dataset.theme === theme;
+      card.style.display = match ? '' : 'none';
+      // Featured card: restore grid-column when visible
+      if (card.classList.contains('featured')) {
+        card.style.gridColumn = match ? '1 / -1' : '';
+      }
+    });
+  }
+
+  // Scroll animations
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 100);
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
