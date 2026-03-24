@@ -92,6 +92,7 @@
     .hero-bg {
       position: absolute;
       inset: 0;
+      /* 🖼️ 圖片 | 首頁 Hero 背景大圖：換成自己的圖片 URL，或本機路徑如 photos/hero.jpg */
       background-image: url('https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1800&q=85&auto=format&fit=crop');
       background-size: cover;
       background-position: center 40%;
@@ -735,6 +736,7 @@
 <!-- ── WELCOME ── -->
 <section id="welcome">
   <div class="section-inner" style="padding: 80px 40px;">
+    <!-- ✏️ 文字 | 首頁歡迎語（英文 + 中文） -->
     <div class="welcome-text fade-up">
       Welcome. This site documents my research on coral reef ecosystems — from fieldwork beneath the waves to data, publications, and ongoing conservation efforts.
       <div class="zh-para">
@@ -753,6 +755,7 @@
       <div class="divider"></div>
     </div>
     <div class="about-grid fade-up">
+      <!-- ✏️ 文字 | 關於我 — 英文自介（左欄兩段 + 中文說明） -->
       <div class="about-col">
         <p>
           I am a coral reef ecologist based in Taiwan, investigating how climate change, human disturbance, and ecological processes shape reef communities. My work integrates underwater surveys, remote sensing, and ecological modelling to understand reef resilience and inform conservation strategy.
@@ -760,6 +763,7 @@
         <p class="zh-text">
           我是一位珊瑚礁生態學家，目前任職於台灣。研究聚焦於氣候變遷、人為干擾與生態過程如何共同塑造礁體群聚結構，結合水下調查、遙測技術與生態模型，探討珊瑚礁的韌性並提供保育決策依據。
         </p>
+        <!-- ✏️ 文字 | 研究關鍵字標籤：可直接增刪 <span class="about-tag"> -->
         <div class="about-tags">
           <span class="about-tag">Coral Reef Ecology 珊瑚礁生態</span>
           <span class="about-tag">Climate Change 氣候變遷</span>
@@ -769,6 +773,8 @@
           <span class="about-tag">Conservation 保育</span>
         </div>
       </div>
+      <!-- ✏️ 文字 | 關於我 — 英文自介（右欄：學歷背景、其他介紹） -->
+      <!-- ✏️ 文字 | 關於我 — 中文自介（右欄 zh-text） -->
       <div class="about-col">
         <p>
           I completed my Ph.D. in Marine Biology and have been conducting long-term monitoring of reef communities across the Indo-Pacific. I am passionate about communicating science to the public and have contributed to both academic journals and popular science media.
@@ -793,6 +799,7 @@
       <div class="divider"></div>
     </div>
 
+    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 首頁研究預覽卡片（兩張）：修改圖片、標題、年份與連結 -->
     <!-- Featured 2-up preview -->
     <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:36px;" class="fade-up">
 
@@ -851,6 +858,8 @@
       </div>
     </div>
 
+    <!-- ✏️ 文字 🔗 連結 | 學術論文列表：最新論文放最上面 -->
+    <!-- ➕ 新增 | 在最上方複製一個 <div class="pub-item fade-up"> 新增論文 -->
     <!-- Academic -->
     <div class="pub-panel active" id="pub-academic">
 
@@ -896,6 +905,8 @@
 
     </div>
 
+    <!-- ✏️ 文字 🔗 連結 | 科普文章列表：最新文章放最上面 -->
+    <!-- ➕ 新增 | 在最上方複製一個 <div class="pub-item pop fade-up"> 新增科普文章 -->
     <!-- Popular Science -->
     <div class="pub-panel" id="pub-popular">
 
@@ -952,6 +963,8 @@
       <div class="divider"></div>
     </div>
 
+    <!-- 🖼️ 圖片 | 照片牆：替換 src 換圖，修改 photo-caption 改說明文字 -->
+    <!-- ➕ 新增 | 複製任一 <div class="photo-item"> 在此新增照片（可加 tall 或 wide class） -->
     <div class="photo-grid fade-up">
       <div class="photo-item tall" onclick="openLightbox(this)">
         <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=600&q=80&auto=format&fit=crop" alt="Coral reef" loading="lazy" />
@@ -983,6 +996,7 @@
       </div>
     </div>
 
+    <!-- 🔗 連結 ✏️ 文字 | Instagram 帳號：修改 href 網址與 @帳號名稱 -->
     <p class="photo-note">
       更多田野照片請至 Instagram &nbsp;→&nbsp;
       <a href="https://www.instagram.com/" target="_blank" rel="noopener">@guanyan.reef</a>
@@ -1013,19 +1027,24 @@
             <div class="icon">
               <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
             </div>
+            <!-- ✏️ 文字 🔗 連結 | 聯絡 Email：修改 mailto: 後面的地址與顯示文字 -->
             <div class="text"><a href="mailto:guanyan.chen@example.com">guanyan.chen@example.com</a></div>
           </div>
           <div class="contact-row">
             <div class="icon">
               <svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             </div>
+            <!-- ✏️ 文字 | 機構名稱與地址（英文 + 中文） -->
             <div class="text">Institute of Marine Biology, Taiwan<br/>
               <span style="font-size:0.78rem;opacity:0.6;">台灣 海洋生物研究所</span>
             </div>
           </div>
         </div>
 
+        <!-- 🔗 連結 | 社群媒體按鈕：修改各 href 網址 -->
+        <!-- ➕ 新增 | 複製一個 <a class="social-btn"> 可新增 Facebook、ResearchGate、Twitter 等 -->
         <div class="social-links">
+          <!-- 🔗 連結 | Instagram 按鈕網址 -->
           <a href="https://www.instagram.com/" target="_blank" rel="noopener" class="social-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
@@ -1034,6 +1053,7 @@
             </svg>
             Instagram
           </a>
+          <!-- 🔗 連結 | GitHub 按鈕網址：將 href="#" 換成你的 GitHub 頁面 -->
           <a href="#" class="social-btn">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 00-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0020 4.77 5.07 5.07 0 0019.91 1S18.73.65 16 2.48a13.38 13.38 0 00-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 005 4.77a5.44 5.44 0 00-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 009 18.13V22"/>
@@ -1057,6 +1077,7 @@
 </section>
 
 <!-- ── FOOTER ── -->
+<!-- ✏️ 文字 | 頁尾版權年份與姓名 -->
 <footer>
   <span>© 2025 Guan-Yan Chen 陳冠言</span>
   <span>·</span>

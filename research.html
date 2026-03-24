@@ -43,6 +43,7 @@
     }
     .page-hero-bg {
       position: absolute; inset: 0;
+      /* 🖼️ 圖片 | 研究總覽頁 Hero 背景圖 URL */
       background-image: url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop');
       background-size: cover; background-position: center 50%;
     }
@@ -194,6 +195,7 @@
 <!-- BODY -->
 <div class="page-body">
 
+  <!-- ✏️ 文字 | 研究總覽頁說明段落（英文 + 中文） -->
   <div class="section-intro fade-up">
     <p>My research explores the ecology, resilience, and conservation of coral reef ecosystems across the Indo-Pacific. Below is a chronological overview of my projects, from the most recent to earlier work.</p>
     <p class="zh">我的研究探討珊瑚礁生態系統的生態學、韌性與保育議題，研究範圍涵蓋整個印度洋—太平洋地區。以下依時間順序呈現各研究計畫，由最新至較早期的工作。</p>
@@ -218,9 +220,12 @@
     </button>
   </div>
 
+  <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫卡片網格：修改各卡片的圖片、標題、摘要、年份 -->
+  <!-- ➕ 新增 | 在此網格內複製一個 <div class="project-card fade-up"> 新增計畫卡片 -->
   <!-- Projects grid -->
   <div class="projects-grid" id="projectsGrid">
 
+    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 1（最新，全寬 featured）：修改 img src、標題、摘要、href -->
     <!-- PROJECT 1 — 2023–Present -->
     <div class="project-card featured fade-up" data-theme="climate">
       <div class="project-img">
@@ -248,6 +253,7 @@
       </div>
     </div>
 
+    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 2：修改 img src、標題、摘要、href -->
     <!-- PROJECT 2 — 2022–Present -->
     <div class="project-card fade-up" data-theme="monitoring">
       <div class="project-img">
@@ -275,6 +281,7 @@
       </div>
     </div>
 
+    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 3：修改 img src、標題、摘要、href -->
     <!-- PROJECT 3 — 2019–2022 -->
     <div class="project-card fade-up" data-theme="recovery">
       <div class="project-img">
@@ -302,6 +309,7 @@
       </div>
     </div>
 
+    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 4：修改 img src、標題、摘要、href -->
     <!-- PROJECT 4 — 2017–2021 -->
     <div class="project-card fade-up" data-theme="biodiversity">
       <div class="project-img">
@@ -328,6 +336,8 @@
         </div>
       </div>
     </div>
+
+  <!-- ➕ 新增 | 在此加入新計畫卡片（複製上方任一 project-card 區塊，修改 data-theme / img / 文字 / href） -->
 
   </div><!-- /projects-grid -->
 </div><!-- /page-body -->

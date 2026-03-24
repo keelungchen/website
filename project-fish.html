@@ -22,21 +22,28 @@
   </div>
 </nav>
 
+<!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
+<!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
 <div class="project-hero" style="background-image: url('https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1800&q=85&auto=format&fit=crop');">
   <div class="project-hero-overlay"></div>
   <div class="project-hero-content">
     <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Reef Fish Assemblages</div>
     <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
+    <!-- ✏️ 文字 | 計畫英文標題 -->
     <h1 class="project-hero-title">Reef Fish Assemblages and Habitat Complexity Across Disturbance Gradients</h1>
+    <!-- ✏️ 文字 | 計畫中文標題 -->
     <p class="project-hero-title-zh">干擾梯度下礁魚群聚與棲地複雜度關係</p>
     <div class="project-hero-meta">
+      <!-- ✏️ 文字 | 狀態：ongoing 或 completed -->
       <span class="status-badge completed">Completed · 已完成</span>
+      <!-- ✏️ 文字 | 計畫年份範圍 -->
       <span class="year-badge">2017 – 2021</span>
     </div>
   </div>
 </div>
 
 <div class="project-body">
+  <!-- ✏️ 文字 | 側欄資訊：期間、狀態、主題、研究地點、方法，直接修改各 sidebar-value 文字 -->
   <aside class="project-sidebar">
     <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2017 – 2021</div></div>
     <div class="sidebar-block"><div class="sidebar-label">Status 狀態</div><div class="sidebar-value">Completed 已完成</div></div>
@@ -57,6 +64,7 @@
     <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
   </aside>
 
+  <!-- ✏️ 文字 | 主內容各段落：修改 <p> 與 <p class="zh-para"> 的文字 -->
   <main class="project-main">
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
@@ -73,6 +81,7 @@
       </ul>
     </section>
 
+    <!-- 🖼️ 圖片 ✏️ 文字 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
     <div class="project-photo-pair fade-up">
       <div class="photo-item">
         <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80&auto=format&fit=crop" alt="Reef fish survey" loading="lazy"/>
@@ -86,6 +95,8 @@
 
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Related Publications</span><span class="zh">相關發表</span></h2>
+      <!-- ✏️ 文字 🔗 連結 | 相關發表：修改 pub-title、pub-meta 引用格式、pub-doi 的 href -->
+      <!-- ➕ 新增 | 複製下方 <div class="related-pub"> 區塊新增發表 -->
       <div class="related-pub">
         <div class="pub-title">Three-dimensional photogrammetry reveals reef structural changes across a typhoon disturbance gradient</div>
         <div class="pub-meta"><strong>Chen, G.-Y.</strong>, Wu, M.-H., &amp; Huang, S.-F. (2021). <em>Methods in Ecology and Evolution</em>, 12(8), 1550–1563.</div>

@@ -22,21 +22,28 @@
   </div>
 </nav>
 
+<!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
+<!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
 <div class="project-hero" style="background-image: url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop');">
   <div class="project-hero-overlay"></div>
   <div class="project-hero-content">
     <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Long-Term Monitoring</div>
     <div class="project-theme-badge theme-monitoring">Long-term Monitoring</div>
+    <!-- ✏️ 文字 | 計畫英文標題 -->
     <h1 class="project-hero-title">Long-Term Reef Monitoring Network — Southern Taiwan</h1>
+    <!-- ✏️ 文字 | 計畫中文標題 -->
     <p class="project-hero-title-zh">台灣南部珊瑚礁長期監測網絡</p>
     <div class="project-hero-meta">
+      <!-- ✏️ 文字 | 狀態：ongoing 或 completed -->
       <span class="status-badge ongoing">Ongoing · 進行中</span>
+      <!-- ✏️ 文字 | 計畫年份範圍 -->
       <span class="year-badge">2022 – Present</span>
     </div>
   </div>
 </div>
 
 <div class="project-body">
+  <!-- ✏️ 文字 | 側欄資訊：期間、狀態、主題、研究地點、方法，直接修改各 sidebar-value 文字 -->
   <aside class="project-sidebar">
     <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2022 – Present</div></div>
     <div class="sidebar-block"><div class="sidebar-label">Status 狀態</div><div class="sidebar-value ongoing-text">Ongoing 進行中</div></div>
@@ -57,6 +64,7 @@
     <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
   </aside>
 
+  <!-- ✏️ 文字 | 主內容各段落：修改 <p> 與 <p class="zh-para"> 的文字 -->
   <main class="project-main">
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
@@ -70,6 +78,7 @@
       <p class="zh-para">每個監測站每年調查兩次（春季與秋季）。每次調查由兩名受訓潛水員完成帶狀樣區的珊瑚覆蓋率與魚類調查、設置相片樣方進行機器學習覆蓋率分析，並記錄所有白化、疾病或物理損傷。資料填入標準化野外記錄表，交叉核查後上傳至共享資料庫。</p>
     </section>
 
+    <!-- 🖼️ 圖片 ✏️ 文字 | 全寬計畫照片：修改 src 換圖、photo-caption 改說明文字 -->
     <div class="project-photo-full fade-up">
       <img src="https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1400&q=80&auto=format&fit=crop" alt="Reef monitoring" loading="lazy" />
       <p class="photo-caption">Belt transect survey at Kenting monitoring station · 墾丁監測站帶狀樣區調查</p>
@@ -83,6 +92,8 @@
 
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Related Publications</span><span class="zh">相關發表</span></h2>
+      <!-- ✏️ 文字 🔗 連結 | 相關發表：修改 pub-title、pub-meta 引用格式、pub-doi 的 href -->
+      <!-- ➕ 新增 | 複製下方 <div class="related-pub"> 區塊新增發表 -->
       <div class="related-pub">
         <div class="pub-title">Herbivore biomass mediates coral recovery following disturbance on Taiwanese reefs</div>
         <div class="pub-meta"><strong>Chen, G.-Y.</strong>, Huang, S.-F., Wu, M.-H., &amp; Dai, C.-F. (2023). <em>Marine Ecology Progress Series</em>, 715, 57–73.</div>
