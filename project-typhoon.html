@@ -24,7 +24,7 @@
 
 <!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
 <!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
-<div class="project-hero" style="background-image: url('https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1800&q=85&auto=format&fit=crop');">
+<div class="project-hero" style="background-image: url('images/project-typhoon_hero-coral.jpg');">
   <div class="project-hero-overlay"></div>
   <div class="project-hero-content">
     <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Post-Typhoon Recovery</div>
@@ -84,11 +84,11 @@
     <!-- 🖼️ 圖片 ✏️ 文字 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
     <div class="project-photo-pair fade-up">
       <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80&auto=format&fit=crop" alt="Post-typhoon reef" loading="lazy" />
+        <img src="images/project-typhoon_coral-recovery.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80&auto=format&fit=crop'" alt="Post-typhoon reef" loading="lazy" />
         <p class="photo-caption">Rubble field two months post-typhoon · 颱風後兩個月的碎礁區</p>
       </div>
       <div class="photo-item">
-        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80&auto=format&fit=crop" alt="Recovering reef" loading="lazy" />
+        <img src="images/project-typhoon_juvenile-coral.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80&auto=format&fit=crop'" alt="Recovering reef" loading="lazy" />
         <p class="photo-caption">Juvenile coral recruitment at 18 months · 18 個月後的珊瑚幼苗補充</p>
       </div>
     </div>
@@ -119,6 +119,24 @@
   window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
   const obs = new IntersectionObserver((e) => { e.forEach((en,i) => { if(en.isIntersecting){ setTimeout(()=>en.target.classList.add('visible'),i*100); obs.unobserve(en.target); } }); }, {threshold:0.1});
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
+<script>
+(function imgFallbackBg() {
+  function checkBg(localSrc, fallbackSrc, cssSelector) {
+    var probe = new Image();
+    probe.onerror = function () {
+      document.querySelectorAll(cssSelector).forEach(function (el) {
+        el.style.backgroundImage = "url('" + fallbackSrc + "')";
+      });
+    };
+    probe.src = localSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    checkBg('images/project-typhoon_hero-coral.jpg', 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1800&q=85&auto=format&fit=crop', '.project-hero');
+  });
+})();
 </script>
 </body>
 </html>

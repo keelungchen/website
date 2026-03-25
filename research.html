@@ -44,7 +44,7 @@
     .page-hero-bg {
       position: absolute; inset: 0;
       /* 🖼️ 圖片 | 研究總覽頁 Hero 背景圖 URL */
-      background-image: url('https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop');
+      background-image: url('images/hero_research-page-survey.jpg');
       background-size: cover; background-position: center 50%;
     }
     .page-hero-overlay {
@@ -229,7 +229,7 @@
     <!-- PROJECT 1 — 2023–Present -->
     <div class="project-card featured fade-up" data-theme="climate">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=900&q=80&auto=format&fit=crop" alt="Coral bleaching" loading="lazy" />
+        <img src="images/project-thermal_coral-bleaching.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=900&q=80&auto=format&fit=crop'" alt="Coral bleaching" loading="lazy" />
         <div class="project-year-badge">2023 – Present</div>
         <div class="project-theme-badge theme-climate">Climate &amp; Bleaching</div>
       </div>
@@ -257,7 +257,7 @@
     <!-- PROJECT 2 — 2022–Present -->
     <div class="project-card fade-up" data-theme="monitoring">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=700&q=80&auto=format&fit=crop" alt="Reef monitoring" loading="lazy" />
+        <img src="images/project-monitoring_reef-survey.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=700&q=80&auto=format&fit=crop'" alt="Reef monitoring" loading="lazy" />
         <div class="project-year-badge">2022 – Present</div>
         <div class="project-theme-badge theme-monitoring">Long-term Monitoring</div>
       </div>
@@ -285,7 +285,7 @@
     <!-- PROJECT 3 — 2019–2022 -->
     <div class="project-card fade-up" data-theme="recovery">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80&auto=format&fit=crop" alt="Coral recovery" loading="lazy" />
+        <img src="images/project-typhoon_coral-recovery.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=700&q=80&auto=format&fit=crop'" alt="Coral recovery" loading="lazy" />
         <div class="project-year-badge">2019 – 2022</div>
         <div class="project-theme-badge theme-recovery">Disturbance &amp; Recovery</div>
       </div>
@@ -313,7 +313,7 @@
     <!-- PROJECT 4 — 2017–2021 -->
     <div class="project-card fade-up" data-theme="biodiversity">
       <div class="project-img">
-        <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80&auto=format&fit=crop" alt="Reef fish" loading="lazy" />
+        <img src="images/project-fish_reef-fish.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=700&q=80&auto=format&fit=crop'" alt="Reef fish" loading="lazy" />
         <div class="project-year-badge">2017 – 2021</div>
         <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
       </div>
@@ -380,6 +380,24 @@
     });
   }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
+<script>
+(function imgFallbackBg() {
+  function checkBg(localSrc, fallbackSrc, cssSelector) {
+    var probe = new Image();
+    probe.onerror = function () {
+      document.querySelectorAll(cssSelector).forEach(function (el) {
+        el.style.backgroundImage = "url('" + fallbackSrc + "')";
+      });
+    };
+    probe.src = localSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    checkBg('images/hero_research-page-survey.jpg', 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop', '.page-hero-bg');
+  });
+})();
 </script>
 </body>
 </html>
