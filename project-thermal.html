@@ -98,11 +98,11 @@
     <!-- 🖼️ 圖片 ✏️ 文字 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
     <div class="project-photo-pair fade-up">
       <div class="photo-item">
-        <img src="images/project-thermal_coral-bleaching.jpg" alt="Bleaching coral" loading="lazy" />
+        <img src="images/project-thermal_coral-bleaching.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=700&q=80&auto=format&fit=crop'" alt="Bleaching coral" loading="lazy" />
         <p class="photo-caption">Bleaching event at Kenting, 2024 · 2024 年墾丁白化事件</p>
       </div>
       <div class="photo-item">
-        <img src="images/project-thermal_healthy-reef.jpg" alt="Healthy reef" loading="lazy" />
+        <img src="images/project-thermal_healthy-reef.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=700&q=80&auto=format&fit=crop'" alt="Healthy reef" loading="lazy" />
         <p class="photo-caption">Healthy reef for baseline comparison · 對照基準的健康礁體</p>
       </div>
     </div>
@@ -142,6 +142,25 @@
   window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
   const obs = new IntersectionObserver((entries) => { entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*100); obs.unobserve(e.target); } }); }, {threshold:0.1});
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示範例圖 -->
+<script>
+(function imgFallbackBg() {
+  function checkBg(localSrc, fallbackSrc, cssSelector) {
+    var probe = new Image();
+    probe.onerror = function () {
+      var els = document.querySelectorAll(cssSelector);
+      els.forEach(function (el) {
+        el.style.backgroundImage = "url('" + fallbackSrc + "')";
+      });
+    };
+    probe.src = localSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+  checkBg('images/project-thermal_hero-bleaching.jpg', 'https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=1800&q=85&auto=format&fit=crop', '.project-hero');
+  });
+})();
 </script>
 </body>
 </html>

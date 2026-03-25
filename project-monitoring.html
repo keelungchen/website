@@ -80,7 +80,7 @@
 
     <!-- 🖼️ 圖片 ✏️ 文字 | 全寬計畫照片：修改 src 換圖、photo-caption 改說明文字 -->
     <div class="project-photo-full fade-up">
-      <img src="images/project-monitoring_belt-transect.jpg" alt="Reef monitoring" loading="lazy" />
+      <img src="images/project-monitoring_belt-transect.jpg" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1400&q=80&auto=format&fit=crop'" alt="Reef monitoring" loading="lazy" />
       <p class="photo-caption">Belt transect survey at Kenting monitoring station · 墾丁監測站帶狀樣區調查</p>
     </div>
 
@@ -123,6 +123,25 @@
   window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
   const obs = new IntersectionObserver((e) => { e.forEach((en,i) => { if(en.isIntersecting){ setTimeout(()=>en.target.classList.add('visible'),i*100); obs.unobserve(en.target); } }); }, {threshold:0.1});
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示範例圖 -->
+<script>
+(function imgFallbackBg() {
+  function checkBg(localSrc, fallbackSrc, cssSelector) {
+    var probe = new Image();
+    probe.onerror = function () {
+      var els = document.querySelectorAll(cssSelector);
+      els.forEach(function (el) {
+        el.style.backgroundImage = "url('" + fallbackSrc + "')";
+      });
+    };
+    probe.src = localSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+  checkBg('images/project-monitoring_hero-survey.jpg', 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop', '.project-hero');
+  });
+})();
 </script>
 </body>
 </html>
