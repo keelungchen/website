@@ -92,12 +92,23 @@
     .hero-bg {
       position: absolute;
       inset: 0;
-      /* 🖼️ 圖片 | 首頁 Hero 背景大圖：換成自己的圖片 URL，或本機路徑如 photos/hero.jpg */
-      background-image: url('images/hero_coral-reef.jpg');
+      overflow: hidden;
+      background-image: url('images/hero_poster.jpg');
       background-size: cover;
       background-position: center 40%;
-      transform: scale(1.04);
-      transition: transform 0.1s linear;
+    }
+    @keyframes videofade {
+      0%, 85% { opacity: 1; }
+      95%, 100% { opacity: 0; }
+    }
+    .hero-bg video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 40%;
+      animation: videofade 5s linear infinite;
     }
     .hero-overlay {
       position: absolute;
@@ -755,7 +766,13 @@
 
 <!-- ── HERO 首頁大標題 ── -->
 <section id="hero">
-  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-bg" id="heroBg">
+    <!-- 🎬 影片 | 替換 hero.webm 和 hero.mp4 為你的實際影片檔名 -->
+    <video autoplay muted loop playsinline poster="images/hero_poster.jpg">
+      <source src="images/hero.webm" type="video/webm">
+      <source src="images/hero.mp4" type="video/mp4">
+    </video>
+  </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="en-name">Underconstruction</div>
@@ -1252,8 +1269,7 @@
     probe.src = localSrc;
   }
   document.addEventListener('DOMContentLoaded', function () {
-    checkBg('images/hero_coral-reef.jpg', 'https://images.unsplash.com/photo-1546026423-cc4642628d2b?w=1800&q=85&auto=format&fit=crop', '.hero-bg');
-    checkBg('images/hero_research-reef-fish.jpg', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=80&auto=format&fit=crop', '.research-section-bg');
+checkBg('images/hero_research-reef-fish.jpg', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1600&q=80&auto=format&fit=crop', '.research-section-bg');
     checkBg('images/hero_photos-coral-colony.jpg', 'https://images.unsplash.com/photo-1583212292454-1fe6229603b7?w=1600&q=80&auto=format&fit=crop', '.photos-section-bg');
   });
 })();
