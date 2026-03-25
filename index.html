@@ -256,43 +256,6 @@
       color: rgba(255,255,255,0.7);
       line-height: 2;
     }
-    /* ── ABOUT AVATAR ── */
-    .about-avatar-wrap {
-      display: flex;
-      justify-content: center;
-      margin-bottom: 48px;
-    }
-    .about-avatar {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(42,157,143,0.7);
-      box-shadow: 0 0 0 8px rgba(42,157,143,0.15), 0 8px 32px rgba(0,0,0,0.4);
-      background: rgba(255,255,255,0.08);
-      display: block;
-    }
-    .about-avatar-placeholder {
-      width: 160px;
-      height: 160px;
-      border-radius: 50%;
-      border: 3px dashed rgba(42,157,143,0.6);
-      background: rgba(42,157,143,0.08);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      color: rgba(255,255,255,0.45);
-      font-size: 0.72rem;
-      letter-spacing: 0.08em;
-      text-align: center;
-      gap: 8px;
-      cursor: default;
-    }
-    .about-avatar-placeholder svg {
-      width: 40px; height: 40px;
-      opacity: 0.45;
-    }
     .about-tags {
       display: flex;
       flex-wrap: wrap;
@@ -791,17 +754,6 @@
       <div class="zh">關於我</div>
       <div class="divider"></div>
     </div>
-    <!-- 🖼️ 圖片 | 頭像：將 about-avatar-placeholder 整段換成 <img class="about-avatar" src="你的圖片路徑" alt="Yan Chen"> -->
-    <div class="about-avatar-wrap fade-up">
-      <div class="about-avatar-placeholder">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-          <circle cx="12" cy="8" r="4"/>
-          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
-        </svg>
-        <span>放置頭像<br>photos/avatar.jpg</span>
-      </div>
-    </div>
-
     <div class="about-grid fade-up">
       <!-- ✏️ 文字 | 關於我 — 英文自介（左欄兩段 + 中文說明） -->
       <div class="about-col">
