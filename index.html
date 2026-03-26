@@ -1239,38 +1239,9 @@
       <div class="divider"></div>
     </div>
 
-    <!-- 🖼️ 圖片 | 照片牆：替換 src 換圖，修改 photo-caption 改說明文字 -->
-    <!-- ➕ 新增 | 複製任一 <div class="photo-item"> 在此新增照片（可加 tall 或 wide class） -->
-    <div class="photo-grid fade-up">
-      <div class="photo-item tall" onclick="openLightbox(this)" data-desc="台灣東北角的珊瑚礁生態，豐富的硬珊瑚覆蓋與多樣的礁體結構。" data-photographer="Guan-Yan Chen">
-        <img src="images/gallery_01_coral-reef.jpg" alt="Coral reef" loading="lazy" />
-        <div class="photo-caption">Coral Reef · 珊瑚礁</div>
-      </div>
-      <div class="photo-item" onclick="openLightbox(this)" data-desc="近距離拍攝的珊瑚群體，可觀察到個別珊瑚蟲的觸手與骨骼紋理。" data-photographer="Guan-Yan Chen">
-        <img src="images/gallery_02_coral-colony.jpg" alt="Coral colony" loading="lazy" />
-        <div class="photo-caption">Coral Colony · 珊瑚群體</div>
-      </div>
-      <div class="photo-item" onclick="openLightbox(this)" data-desc="棲息於珊瑚礁區的礁魚，是珊瑚礁生態系中重要的組成成員。" data-photographer="Guan-Yan Chen">
-        <img src="images/gallery_03_reef-fish.jpg" alt="Reef fish" loading="lazy" />
-        <div class="photo-caption">Reef Fish · 礁魚</div>
-      </div>
-      <div class="photo-item wide" onclick="openLightbox(this)" data-desc="研究人員於水下進行珊瑚礁穿越線調查，記錄珊瑚覆蓋率與物種組成。" data-photographer="Guan-Yan Chen">
-        <img src="images/gallery_04_underwater-survey.jpg" alt="Underwater survey" loading="lazy" />
-        <div class="photo-caption">Underwater Survey · 水下調查</div>
-      </div>
-      <div class="photo-item" onclick="openLightbox(this)" data-desc="台灣周邊海域的遼闊太平洋景色，攝於田野調查航程中。" data-photographer="Guan-Yan Chen">
-        <img src="images/gallery_05_ocean.jpg" alt="Ocean" loading="lazy" />
-        <div class="photo-caption">Pacific Ocean · 太平洋</div>
-      </div>
-      <div class="photo-item" onclick="openLightbox(this)" data-desc="珊瑚白化現象，因海水溫度異常升高導致珊瑚排出共生藻而呈現白色。" data-photographer="Guan-Yan Chen">
-        <img src="images/project-thermal_coral-bleaching.jpg" alt="Bleached coral" loading="lazy" />
-        <div class="photo-caption">Bleaching Event · 白化事件</div>
-      </div>
-      <div class="photo-item" onclick="openLightbox(this)" data-desc="珊瑚礁區的海洋生物多樣性，展現礁體生態系的豐富面貌。" data-photographer="Guan-Yan Chen">
-        <img src="images/gallery_07_marine-life.jpg" alt="Marine life" loading="lazy" />
-        <div class="photo-caption">Marine Life · 海洋生物</div>
-      </div>
-    </div>
+    <!-- 🖼️ 照片牆由 photo-registry.js 動態產生 -->
+    <!-- ✏️ 編輯方式：打開 photo-registry.js，在 GALLERY_PHOTOS 陣列中新增或移除檔名即可 -->
+    <div id="photo-grid" class="photo-grid fade-up"></div>
 
     <!-- 🔗 連結 ✏️ 文字 | Instagram 帳號：修改 href 網址與 @帳號名稱 -->
     <p class="photo-note">
@@ -1398,6 +1369,7 @@
 </div>
 
 <!-- ── SCRIPTS ── -->
+<script src="photo-registry.js"></script>
 <script>
   // Navbar scroll effect
   const navbar = document.getElementById('navbar');
@@ -1431,33 +1403,31 @@
     document.getElementById(prefix + id).classList.add('active');
   }
 
-  // Lightbox with navigation
-  const photoItems = document.querySelectorAll('.photo-item');
+  // Render gallery from registry
+  renderGallery();
+
+  // Lightbox with navigation (reads from GALLERY_PHOTOS + PHOTO_DB)
   let currentIndex = 0;
   let touchStartX = 0;
   let touchEndX = 0;
 
   function showPhoto(index) {
-    const items = Array.from(photoItems);
-    // Circular: wrap around
-    currentIndex = ((index % items.length) + items.length) % items.length;
-    const el = items[currentIndex];
-    const img = el.querySelector('img');
-    const desc = el.getAttribute('data-desc') || '';
-    const photographer = el.getAttribute('data-photographer') || '';
-    const caption = el.querySelector('.photo-caption')?.textContent || '';
+    const total = GALLERY_PHOTOS.length;
+    currentIndex = ((index % total) + total) % total;
+    const entry = GALLERY_PHOTOS[currentIndex];
+    const info = getPhotoInfo(entry.file);
 
     const lbImg = document.getElementById('lightbox-img');
-    lbImg.src = img.src.replace('w=600','w=1400');
-    lbImg.alt = img.alt;
-    document.getElementById('lightbox-desc').textContent = desc;
-    document.getElementById('lightbox-photographer').textContent = photographer ? '📷 ' + photographer : '';
-    document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + items.length;
+    lbImg.src = 'images/' + entry.file;
+    lbImg.alt = info.caption || '';
+    document.getElementById('lightbox-desc').textContent = info.desc || '';
+    document.getElementById('lightbox-photographer').textContent = info.photographer ? '📷 ' + info.photographer : '';
+    document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + total;
   }
 
   function openLightbox(el) {
-    const items = Array.from(photoItems);
-    currentIndex = items.indexOf(el);
+    const idx = parseInt(el.getAttribute('data-index'), 10);
+    currentIndex = isNaN(idx) ? 0 : idx;
     showPhoto(currentIndex);
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
@@ -1473,7 +1443,6 @@
   }
 
   function onLightboxClick(e) {
-    // Only close if clicking the dark backdrop itself
     if (e.target === document.getElementById('lightbox')) {
       closeLightbox();
     }

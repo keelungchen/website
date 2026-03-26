@@ -127,6 +127,10 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
+<!-- Photo Registry: 自動套用拍攝者資訊 -->
+<script src="photo-registry.js"></script>
+<script>document.addEventListener('DOMContentLoaded', applyProjectCaptions);</script>
+
 <!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
 <script>
 (function imgFallbackBg() {

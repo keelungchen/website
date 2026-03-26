@@ -76,6 +76,7 @@ img { max-width: 100%; display: block; }
 @media (max-width: 600px) { .project-photo-pair { grid-template-columns: 1fr; } }
 .photo-item img { width: 100%; height: 240px; object-fit: cover; border-radius: 10px; }
 .photo-caption { font-size: 0.75rem; color: #8a96a8; margin-top: 8px; letter-spacing: 0.06em; font-style: italic; }
+.photo-credit { font-size: 0.68rem; color: #b0b8c4; margin-top: 3px; letter-spacing: 0.04em; }
 
 /* Full-width photo */
 .project-photo-full { margin-bottom: 48px; }
