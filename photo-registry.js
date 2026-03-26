@@ -106,15 +106,20 @@ const PHOTO_DB = {
     desc:         '高複雜度礁體結構，提供魚類更多棲息與覓食的微棲地。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-typhoon_hero-coral.jpg': {
+  'project-sfmworkshop_hero.jpg': {
     caption:      'Coral Recovery · 珊瑚復原',
     desc:         '颱風擾動後的珊瑚礁復原過程。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-typhoon_coral-recovery.jpg': {
-    caption:      'Workshop · 工作坊',
-    desc:         '水下 3D 攝影測量工作坊實作課程。',
-    photographer: 'Guan-Yan Chen',
+  'project-sfmworkshop_session.jpg': {
+    caption:      'SfM Workshop Session · 工作坊實作',
+    desc:         '潛水志工們進行大範圍水下3D攝影調查練習實作。Volunteer divers practising large-scale underwater 3D photogrammetric survey during the workshop.',
+    photographer: 'Crystal',
+  },
+  'project-sfmworkshop_delta-volunteers.jpg': {
+    caption:      'SfM Workshop · 工作坊',
+    desc:         '與台達電基金會志工討論3D建模流程。Discussing 3D modelling workflows with Delta Electronics Foundation volunteers.',
+    photographer: 'Marco',
   },
   'project-typhoon_juvenile-coral.jpg': {
     caption:      'Juvenile Coral · 幼珊瑚',
