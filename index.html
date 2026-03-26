@@ -365,6 +365,9 @@
     @media (max-width: 700px) {
       .project-card { grid-template-columns: 1fr; }
     }
+    .research-preview-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-bottom: 36px; }
+    @media (max-width: 900px) { .research-preview-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .research-preview-grid { grid-template-columns: 1fr; } }
     .project-img {
       height: 220px;
       overflow: hidden;
@@ -870,6 +873,15 @@
         <p class="zh-text" style="margin-top:16px;">
           我尤其關注珊瑚的族群動態及其與形態特徵的關係，並主持台灣多個礁點的三維攝影測量監測計畫，致力於開放資料共享以推動礁體科學研究。學術背景方面，我擁有國立台灣大學海洋學碩士學位，以及國立中山大學海洋學學士學位。研究之餘，對八放珊瑚分類學抱有個人興趣，並透過水下攝影記錄珊瑚礁的故事。
         </p>
+        <!-- 📄 CV 下載連結：將 href 指向你的 CV PDF 檔案 -->
+        <a href="CV_Guan-Yan_Chen.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:20px;padding:8px 18px;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:#2a9d8f;border:1px solid rgba(42,157,143,0.3);border-radius:20px;text-decoration:none;transition:all 0.2s;" onmouseover="this.style.background='rgba(42,157,143,0.08)';this.style.borderColor='rgba(42,157,143,0.6)'" onmouseout="this.style.background='transparent';this.style.borderColor='rgba(42,157,143,0.3)'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;">
+            <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/>
+            <line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+          Download CV / 下載履歷
+        </a>
       </div>
     </div>
   </div>
@@ -884,9 +896,9 @@
       <div class="divider"></div>
     </div>
 
-    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 首頁研究預覽卡片（兩張）：修改圖片、標題、年份與連結 -->
-    <!-- Featured 2-up preview -->
-    <div style="display:grid; grid-template-columns:1fr 1fr; gap:28px; margin-bottom:36px;" class="fade-up">
+    <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 首頁研究預覽卡片：修改圖片、標題、年份與連結 -->
+    <!-- Featured 3-up preview -->
+    <div class="research-preview-grid fade-up">
 
       <a href="project-thermal.html" style="display:block; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.06); transition:transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 36px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 18px rgba(0,0,0,0.07)'">
         <div style="height:190px;overflow:hidden;position:relative;">
@@ -911,6 +923,19 @@
           <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1B2A4A;line-height:1.4;margin-bottom:4px;">Long-Term Reef Monitoring Network — Southern Taiwan</div>
           <div style="font-family:'Noto Serif TC',serif;font-size:0.78rem;color:#8a96a8;margin-bottom:10px;">台灣南部珊瑚礁長期監測網絡</div>
           <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2a9d8f;">2022 – Present &nbsp;→</div>
+        </div>
+      </a>
+
+      <a href="project-octocoral.html" style="display:block; background:#fff; border-radius:12px; overflow:hidden; box-shadow:0 2px 18px rgba(0,0,0,0.07); border:1px solid rgba(0,0,0,0.06); transition:transform 0.25s, box-shadow 0.25s;" onmouseover="this.style.transform='translateY(-4px)';this.style.boxShadow='0 10px 36px rgba(0,0,0,0.13)'" onmouseout="this.style.transform='';this.style.boxShadow='0 2px 18px rgba(0,0,0,0.07)'">
+        <div style="height:190px;overflow:hidden;position:relative;">
+          <img src="images/project-octocoral_field.jpg" alt="Octocoral field guide" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+          <div style="position:absolute;top:12px;left:12px;background:rgba(100,140,180,0.9);color:#fff;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Biodiversity &amp; Taxonomy</div>
+          <div style="position:absolute;top:12px;right:12px;background:rgba(42,157,143,0.22);border:1px solid rgba(42,157,143,0.5);color:#a8e6df;font-size:0.62rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:3px 10px;border-radius:20px;">Ongoing</div>
+        </div>
+        <div style="padding:20px 22px 22px;">
+          <div style="font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:#1B2A4A;line-height:1.4;margin-bottom:4px;">Octocorals of Taiwan — Field Guide</div>
+          <div style="font-family:'Noto Serif TC',serif;font-size:0.78rem;color:#8a96a8;margin-bottom:10px;">台灣八放珊瑚圖鑑</div>
+          <div style="font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#2a9d8f;">2020 – Present &nbsp;→</div>
         </div>
       </a>
     </div>
@@ -1045,42 +1070,84 @@
 
       <div class="pub-item pop fade-up">
         <span class="pub-badge popular">Popular Science 科普</span>
-        <div class="pub-title-en">Why Taiwan's Coral Reefs Are Bleaching — and What We Can Do</div>
-        <div class="pub-title-zh">台灣的珊瑚為什麼在白化？我們能做什麼？</div>
+        <div class="pub-title-en">Workplace Marine Creature Transformation Guide</div>
+        <div class="pub-title-zh">職場海洋生物變身指南</div>
         <div class="pub-meta">
-          <strong>陳冠言</strong>（2024年7月）。<em>科學人雜誌</em>。
+          <strong>陳冠言</strong>（2024年11月）。<em>聯合報 琅琅悅讀｜夏威夷小島日記</em>。
         </div>
-        <a href="#" class="pub-link">閱讀全文 →</a>
+        <a href="https://reading.udn.com/read/story/7049/8406959" target="_blank" class="pub-link">閱讀全文 →</a>
       </div>
 
       <div class="pub-item pop fade-up">
         <span class="pub-badge popular">Popular Science 科普</span>
-        <div class="pub-title-en">The Invisible Crisis Beneath the Waves: Ocean Heatwaves and Coral Reefs</div>
-        <div class="pub-title-zh">水面下的無聲危機：海洋熱浪與珊瑚礁</div>
+        <div class="pub-title-en">The Algae Slayer Squad — Fish as Barbers</div>
+        <div class="pub-title-zh">藻殺隊——魚之理髮</div>
         <div class="pub-meta">
-          <strong>Chen, G.-Y.</strong> (2023, March). <em>The Reporter 報導者</em>.
+          <strong>陳冠言</strong>（2024年9月）。<em>聯合報 琅琅悅讀｜夏威夷小島日記</em>。
         </div>
-        <a href="#" class="pub-link">Read Article →</a>
+        <a href="https://reading.udn.com/read/story/7049/8201941" target="_blank" class="pub-link">閱讀全文 →</a>
       </div>
 
       <div class="pub-item pop fade-up">
         <span class="pub-badge popular">Popular Science 科普</span>
-        <div class="pub-title-en">After the Storm: How Coral Reefs Recover from Typhoons</div>
-        <div class="pub-title-zh">風暴過後：珊瑚礁如何從颱風中復原</div>
+        <div class="pub-title-en">Hawaii Island Diary: The Coral Beauty Association</div>
+        <div class="pub-title-zh">【夏威夷小島日記】珊瑚外貌協會</div>
         <div class="pub-meta">
-          <strong>陳冠言</strong>（2022年10月）。<em>泛科學 PanSci</em>。
+          <strong>陳冠言</strong>（2024年5月）。<em>聯合報 琅琅悅讀｜夏威夷小島日記</em>。
         </div>
-        <a href="#" class="pub-link">閱讀全文 →</a>
+        <a href="https://udn.com/news/story/7272/7955930" target="_blank" class="pub-link">閱讀全文 →</a>
       </div>
 
       <div class="pub-item pop fade-up">
         <span class="pub-badge popular">Popular Science 科普</span>
-        <div class="pub-title-en">Counting Fish Without Getting Wet — Advances in Reef Survey Technology</div>
-        <div class="pub-title-zh">不用下水也能數魚？珊瑚礁調查技術的新發展</div>
+        <div class="pub-title-en">Coral — My Spirit Animal</div>
+        <div class="pub-title-zh">珊瑚，我的代表動物</div>
         <div class="pub-meta">
-          <strong>Chen, G.-Y.</strong> (2021, June). <em>National Geographic Taiwan 國家地理雜誌中文版</em>.
+          <strong>陳冠言</strong>（2024年3月）。<em>聯合報 琅琅悅讀｜夏威夷小島日記</em>。
         </div>
-        <a href="#" class="pub-link">Read Article →</a>
+        <a href="https://reading.udn.com/read/story/7049/7751425" target="_blank" class="pub-link">閱讀全文 →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">Every Fish in Hawaiʻi Has a Story</div>
+        <div class="pub-title-zh">每條夏威夷的魚都有故事</div>
+        <div class="pub-meta">
+          <strong>陳冠言</strong>（2024年1月）。<em>聯合報 琅琅悅讀｜夏威夷小島日記</em>。
+        </div>
+        <a href="https://reading.udn.com/read/story/7049/7694106" target="_blank" class="pub-link">閱讀全文 →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">Rethinking the Dawulun Beach Incident — We Deserve Better Management</div>
+        <div class="pub-title-zh">大武崙沙灘事件——值得更好的管理方式</div>
+        <div class="pub-meta">
+          <strong>陳冠言</strong>（2023年8月）。<em>自由時報 自由評論網</em>；<em>BlueTrend 藍色脈動</em>（轉載）。
+        </div>
+        <a href="https://talk.ltn.com.tw/article/breakingnews/4397123" target="_blank" class="pub-link">自由時報 →</a>
+        &nbsp;&nbsp;
+        <a href="https://bluetrend.media/keelung-dawulun-beach-accident/" target="_blank" class="pub-link">BlueTrend →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">Can Goldfish Learn? Zebrafish Are Smarter Than You Think!</div>
+        <div class="pub-title-zh">金魚腦也學得會？斑馬魚比你想的還聰明！</div>
+        <div class="pub-meta">
+          <strong>陳冠言</strong>（2020年2月）。<em>科學月刊</em>，第 602 期。
+        </div>
+        <a href="https://www.scimonth.com.tw/archives/3606" target="_blank" class="pub-link">閱讀全文 →</a>
+      </div>
+
+      <div class="pub-item pop fade-up">
+        <span class="pub-badge popular">Popular Science 科普</span>
+        <div class="pub-title-en">3D Coral Reefs — New Methods for Surveying Underwater 3D Structures</div>
+        <div class="pub-title-zh">3D珊瑚礁——水下調查立體結構的新方法</div>
+        <div class="pub-meta">
+          <strong>陳冠言</strong>（2019年7月）。<em>科技報導</em>，第 451 期。
+        </div>
+        <a href="https://www.scimonth.com.tw/archives/207" target="_blank" class="pub-link">閱讀全文 →</a>
       </div>
 
     </div>
@@ -1195,7 +1262,7 @@
           </a>
           <!-- 🔗 連結 | Google Scholar 按鈕網址 -->
           <a href="https://scholar.google.com/citations?user=wyAl5JgAAAAJ&hl=en" target="_blank" rel="noopener" class="social-btn">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:22px;height:22px;">
               <path d="M12 14l-8-5.5L12 3l8 5.5z"/>
               <path d="M4 8.5v7L12 21l8-5.5v-7"/>
               <circle cx="12" cy="14" r="3" fill="currentColor" stroke="none"/>
