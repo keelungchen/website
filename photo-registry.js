@@ -91,19 +91,19 @@ const PHOTO_DB = {
     desc:         '八放珊瑚的野外生態照。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-fish_reef-fish.jpg': {
-    caption:      'Reef Fish Survey · 礁魚調查',
-    desc:         '綠島水下目視調查樣線，記錄珊瑚礁魚類群聚組成。',
+  'project-coral3d_chaojing-reef.jpg': {
+    caption:      'Chaojing Bay Reef · 潮境珊瑚礁',
+    desc:         '基隆潮境海灣資源保育區的珊瑚礁調查，用於建立三維立體結構模型。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-fish_reef-fish-hero.jpg': {
-    caption:      'Reef Fish · 珊瑚礁魚類',
-    desc:         '珊瑚礁區域的魚類生態。',
+  'project-coral3d_hero.jpg': {
+    caption:      'Coral Reef 3D · 珊瑚礁立體結構',
+    desc:         '潮境海灣珊瑚礁的水下景觀，為 SfM 三維建模的研究場域。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-fish_complex-reef-structure.jpg': {
-    caption:      'Reef Structure · 礁體結構',
-    desc:         '高複雜度礁體結構，提供魚類更多棲息與覓食的微棲地。',
+  'project-coral3d_sfm-dem.jpg': {
+    caption:      'SfM DEM · 數值高程模型',
+    desc:         'SfM 攝影測量產生的數值高程模型與正射影像，解析度達毫米級。',
     photographer: 'Guan-Yan Chen',
   },
   'project-sfmworkshop_hero.jpg': {

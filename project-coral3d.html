@@ -2,7 +2,7 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Reef Fish Assemblages — Guan-Yan Chen 陳冠言</title>
+  <title>Coral Reef 3D Structure — Guan-Yan Chen 陳冠言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project-style.css" />
@@ -24,20 +24,20 @@
 
 <!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
 <!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
-<div class="project-hero" style="background-image: url('images/project-fish_reef-fish-hero.jpg');">
+<div class="project-hero" style="background-image: url('images/project-coral3d_hero.jpg');">
   <div class="project-hero-overlay"></div>
   <div class="project-hero-content">
-    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Reef Fish Assemblages</div>
-    <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Coral Reef 3D Structure</div>
+    <div class="project-theme-badge theme-monitoring">Monitoring</div>
     <!-- ✏️ 文字 | 計畫英文標題 -->
-    <h1 class="project-hero-title">Reef Fish Assemblages and Habitat Complexity Across Disturbance Gradients</h1>
+    <h1 class="project-hero-title">Quantitative Analysis of Coral Reef Three-Dimensional Structure</h1>
     <!-- ✏️ 文字 | 計畫中文標題 -->
-    <p class="project-hero-title-zh">干擾梯度下礁魚群聚與棲地複雜度關係</p>
+    <p class="project-hero-title-zh">珊瑚礁立體結構量化分析研究 — 以基隆市潮境海灣資源保育區為例</p>
     <div class="project-hero-meta">
       <!-- ✏️ 文字 | 狀態：ongoing 或 completed -->
       <span class="status-badge completed">Completed · 已完成</span>
       <!-- ✏️ 文字 | 計畫年份範圍 -->
-      <span class="year-badge">2017 – 2021</span>
+      <span class="year-badge">2019</span>
     </div>
   </div>
 </div>
@@ -45,20 +45,21 @@
 <div class="project-body">
   <!-- ✏️ 文字 | 側欄資訊：期間、狀態、主題、研究地點、方法，直接修改各 sidebar-value 文字 -->
   <aside class="project-sidebar">
-    <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2017 – 2021</div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2019.05 – 2019.11</div></div>
     <div class="sidebar-block"><div class="sidebar-label">Status 狀態</div><div class="sidebar-value">Completed 已完成</div></div>
-    <div class="sidebar-block"><div class="sidebar-label">Theme 主題</div><div class="sidebar-value">Reef Biodiversity &amp; Habitat<br/><span class="zh-small">礁體生物多樣性與棲地</span></div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Theme 主題</div><div class="sidebar-value">Reef Monitoring &amp; 3D Mapping<br/><span class="zh-small">珊瑚礁監測與三維建模</span></div></div>
     <div class="sidebar-block">
       <div class="sidebar-label">Study Sites 研究地點</div>
-      <div class="sidebar-value">18 sites across Kenting, Green Island, Penghu<br/><span class="zh-small">墾丁、綠島、澎湖共 18 個礁點</span></div>
+      <div class="sidebar-value">Chaojing Bay Marine Conservation Area, Keelung<br/><span class="zh-small">基隆市潮境海灣資源保育區</span></div>
     </div>
     <div class="sidebar-block">
       <div class="sidebar-label">Methods 研究方法</div>
       <ul class="sidebar-list">
-        <li>3D photogrammetry 三維攝影測量</li>
-        <li>Underwater visual census (UVC) 水下目視調查</li>
-        <li>Rugosity index 粗糙度指數</li>
-        <li>Multivariate community analysis 多變量群落分析</li>
+        <li>Structure from Motion (SfM) 運動恢復結構</li>
+        <li>Agisoft Metashape 三維建模軟體</li>
+        <li>ArcGIS spatial analysis 空間參數分析</li>
+        <li>DEM &amp; Orthomosaic 數值高程模型與正射影像</li>
+        <li>Rugosity, slope, VRM analysis 粗糙度、斜度、VRM 分析</li>
       </ul>
     </div>
     <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
@@ -68,29 +69,29 @@
   <main class="project-main">
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
-      <p>Structural complexity — the three-dimensional architecture of a reef — is widely considered a cornerstone of reef fish diversity. However, measuring complexity accurately across sites has historically been difficult. This project applied Structure-from-Motion (SfM) photogrammetry to generate detailed 3D reef models at 18 sites spanning a gradient of disturbance history, then related the complexity metrics to fish assemblage data from paired underwater visual censuses.</p>
-      <p class="zh-para">結構複雜度——珊瑚礁的三維架構——被普遍認為是礁魚多樣性的基石。然而，跨礁點準確量測複雜度歷來困難重重。本計畫應用運動恢復結構（SfM）攝影測量法，在 18 個不同干擾歷史的礁點生成詳細的三維礁體模型，再將複雜度指標與配對水下目視調查的魚類群聚資料相關聯。</p>
+      <p>Coral reefs possess highly complex three-dimensional structures that provide critical ecological functions and support rich biodiversity. However, quantifying this spatial complexity to assess reef functional status remains a major challenge. This project applied Structure-from-Motion (SfM) photogrammetry to build high-resolution 3D models of coral reefs at the Chaojing Bay Marine Conservation Area in Keelung, northern Taiwan. Combined with GIS-based spatial analyses — including slope, rugosity, and Vector Ruggedness Measure (VRM) — the study produced millimetre-resolution digital elevation models and orthomosaics, enabling quantitative comparisons of reef structure across different benthic features and disturbance conditions.</p>
+      <p class="zh-para">珊瑚礁擁有極為複雜的立體結構，提供各種生態功能並造就豐富的生物多樣性，但如何將複雜的立體空間量化以評估珊瑚礁的功能狀態，是一項重要課題。本計畫選定台灣北部基隆市的潮境海灣資源保育區，以運動恢復結構（SfM）方法建立高解析度的珊瑚礁 3D 模型，並搭配 GIS 軟體進行斜度、粗糙度、VRM 等參數分析，取得毫米級解析度的數值高程模型與正射影像，進行不同底棲特徵與干擾條件的量化比較研究。</p>
     </section>
 
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Key Findings</span><span class="zh">主要發現</span></h2>
       <ul class="project-list">
-        <li>3D rugosity derived from SfM models was a stronger predictor of fish species richness than traditional chain-and-tape rugosity or coral cover estimates alone.<br/><span class="zh-inline">由 SfM 模型衍生的三維粗糙度，比傳統鏈尺測量法或單獨的珊瑚覆蓋率估算，更能預測魚類物種豐富度。</span></li>
-        <li>The relationship between complexity and fish diversity was non-linear, with diminishing returns in high-complexity, undisturbed reefs.<br/><span class="zh-inline">複雜度與魚類多樣性的關係呈非線性，在高複雜度、未受干擾的礁體中出現報酬遞減現象。</span></li>
-        <li>Disturbance history was the most important factor structuring fish assemblages at the among-site scale, operating largely through its effects on structural complexity.<br/><span class="zh-inline">干擾歷史是礁點間規模魚類群聚結構最重要的因素，主要透過其對結構複雜度的影響而起作用。</span></li>
-        <li>This work contributed to the development of <strong>habtools</strong> (Schiettekatte et al. 2025, <em>Methods in Ecology and Evolution</em>), an open-source R package that standardises the calculation of 3D metrics — including fractal dimension, rugosity, and convexity — from photogrammetric surface models and point clouds, making these analyses reproducible and accessible across reef systems globally.<br/><span class="zh-inline">本計畫的研究成果促成了 <strong>habtools</strong>（Schiettekatte et al. 2025，<em>Methods in Ecology and Evolution</em>）的開發，這是一套開源 R 套件，標準化了從攝影測量表面模型與點雲計算三維指標（包括碎形維度、粗糙度與凸度）的流程，讓全球各礁體系統的分析具有可重現性與可及性。</span></li>
+        <li>Branching corals exhibited the highest surface rugosity (6.39) and VRM (0.368), while encrusting corals had the lowest rugosity (1.83), demonstrating that SfM-derived spatial metrics can clearly differentiate coral morphotypes.<br/><span class="zh-inline">分支形珊瑚具有最高的表面粗糙度（6.39）與 VRM（0.368），表覆形珊瑚的粗糙度最低（1.83），顯示 SfM 衍生的空間指標能有效區分不同珊瑚型態。</span></li>
+        <li>VRM effectively distinguished complex (&gt;0.25) from simple (&lt;0.15) coral types, providing a robust metric for automated benthic habitat classification.<br/><span class="zh-inline">VRM 能有效區別複雜（&gt;0.25）與簡單（&lt;0.15）的珊瑚種類，為底棲棲地自動分類提供可靠的量化指標。</span></li>
+        <li>Average slope was the strongest predictor of linear rugosity across all survey plots, and mesh model vertex and face counts reflected the degree of structural complexity.<br/><span class="zh-inline">平均斜度是所有樣框中線性粗糙度最強的預測因子，多邊形網格模型中的頂點與面數量也能反映出立體結構的複雜程度。</span></li>
+        <li>The study established a complete standard operating procedure for underwater SfM surveys, 3D model construction, and GIS-based spatial analysis, applicable to future long-term coral reef monitoring and disturbance assessment.<br/><span class="zh-inline">本研究建立了完整的水下 SfM 調查、3D 模型建構與 GIS 空間分析的標準作業流程，可應用於未來的珊瑚礁長期監測與干擾評估。</span></li>
       </ul>
     </section>
 
     <!-- 🖼️ 圖片 ✏️ 文字 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
     <div class="project-photo-pair fade-up">
       <div class="photo-item">
-        <img src="images/project-fish_reef-fish.jpg" alt="Reef fish survey" loading="lazy"/>
-        <p class="photo-caption">UVC transect at Green Island · 綠島水下目視調查樣線</p>
+        <img src="images/project-coral3d_chaojing-reef.jpg" alt="Chaojing Bay reef survey" loading="lazy"/>
+        <p class="photo-caption">Chaojing Bay reef survey · 潮境海灣珊瑚礁調查</p>
       </div>
       <div class="photo-item">
-        <img src="images/project-fish_complex-reef-structure.jpg" alt="Complex reef structure" loading="lazy"/>
-        <p class="photo-caption">High-complexity reef structure · 高複雜度礁體結構</p>
+        <img src="images/project-coral3d_sfm-dem.jpg" alt="SfM digital elevation model" loading="lazy"/>
+        <p class="photo-caption">SfM-derived DEM &amp; orthomosaic · SfM 數值高程模型與正射影像</p>
       </div>
     </div>
 
@@ -99,19 +100,13 @@
       <!-- ✏️ 文字 🔗 連結 | 相關發表：修改 pub-title、pub-meta 引用格式、pub-doi 的 href -->
       <!-- ➕ 新增 | 複製下方 <div class="related-pub"> 區塊新增發表 -->
       <div class="related-pub">
+        <div class="pub-title">珊瑚礁立體結構量化分析研究 — 以基隆市潮境海灣資源保育區為例</div>
+        <div class="pub-meta"><strong>Chen, G.-Y.</strong> (2019). Ocean Affairs Council Research Report (OAC-UNIV-108-009).</div>
+      </div>
+      <div class="related-pub">
         <div class="pub-title">habtools: An R Package to Calculate 3D Metrics for Surfaces and Objects</div>
         <div class="pub-meta">Schiettekatte, N.M.D., Asbury, M., <strong>Chen, G.-Y.</strong>, Dornelas, M., Reichert, J., Torres-Pulliza, D., Zawada, K., &amp; Madin, J.S. (2025). <em>Methods in Ecology and Evolution</em>, 16(5), 895–903.</div>
         <a href="https://doi.org/10.1111/2041-210X.70027" target="_blank" class="pub-doi">DOI →</a>
-      </div>
-      <div class="related-pub">
-        <div class="pub-title">Three-dimensional photogrammetry reveals reef structural changes across a typhoon disturbance gradient</div>
-        <div class="pub-meta"><strong>Chen, G.-Y.</strong>, Wu, M.-H., &amp; Huang, S.-F. (2021). <em>Methods in Ecology and Evolution</em>, 12(8), 1550–1563.</div>
-        <a href="#" class="pub-doi">DOI →</a>
-      </div>
-      <div class="related-pub">
-        <div class="pub-title">Structural complexity loss following typhoon disturbance reduces reef fish diversity on southern Taiwan reefs</div>
-        <div class="pub-meta">Lin, C.-H., <strong>Chen, G.-Y.</strong>, &amp; Wang, T.-Y. (2022). <em>Journal of Experimental Marine Biology and Ecology</em>, 552, 151749.</div>
-        <a href="#" class="pub-doi">DOI →</a>
       </div>
     </section>
   </main>
@@ -144,7 +139,7 @@
     probe.src = localSrc;
   }
   document.addEventListener('DOMContentLoaded', function () {
-    checkBg('images/project-fish_reef-fish-hero.jpg', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1800&q=85&auto=format&fit=crop', '.project-hero');
+    checkBg('images/project-coral3d_hero.jpg', 'https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=1800&q=85&auto=format&fit=crop', '.project-hero');
   });
 })();
 </script>

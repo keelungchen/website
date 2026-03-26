@@ -1,7 +1,15 @@
 {
   "permissions": {
     "allow": [
-      "WebFetch(domain:marres.namr.gov.tw)"
+      "WebFetch(domain:marres.namr.gov.tw)",
+      "Bash(grep -i \"reef fish\" *.html)",
+      "Bash(pip install:*)",
+      "Bash(python -c \":*)",
+      "Bash(ls \"C:/Users/keelu/Documents/Claude/Projects/Yan_website/images/project-fish_\"*)",
+      "Bash(mv images/project-fish_complex-reef-structure.jpg images/project-coral3d_sfm-dem.jpg)",
+      "Bash(mv images/project-fish_reef-fish-hero.jpg images/project-coral3d_hero.jpg)",
+      "Bash(mv images/project-fish_reef-fish.jpg images/project-coral3d_chaojing-reef.jpg)",
+      "Bash(mv project-fish.html project-coral3d.html)"
     ]
   }
 }
