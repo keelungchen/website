@@ -107,13 +107,13 @@ const PHOTO_DB = {
     photographer: 'Guan-Yan Chen',
   },
   'project-sfmworkshop_hero.jpg': {
-    caption:      'Coral Recovery · 珊瑚復原',
-    desc:         '颱風擾動後的珊瑚礁復原過程。',
-    photographer: 'Guan-Yan Chen',
+    caption:      'SfM Workshop · 工作坊',
+    desc:         '潛水志工們進行大範圍水下3D攝影調查練習實作。Volunteer divers practising large-scale underwater 3D photogrammetric survey during the workshop.',
+    photographer: 'Yan',
   },
   'project-sfmworkshop_session.jpg': {
     caption:      'SfM Workshop Session · 工作坊實作',
-    desc:         '潛水志工們進行大範圍水下3D攝影調查練習實作。Volunteer divers practising large-scale underwater 3D photogrammetric survey during the workshop.',
+    desc:         '室內的實際模擬珊瑚礁調查操作演練。Indoor hands-on simulation of coral reef survey operations.',
     photographer: 'Crystal',
   },
   'project-sfmworkshop_delta-volunteers.jpg': {
@@ -175,6 +175,11 @@ const PHOTO_DB = {
     desc:         '研究區背景用礁魚照片。',
     photographer: 'Guan-Yan Chen',
   },
+  'hero_research-page-survey.jpg': {
+    caption:      'Fluorescent Coral · 螢光蕈珊瑚',
+    desc:         '受熱壓力影響而呈現螢光色的蕈珊瑚。Fungiid coral displaying fluorescence under thermal stress.',
+    photographer: 'Yan',
+  },
 };
 
 
@@ -191,13 +196,13 @@ const PHOTO_DB = {
  *    { file: 'project-monitoring_belt-transect.jpg', layout: 'wide' },
  * ═══════════════════════════════════════════════════════════ */
 const GALLERY_PHOTOS = [
-  { file: 'gallery_01_coral-reef.jpg',              layout: 'tall' },
-  { file: 'gallery_02_coral-colony.jpg',             layout: 'normal' },
-  { file: 'gallery_03_reef-fish.jpg',                layout: 'normal' },
-  { file: 'gallery_04_underwater-survey.jpg',        layout: 'wide' },
-  { file: 'gallery_05_ocean.jpg',                    layout: 'normal' },
-  { file: 'project-thermal_coral-bleaching.jpg',     layout: 'normal' },
-  { file: 'gallery_07_marine-life.jpg',              layout: 'normal' },
+  { file: 'project-monitoring_reef-survey.jpg',      layout: 'tall' },
+  { file: 'project-sfmworkshop_delta-volunteers.jpg', layout: 'normal' },
+  { file: 'project-sfmworkshop_session.jpg',          layout: 'normal' },
+  { file: 'project-sfmworkshop_hero.jpg',             layout: 'wide' },
+  { file: 'journal_entry1_survey.jpg',                layout: 'normal' },
+  { file: 'project-octocoral_field.jpg',              layout: 'normal' },
+  { file: 'hero_research-page-survey.jpg',            layout: 'normal' },
 ];
 
 

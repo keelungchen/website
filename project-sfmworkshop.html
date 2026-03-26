@@ -10,7 +10,7 @@
     .github-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: #fff; background: #1B2A4A; border-radius: 30px; padding: 10px 22px; transition: all 0.25s; }
     .github-btn:hover { background: #2a9d8f; }
     .github-btn svg { width: 18px; height: 18px; fill: currentColor; }
-    .workshop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+    .workshop-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; margin-top: 20px; }
     .workshop-day { background: #f7fafc; border-radius: 10px; padding: 22px 24px; border: 1px solid #eef2f6; }
     .workshop-day h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #1B2A4A; margin-bottom: 12px; }
     .workshop-day h3 .zh-label { font-family: 'Noto Serif TC', serif; font-size: 0.8rem; color: #8a96a8; font-weight: 400; margin-left: 8px; }
@@ -22,6 +22,9 @@
     .host-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
     .host-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #1B2A4A; background: #f0f4f8; border-radius: 20px; padding: 6px 14px; border: 1px solid #dde4ec; }
     .host-chip svg { width: 14px; height: 14px; stroke: #2a9d8f; fill: none; stroke-width: 2; }
+    .field-optional { border-style: dashed; background: #fafcfa; position: relative; }
+    .field-optional-badge { display: inline-block; font-size: 0.68rem; font-weight: 700; letter-spacing: 0.07em; color: #2a9d8f; background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.25); border-radius: 20px; padding: 3px 10px; }
+    @media (max-width: 900px) { .workshop-grid { grid-template-columns: 1fr 1fr; } }
     @media (max-width: 680px) { .workshop-grid { grid-template-columns: 1fr; } }
   </style>
 </head>
@@ -123,6 +126,12 @@
             <li>3D model export &amp; Sketchfab visualisation<br/><span style="font-size:0.78rem;color:#8a96a8;">3D 模型輸出與 Sketchfab 視覺化</span></li>
           </ul>
         </div>
+        <div class="workshop-day field-optional">
+          <div class="field-optional-badge">Optional · 視情況進行</div>
+          <h3 style="margin-top:6px;">Field Practice<span class="zh-label">野外實操</span></h3>
+          <p style="font-size:0.82rem;color:#3a4a5c;line-height:1.6;margin:0;">Hands-on underwater photography in a real reef environment. Conducted between Day 1 &amp; Day 2 depending on sea conditions and schedule availability.</p>
+          <p style="font-size:0.78rem;color:#8a96a8;margin:6px 0 0;">實際在礁區進行水下攝影操作，依天候及時程安排，於第一天與第二天之間彈性進行。</p>
+        </div>
         <div class="workshop-day">
           <h3>Day 2<span class="zh-label">第二天</span></h3>
           <ul>
@@ -149,7 +158,7 @@
     <!-- Photo -->
     <div class="project-photo-full fade-up">
       <img src="images/project-sfmworkshop_session.jpg" alt="Workshop session" loading="lazy" />
-      <p class="photo-caption">Hands-on 3D modelling session during the workshop · 工作坊實作 3D 建模課程</p>
+      <p class="photo-caption">Indoor hands-on simulation of coral reef survey operations · 室內的實際模擬珊瑚礁調查操作演練</p>
     </div>
 
     <!-- Impact & Goals -->
