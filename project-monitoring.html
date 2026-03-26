@@ -2,10 +2,20 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Long-Term Monitoring — Guan-Yan Chen 陳冠言</title>
+  <title>Coral Reef 3D Survey — Guan-Yan Chen 陳冠言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project-style.css" />
+  <style>
+    .map-embed-section { margin-bottom: 48px; }
+    .map-embed-section iframe { width: 100%; height: 480px; border: none; border-radius: 12px; box-shadow: 0 4px 24px rgba(0,0,0,0.08); }
+    .map-link-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #2a9d8f; border: 1.5px solid #2a9d8f; border-radius: 30px; padding: 8px 20px; transition: all 0.25s; }
+    .map-link-btn:hover { background: #2a9d8f; color: #fff; }
+    .map-link-btn svg { width: 16px; height: 16px; }
+    .collab-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0f7f6; border: 1px solid #d0e8e4; border-radius: 8px; padding: 10px 16px; margin-top: 12px; font-size: 0.85rem; color: #1a7a6e; line-height: 1.5; }
+    .collab-badge strong { font-weight: 700; }
+    @media (max-width: 600px) { .map-embed-section iframe { height: 320px; } }
+  </style>
 </head>
 <body>
 <nav id="navbar">
@@ -22,80 +32,126 @@
   </div>
 </nav>
 
-<!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
-<!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
 <div class="project-hero" style="background-image: url('images/project-monitoring_hero-survey.jpg');">
   <div class="project-hero-overlay"></div>
   <div class="project-hero-content">
-    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Long-Term Monitoring</div>
-    <div class="project-theme-badge theme-monitoring">Long-term Monitoring</div>
-    <!-- ✏️ 文字 | 計畫英文標題 -->
-    <h1 class="project-hero-title">Long-Term Reef Monitoring Network — Southern Taiwan</h1>
-    <!-- ✏️ 文字 | 計畫中文標題 -->
-    <p class="project-hero-title-zh">台灣南部珊瑚礁長期監測網絡</p>
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; 3D Reef Survey</div>
+    <div class="project-theme-badge theme-monitoring">3D Photogrammetry</div>
+    <h1 class="project-hero-title">Taiwan-wide Coral Reef 3D Survey (SfM Photogrammetry)</h1>
+    <p class="project-hero-title-zh">全台珊瑚礁 3D（SfM 攝影測量）調查</p>
     <div class="project-hero-meta">
-      <!-- ✏️ 文字 | 狀態：ongoing 或 completed -->
       <span class="status-badge ongoing">Ongoing · 進行中</span>
-      <!-- ✏️ 文字 | 計畫年份範圍 -->
       <span class="year-badge">2022 – Present</span>
     </div>
   </div>
 </div>
 
 <div class="project-body">
-  <!-- ✏️ 文字 | 側欄資訊：期間、狀態、主題、研究地點、方法，直接修改各 sidebar-value 文字 -->
   <aside class="project-sidebar">
     <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2022 – Present</div></div>
     <div class="sidebar-block"><div class="sidebar-label">Status 狀態</div><div class="sidebar-value ongoing-text">Ongoing 進行中</div></div>
-    <div class="sidebar-block"><div class="sidebar-label">Theme 主題</div><div class="sidebar-value">Long-term Ecological Monitoring<br/><span class="zh-small">長期生態監測</span></div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Theme 主題</div><div class="sidebar-value">3D Photogrammetric Monitoring<br/><span class="zh-small">三維攝影測量監測</span></div></div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Collaboration 合作</div>
+      <div class="sidebar-value">Fan Coral Lab, NMMBA<br/><span class="zh-small">海生館 樊同雲老師 Fan Coral Lab</span></div>
+    </div>
     <div class="sidebar-block">
       <div class="sidebar-label">Study Sites 研究地點</div>
-      <div class="sidebar-value">12 permanent stations from Kenting to Lyudao<br/><span class="zh-small">從墾丁至綠島共 12 個永久監測站</span></div>
+      <div class="sidebar-value">Kenting, Xiaoliuqiu, Green Island, Orchid Island, NE Coast, Penghu &amp; more<br/><span class="zh-small">墾丁、小琉球、綠島、蘭嶼、東北角、澎湖等全台多點</span></div>
     </div>
     <div class="sidebar-block">
       <div class="sidebar-label">Methods 研究方法</div>
       <ul class="sidebar-list">
-        <li>Belt transect surveys 帶狀樣區調查</li>
-        <li>Photo-quadrats 相片樣方</li>
-        <li>Underwater visual census 水下目視調查</li>
-        <li>CoralNet image analysis CoralNet 影像分析</li>
+        <li>SfM photogrammetry 運動恢復結構攝影測量</li>
+        <li>Agisoft Metashape 3D modelling 三維建模</li>
+        <li>GIS-based population dynamics GIS 族群動態分析</li>
+        <li>WGS 84 georeferencing 地理坐標系校正</li>
+        <li>Orthomosaic &amp; DEM analysis 正射影像與數值高程分析</li>
+      </ul>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Funding 經費來源</div>
+      <ul class="sidebar-list">
+        <li>Ocean Conservation Administration 海洋保育署</li>
+        <li>Delta Electronics Foundation 台達電子文教基金會</li>
       </ul>
     </div>
     <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
   </aside>
 
-  <!-- ✏️ 文字 | 主內容各段落：修改 <p> 與 <p class="zh-para"> 的文字 -->
   <main class="project-main">
+    <!-- Overview -->
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
-      <p>Healthy reefs require sustained observation to detect gradual change against a backdrop of natural variability. This network of 12 permanent monitoring stations along the southern Taiwan coast generates a standardised, multi-year dataset on coral community composition, benthic cover, and reef fish assemblages — providing the ecological baseline needed to assess the impact of typhoons, bleaching events, and coastal development.</p>
-      <p class="zh-para">健康的珊瑚礁需要持續觀測才能在自然變異背景下偵測漸進式變化。這個由 12 個永久監測站組成的網絡，沿台灣南部海岸生產標準化的多年期資料集，記錄珊瑚群落組成、底棲覆蓋率與礁魚群聚，提供評估颱風、白化事件及海岸開發衝擊所需的生態基準。</p>
+      <p>Structural complexity is the hallmark of coral reef ecosystems — reef-building corals create intricate three-dimensional habitats that sustain biodiversity and deliver critical ecosystem services. Quantifying this complexity has historically been difficult, limited to subjective visual rankings or labour-intensive rugosity transects. Structure-from-Motion (SfM) photogrammetry now offers a non-destructive, image-based approach that generates high-resolution 3D models from densely overlapping underwater photographs, enabling precise measurement of coral cover, colony volume, surface area, and structural change over time.</p>
+      <p>In collaboration with <strong>Prof. Tung-Yung Fan's Fan Coral Lab</strong> at the National Museum of Marine Biology and Aquarium (NMMBA), I help develop and refine the <strong>Standard Operating Procedures (SOPs) for SfM-based underwater 3D reef surveys</strong> and <strong>GIS-based coral population dynamics analysis methods</strong>. This project extends across Taiwan — from the coral reefs of Kenting and the nuclear power plant outfall in the south, to Xiaoliuqiu, Green Island, Orchid Island, the northeast coast (Chaojing, Longdong), the east coast, and Penghu — building a comprehensive, standardised, multi-year 3D monitoring network for Taiwan's coral reef ecosystems.</p>
+      <p class="zh-para">結構複雜度是珊瑚礁生態系最顯著的特徵——造礁珊瑚藉由生長與堆積碳酸鈣骨骼，形成複雜多樣的立體結構，提供眾多海洋生物棲息、繁殖與覓食的場所，維持生物多樣性並貢獻重要的生態系服務。傳統上量化珊瑚礁結構複雜度十分困難，多仰賴主觀的目視等級評估或費時費力的粗糙度穿越線法。運動恢復結構（SfM）攝影測量技術提供了一種非破壞性、基於影像的三維建模方法，透過密集拍攝高度重疊的水下照片，可產生高解析度 3D 模型，精確量測珊瑚覆蓋率、群體體積、表面積及結構隨時間的變化。</p>
+      <p class="zh-para">本計畫與<strong>國立海洋生物博物館（海生館）樊同雲老師的 Fan Coral Lab</strong> 合作，我協助發展與優化<strong>基於 SfM 的水下 3D 珊瑚礁調查標準作業流程（SOP）</strong>以及<strong>基於 GIS 的珊瑚礁族群動態分析方法</strong>。調查範圍遍及全台——從南部墾丁珊瑚礁與核三廠出水口、小琉球、綠島、蘭嶼、東北角（潮境、龍洞）、東部海岸，到澎湖——建立全台珊瑚礁生態系的標準化多年期 3D 監測網絡。</p>
+      <div class="collab-badge">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1a7a6e" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span><strong>Collaboration</strong> — Fan Coral Lab, National Museum of Marine Biology &amp; Aquarium（海生館 樊同雲老師團隊）</span>
+      </div>
     </section>
 
+    <!-- Survey Sites Map -->
     <section class="project-section fade-up">
-      <h2 class="section-h2"><span class="en">Monitoring Protocol</span><span class="zh">監測協定</span></h2>
-      <p>Each station is surveyed twice annually (spring and autumn). At each visit, two trained divers complete belt transects for coral cover and fish census, deploy photo-quadrats for machine-learning based cover analysis, and record any bleaching, disease, or physical damage observed. Data are entered in standardised field sheets and cross-checked before being uploaded to a shared database.</p>
-      <p class="zh-para">每個監測站每年調查兩次（春季與秋季）。每次調查由兩名受訓潛水員完成帶狀樣區的珊瑚覆蓋率與魚類調查、設置相片樣方進行機器學習覆蓋率分析，並記錄所有白化、疾病或物理損傷。資料填入標準化野外記錄表，交叉核查後上傳至共享資料庫。</p>
+      <h2 class="section-h2"><span class="en">Survey Sites</span><span class="zh">調查點位</span></h2>
+      <p>Our 3D survey network covers coral reef sites across Taiwan, from the subtropical reefs of the northeast coast to the tropical fringing reefs of the southern tip and offshore islands. The interactive map below shows all current and planned survey locations. Sites span seven major regions: Northern &amp; Northeastern Coast, Eastern Coast, Southern Taiwan (Kenting), Xiaoliuqiu, Green Island, Orchid Island (Lanyu), and Penghu.</p>
+      <p class="zh-para">我們的 3D 調查網絡涵蓋全台珊瑚礁，從東北角亞熱帶珊瑚群聚到南端熱帶裙礁以及離島。以下互動地圖顯示所有目前及計畫中的調查點位，涵蓋七大區域：北部與東北部、東部、南部（墾丁）、小琉球、綠島、蘭嶼、以及澎湖。</p>
+      <div class="map-embed-section fade-up">
+        <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1PmATLCcq1fvIgpUdx-z40k0UvbBGfNMr&ll=23.554499587058064%2C121.34772224723054&z=8" allowfullscreen loading="lazy"></iframe>
+        <a href="https://www.google.com/maps/d/u/0/edit?mid=1PmATLCcq1fvIgpUdx-z40k0UvbBGfNMr&ll=23.554499587058064%2C121.34772224723054&z=8" target="_blank" class="map-link-btn">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          Open Full Map 開啟完整地圖
+        </a>
+      </div>
     </section>
 
-    <!-- 🖼️ 圖片 ✏️ 文字 | 全寬計畫照片：修改 src 換圖、photo-caption 改說明文字 -->
+    <!-- Photo -->
     <div class="project-photo-full fade-up">
-      <img src="images/project-monitoring_belt-transect.jpg" alt="Reef monitoring" loading="lazy" />
-      <p class="photo-caption">Belt transect survey at Kenting monitoring station · 墾丁監測站帶狀樣區調查</p>
+      <img src="images/project-monitoring_belt-transect.jpg" alt="Underwater 3D photogrammetric survey" loading="lazy" />
+      <p class="photo-caption">Underwater SfM photogrammetric survey on a coral reef site · 水下 SfM 攝影測量珊瑚礁調查</p>
     </div>
 
+    <!-- SOP Development -->
     <section class="project-section fade-up">
-      <h2 class="section-h2"><span class="en">Preliminary Trends</span><span class="zh">初步趨勢</span></h2>
-      <p>After three survey cycles, hard coral cover shows a slight declining trend at most Kenting sites, consistent with cumulative bleaching and storm impacts recorded in 2022–2023. In contrast, Green Island stations show stable to slightly increasing coral cover, potentially reflecting lower anthropogenic pressure and more favourable thermal conditions. Herbivorous fish biomass has remained relatively stable across all sites, suggesting sustained grazing function in the absence of major recruitment changes.</p>
-      <p>Demographic analyses of tagged coral colonies — integrating colony size and morphology — draw on findings from Chen et al. (2025, <em>The American Naturalist</em>), which showed that coral shape contributes independently to survival and growth rates beyond what size alone can explain. This means our monitoring protocol now records colony shape alongside standard size measurements, enabling more accurate forecasts of population trajectories under future disturbance scenarios. Additionally, 3D photogrammetric repeat surveys at select stations (Chen &amp; Dai 2021, <em>Marine Pollution Bulletin</em>) demonstrate that subtle structural changes caused by human activities — such as anchor damage and recreational diving — are detectable before they are visible to the naked eye, informing adaptive management decisions.</p>
-      <p class="zh-para">經過三輪調查，大多數墾丁礁點的硬珊瑚覆蓋率呈現輕微下降趨勢，與 2022–2023 年記錄的白化和風暴累積衝擊相符。相比之下，綠島各站點的珊瑚覆蓋率穩定乃至略有增加，可能反映出較低的人為壓力和較有利的熱條件。草食性魚類生物量在所有站點均相對穩定，顯示在無重大補充量變化的情況下，放牧功能持續維持。</p>
-      <p class="zh-para">對標記珊瑚群體的族群動態分析——整合群體大小與形態——參照 Chen et al.（2025，<em>The American Naturalist</em>）的研究發現：珊瑚形態對存活率與生長速率的貢獻，獨立於體型大小之外。這意味著我們的監測協定現在同時記錄群體形態與標準體型量測，使未來干擾情境下的族群動態預測更為精確。此外，在特定監測站進行的三維攝影測量重複調查（Chen &amp; Dai 2021，<em>Marine Pollution Bulletin</em>）顯示，人為活動（如拋錨損傷與休憩潛水）造成的微細結構變化，在肉眼可見之前即可被偵測，為適應性管理決策提供依據。</p>
+      <h2 class="section-h2"><span class="en">SOP Development</span><span class="zh">標準作業流程開發</span></h2>
+      <p>We developed a comprehensive Standard Operating Procedure (SOP) for image-based underwater 3D coral reef surveys, synthesising protocols from the Scripps Institution of Oceanography (Kodera et al. 2020), NOAA (Suka et al. 2019), and University of Hawai'i (Fukunaga et al. 2019; Miller et al. 2021), integrated with our own field experience in Taiwan. The workflow is divided into three major phases: <strong>underwater survey</strong>, <strong>3D modelling</strong>, and <strong>data analysis</strong>.</p>
+      <p>In the field, divers capture densely overlapping photographs following a boustrophedon (lawnmower) pattern over a 5 × 5 m plot, with ≥80% forward overlap and ≥60% lateral overlap. Ground Control Points (GCPs) are deployed for georeferencing, with compass orientation verified to ensure north alignment. We use Olympus TG-6 cameras (dual-camera rig for efficiency) or Nikon D7500 DSLRs, configured to avoid wide-angle distortion and flash shadows.</p>
+      <p>For 3D reconstruction, we use Agisoft Metashape Professional with standardised parameter settings. A key methodological improvement I introduced is the <strong>coordinate system conversion workflow</strong> — transforming models from local coordinates to the WGS 84 (EPSG:4326) geographic coordinate system. This involves measuring at least three marker positions with known longitude, latitude, and depth, using ArcGIS Pro for triangulation and coordinate transformation. The WGS 84 standard eliminates georeferencing errors and removes the need for auxiliary coordinate transformation files when sharing data across teams.</p>
+      <p class="zh-para">我們建立了完整的基於影像水下 3D 珊瑚礁調查標準作業流程，綜合參考 Scripps 海洋學研究所（Kodera et al. 2020）、NOAA（Suka et al. 2019）及夏威夷大學（Fukunaga et al. 2019; Miller et al. 2021）的方法，結合本團隊在台灣的實際調查經驗。流程分為三大階段：<strong>水下調查</strong>、<strong>三維建模</strong>、<strong>資料分析</strong>。</p>
+      <p class="zh-para">水下調查時，潛水員以牛耕式路徑在 5×5 公尺樣區內密集拍攝，照片前後重疊度 ≥80%、左右 ≥60%。現場佈設地面控制點（GCP）進行地理參照，並確認指北針方位。使用 Olympus TG-6（雙機並聯框架）或 Nikon D7500 單眼相機，避免廣角畸變與閃光燈陰影。</p>
+      <p class="zh-para">三維建模使用 Agisoft Metashape Professional，搭配標準化參數設定。我引入的關鍵改進是<strong>坐標系轉換流程</strong>——將模型從在地坐標系轉換為 WGS 84（EPSG:4326）地理坐標系。此流程需取得至少三個標記點的經緯度與深度資訊，利用 ArcGIS Pro 進行三角測量與坐標轉換。統一使用 WGS 84 標準可消除地理參照投影錯誤，也無需在團隊間分享資料時附帶坐標轉換檔案。</p>
     </section>
 
+    <!-- GIS-based Analysis -->
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">GIS-based Reef Analysis</span><span class="zh">基於 GIS 的珊瑚礁分析</span></h2>
+      <p>Beyond 3D reconstruction, we developed a GIS-integrated analytical pipeline for coral reef population dynamics. Orthomosaics and Digital Elevation Models (DEMs) exported from Agisoft Metashape are imported into ArcGIS Pro for spatial analysis, including coral cover mapping, colony-level demographic tracking, and structural complexity quantification across repeat surveys.</p>
+      <p>By georeferencing all survey plots in WGS 84, we enable direct spatial comparison between time points — detecting colony growth, partial mortality, recruitment, and subtle structural changes caused by human activities such as anchor damage and recreational diving (Chen &amp; Dai 2021). Demographic analyses integrating colony size and morphology draw on findings from Chen et al. (2025, <em>The American Naturalist</em>), which demonstrated that coral shape contributes independently to survival and growth rates beyond what size alone can explain, enabling more accurate population trajectory forecasts under future disturbance scenarios.</p>
+      <p class="zh-para">除了三維重建，我們還開發了整合 GIS 的珊瑚礁族群動態分析流程。從 Agisoft Metashape 輸出的正射影像（Orthomosaic）與數值高程模型（DEM）匯入 ArcGIS Pro 進行空間分析，包括珊瑚覆蓋率製圖、群體層級族群動態追蹤、以及跨時序重複調查的結構複雜度量化。</p>
+      <p class="zh-para">透過將所有調查樣區統一以 WGS 84 進行地理參照，我們可直接比較不同時間點的空間資料——偵測群體生長、部分死亡、新加入，以及人為活動（如拋錨損傷與休憩潛水）造成的微細結構變化（Chen &amp; Dai 2021）。結合群體大小與形態的族群動態分析，參照 Chen et al.（2025，<em>The American Naturalist</em>）的發現：珊瑚形態對存活率與生長率的貢獻獨立於體型大小，使未來干擾情境下的族群動態預測更為精確。</p>
+    </section>
+
+    <!-- Project Scope -->
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Project Scope</span><span class="zh">計畫範疇</span></h2>
+      <p>This work supports two major funded projects led by Prof. Fan's team:</p>
+      <ul class="project-list">
+        <li>
+          <strong>Taiwan Coastal Coral Monitoring Survey &amp; Xiaoliuqiu Coral Restoration</strong> — Commissioned by the Ocean Conservation Administration (OCA), this project establishes a national coral monitoring network across 35+ priority sites in seven regions, combining traditional belt transect / CoralNet surveys with our 3D photogrammetric approach for select key sites.
+          <span class="zh-inline"><strong>臺灣周邊海域珊瑚監測調查暨小琉球珊瑚復育計畫</strong>——受海洋保育署委託，於全台七大區域 35 個以上優先點位建立國家珊瑚監測網絡，結合傳統帶狀樣區／珊瑚網調查與我們在特定關鍵點位的 3D 攝影測量方法。</span>
+        </li>
+        <li>
+          <strong>Coral Ecosystem Restoration &amp; 3D Monitoring in Southern &amp; Northern Taiwan</strong> — Funded by the Delta Electronics Foundation, this project establishes restoration plots (restored, reference, and control sites) at the NPP3 outfall reef in Kenting and at Chaojing in northern Taiwan, each monitored via 3D photogrammetry at 6-month intervals, with coral transplantation experiments and international collaboration through the World Coral Conservatory (Monaco).
+          <span class="zh-inline"><strong>台灣南部與北部珊瑚生態系的復育與 3D 監測</strong>——由台達電子文教基金會資助，於墾丁核三廠出水口珊瑚礁及北部潮境建立復育區（復育區、參考區、對照區），每半年以 3D 攝影測量進行監測，並進行珊瑚移植實驗及與世界珊瑚方舟計畫（摩納哥）的國際合作。</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Related Publications -->
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Related Publications</span><span class="zh">相關發表</span></h2>
-      <!-- ✏️ 文字 🔗 連結 | 相關發表：修改 pub-title、pub-meta 引用格式、pub-doi 的 href -->
-      <!-- ➕ 新增 | 複製下方 <div class="related-pub"> 區塊新增發表 -->
       <div class="related-pub">
         <div class="pub-title">Relative Contributions of Size and Shape to Coral Demography</div>
         <div class="pub-meta"><strong>Chen, G.K.</strong>, McManus, L.C., Fan, T.-Y., &amp; Madin, J.S. (2025). <em>The American Naturalist</em>, 205(6).</div>
@@ -107,9 +163,8 @@
         <a href="https://doi.org/10.1016/j.marpolbul.2021.113032" target="_blank" class="pub-doi">DOI →</a>
       </div>
       <div class="related-pub">
-        <div class="pub-title">Herbivore biomass mediates coral recovery following disturbance on Taiwanese reefs</div>
-        <div class="pub-meta"><strong>Chen, G.-Y.</strong>, Huang, S.-F., Wu, M.-H., &amp; Dai, C.-F. (2023). <em>Marine Ecology Progress Series</em>, 715, 57–73.</div>
-        <a href="#" class="pub-doi">DOI →</a>
+        <div class="pub-title">基於影像的水下 3D 珊瑚礁調查方法——標準作業流程 V1.0</div>
+        <div class="pub-meta"><strong>Chen, G.K.</strong>, Yeh, T.M., Chiang, M.C., &amp; Fan, T.Y. (2022). National Museum of Marine Biology &amp; Aquarium — Fan Coral Lab.</div>
       </div>
     </section>
   </main>
@@ -125,7 +180,7 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
-<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
+<!-- Image Fallback -->
 <script>
 (function imgFallbackBg() {
   function checkBg(localSrc, fallbackSrc, cssSelector) {
