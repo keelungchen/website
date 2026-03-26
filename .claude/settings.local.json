@@ -9,7 +9,12 @@
       "Bash(mv images/project-fish_complex-reef-structure.jpg images/project-coral3d_sfm-dem.jpg)",
       "Bash(mv images/project-fish_reef-fish-hero.jpg images/project-coral3d_hero.jpg)",
       "Bash(mv images/project-fish_reef-fish.jpg images/project-coral3d_chaojing-reef.jpg)",
-      "Bash(mv project-fish.html project-coral3d.html)"
+      "Bash(mv project-fish.html project-coral3d.html)",
+      "Bash(ls images/project-thermal_*)",
+      "Bash(mv images/project-thermal_hero-bleaching.jpg images/project-demography_hero.jpg)",
+      "Bash(mv images/project-thermal_coral-bleaching.jpg images/project-demography_colony-morphology.jpg)",
+      "Bash(mv images/project-thermal_healthy-reef.jpg images/project-demography_sfm-workflow.jpg)",
+      "Bash(mv project-thermal.html project-demography.html)"
     ]
   }
 }

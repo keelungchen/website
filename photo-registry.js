@@ -46,19 +46,19 @@ const PHOTO_DB = {
   },
 
   // ── Research Project 照片 ──
-  'project-thermal_coral-bleaching.jpg': {
-    caption:      'Bleaching Event · 白化事件',
-    desc:         '珊瑚白化現象，因海水溫度異常升高導致珊瑚排出共生藻而呈現白色。',
+  'project-demography_colony-morphology.jpg': {
+    caption:      'Colony Morphology · 群體形態',
+    desc:         '珊瑚群體的形態多樣性，不同大小與圓度的群體展現不同的族群動態命運。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-thermal_healthy-reef.jpg': {
-    caption:      'Healthy Reef · 健康礁體',
-    desc:         '對照基準的健康珊瑚礁體，作為白化研究的比較對象。',
+  'project-demography_sfm-workflow.jpg': {
+    caption:      'SfM & AI Workflow · SfM 與 AI 工作流程',
+    desc:         'SfM 攝影測量重建與 AI 輔助分割，追蹤珊瑚群體的時間動態變化。',
     photographer: 'Guan-Yan Chen',
   },
-  'project-thermal_hero-bleaching.jpg': {
-    caption:      'Coral Bleaching · 珊瑚白化',
-    desc:         '大範圍珊瑚白化事件的空拍全景。',
+  'project-demography_hero.jpg': {
+    caption:      'Coral Demography · 珊瑚族群動態',
+    desc:         '珊瑚礁調查樣區，用於研究群體形態與空間因子對族群動態的影響。',
     photographer: 'Guan-Yan Chen',
   },
   'project-monitoring_reef-survey.jpg': {

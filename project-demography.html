@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Coral Demography — Guan-Yan Chen 陳冠言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project-style.css" />
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="index.html#about" class="nav-link"><span>About</span><span class="zh">關於</span></a>
+    <a href="research.html" class="nav-link active"><span>Research</span><span class="zh">研究</span></a>
+    <a href="index.html#publications" class="nav-link"><span>Publications</span><span class="zh">發表</span></a>
+  </div>
+  <a href="index.html" class="nav-brand"><span class="en">GUAN-YAN CHEN</span><span class="zh">陳冠言</span></a>
+  <div class="nav-right">
+    <a href="journal.html" class="nav-link"><span>Journal</span><span class="zh">日誌</span></a>
+    <a href="index.html#photos" class="nav-link"><span>Photos</span><span class="zh">照片</span></a>
+    <a href="index.html#contact" class="nav-link"><span>Contact</span><span class="zh">聯絡</span></a>
+  </div>
+</nav>
+
+<!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
+<!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
+<div class="project-hero" style="background-image: url('images/project-demography_hero.jpg');">
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Coral Demography</div>
+    <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
+    <!-- ✏️ 文字 | 計畫英文標題 -->
+    <h1 class="project-hero-title">Morphological and Spatial Determinants of Coral Demography</h1>
+    <!-- ✏️ 文字 | 計畫中文標題 -->
+    <p class="project-hero-title-zh">珊瑚群體形態與空間因子對族群動態的影響</p>
+    <div class="project-hero-meta">
+      <!-- ✏️ 文字 | 狀態：ongoing（進行中）或 completed（已完成） -->
+      <span class="status-badge ongoing">Ongoing · 進行中</span>
+      <!-- ✏️ 文字 | 計畫年份範圍 -->
+      <span class="year-badge">2022 – Present</span>
+    </div>
+  </div>
+</div>
+
+<div class="project-body">
+  <!-- ✏️ 文字 | 側欄資訊：期間、狀態、主題、研究地點、方法、經費，直接修改各 sidebar-value 文字 -->
+  <aside class="project-sidebar">
+    <div class="sidebar-block">
+      <div class="sidebar-label">Duration 期間</div>
+      <div class="sidebar-value">2022 – Present</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Status 狀態</div>
+      <div class="sidebar-value ongoing-text">Ongoing 進行中</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Theme 主題</div>
+      <div class="sidebar-value">Coral Demography &amp; Morphology<br/><span class="zh-small">珊瑚族群動態與形態學</span></div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Study Sites 研究地點</div>
+      <div class="sidebar-value">Kenting &amp; Northern Taiwan, K&#257;ne&#699;ohe Bay (Hawai&#699;i), Lizard Island (Australia)<br/><span class="zh-small">台灣墾丁與北部、夏威夷卡內奧赫灣、澳洲蜥蜴島</span></div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Methods 研究方法</div>
+      <ul class="sidebar-list">
+        <li>SfM photogrammetry 運動恢復結構攝影測量</li>
+        <li>AI segmentation (SAM-LoRA) AI 影像分割</li>
+        <li>GIS spatial analysis GIS 空間分析</li>
+        <li>Demographic matrix models 族群矩陣模型</li>
+        <li>Orthomosaic &amp; DEM time-series 正射影像與高程模型時間序列</li>
+      </ul>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Funding 經費來源</div>
+      <div class="sidebar-value">Denise B. Evans Fellowship (2026–2027)<br/><span class="zh-small">Denise B. Evans 獎學金</span></div>
+    </div>
+    <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
+  </aside>
+
+  <!-- ✏️ 文字 | 主內容各段落：直接修改 <p> 與 <p class="zh-para"> 的文字 -->
+  <main class="project-main">
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
+      <p>The future of coral reefs depends on understanding the demographic processes that determine which colonies persist, recover, or collapse following disturbance. Previous studies have primarily focused on colony size and simplified competitive interactions into two-dimensional space. However, colonial corals exhibit exceptionally high morphological diversity even within species, and their competitive interactions occur within a highly three-dimensional environment. This PhD dissertation research integrates intraspecific variation in colony morphology — size, circularity, and perimeter-to-area ratio — together with relative positions in 3D space into demographic models, bridging a critical gap in understanding the mechanisms driving demographic variation in colonial organisms.</p>
+      <p class="zh-para">珊瑚礁的未來取決於我們對族群動態過程的理解——哪些珊瑚群體能在干擾後存活、恢復或崩解。過去的研究主要聚焦於群體大小，並將競爭互動簡化為二維平面。然而，即使在同一物種內，群體珊瑚也展現出極高的形態多樣性，且其競爭互動發生在高度三維的環境中。本博士論文研究將群體內形態變異——包括大小、圓度與周長面積比——結合三維空間中的相對位置，整合進族群模型中，填補了理解群體生物族群動態變異機制的關鍵缺口。</p>
+    </section>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Research Questions</span><span class="zh">研究問題</span></h2>
+      <ul class="project-list">
+        <li>What are the relative contributions of colony size and shape (circularity) to modular demographic processes, including growth, shrinkage, fusion, and fission?<br/><span class="zh-inline">群體大小與形態（圓度）對模組化生物的生長、縮小、融合與分裂等族群過程各有何相對貢獻？</span></li>
+        <li>Are spatial constraints — competitive contact length and relative height differences in 3D — linked to variation in colony growth rates and morphological change?<br/><span class="zh-inline">空間限制——二維競爭接觸長度與三維相對高度差——是否與群體生長速率及形態變化的差異有關？</span></li>
+        <li>Are the effects of morphological and spatial factors on coral demography consistent across species with different growth forms and across contrasting ecological settings?<br/><span class="zh-inline">形態與空間因子對珊瑚族群動態的影響，在不同生長型的物種間及不同生態環境下是否具有一致性？</span></li>
+        <li>Can shape-based demographic insights improve fragmentation-based coral restoration strategies?<br/><span class="zh-inline">基於形態的族群動態見解能否改善珊瑚斷裂復育策略？</span></li>
+      </ul>
+    </section>
+
+    <!-- 🖼️ 圖片 ✏️ 文字 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
+    <div class="project-photo-pair fade-up">
+      <div class="photo-item">
+        <img src="images/project-demography_colony-morphology.jpg" alt="Coral colony morphological diversity" loading="lazy" />
+        <p class="photo-caption">Colony morphological diversity · 珊瑚群體形態多樣性</p>
+      </div>
+      <div class="photo-item">
+        <img src="images/project-demography_sfm-workflow.jpg" alt="SfM and AI segmentation workflow" loading="lazy" />
+        <p class="photo-caption">SfM reconstruction &amp; AI-assisted segmentation · SfM 重建與 AI 輔助分割</p>
+      </div>
+    </div>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Key Findings So Far</span><span class="zh">目前主要發現</span></h2>
+      <p>Chapter 1, published in <em>The American Naturalist</em> (2025), tracked 796 <em>Pocillopora acuta</em> colonies in Kenting National Park, Taiwan over two years using SfM orthomosaics. When considering morphological traits separately, colony size explained the most variation in growth and shrinkage, perimeter-to-area ratio best predicted survival, and circularity explained the most variation in fission. However, when size and circularity were considered together, they consistently explained the highest levels of variation for all demographic fates — demonstrating that shape is a meaningful, independent predictor of coral population dynamics that should not be ignored in demographic models.</p>
+      <p>The ongoing work in Chapter 2 develops an innovative GIS workflow that integrates spatial grids with digital elevation models (DEMs) to quantify horizontal contact (C/P ratio) and relative height (F/P ratio) among colonies. Deep-learning segmentation using SAM-LoRA enables efficient tracking of thousands of colonies across survey plots spanning Taiwan, Hawai'i, and Australia.</p>
+      <p class="zh-para">第一章已發表於《The American Naturalist》（2025），利用 SfM 正射影像追蹤台灣墾丁國家公園 796 個柱形軸孔珊瑚（<em>Pocillopora acuta</em>）群體的兩年變化。單獨考量形態特徵時，群體大小解釋了生長與縮小最多的變異，周長面積比最能預測存活率，圓度則解釋了分裂最多的變異。然而，當大小與圓度同時考量時，它們在所有族群命運中持續解釋最高的變異——證明形態是族群動態中有意義且獨立的預測因子，不應在族群模型中被忽略。</p>
+      <p class="zh-para">第二章持續進行中，開發創新的 GIS 工作流程，整合空間網格與數值高程模型（DEM），量化群體間的水平接觸（C/P 比）與相對高度（F/P 比）。利用 SAM-LoRA 深度學習分割技術，高效追蹤橫跨台灣、夏威夷與澳洲調查樣區中數千個群體的時間動態。</p>
+    </section>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Related Publications</span><span class="zh">相關發表</span></h2>
+      <!-- ✏️ 文字 🔗 連結 | 相關發表：修改 pub-title、pub-meta 引用格式、pub-doi 的 href -->
+      <!-- ➕ 新增 | 複製下方 <div class="related-pub"> 區塊新增發表 -->
+      <div class="related-pub">
+        <div class="pub-title">Relative contributions of size and shape to coral demography</div>
+        <div class="pub-meta"><strong>Chen, G.-Y.</strong>, Madin, J.S., et al. (2025). <em>The American Naturalist</em>.</div>
+        <a href="https://drive.google.com/file/d/1_-6ZyZECfP-zTtknaqIJ1xb9QOdclcey/view" target="_blank" class="pub-doi">Manuscript →</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <span><a href="research.html">← Back to Research 回到研究計畫</a></span>
+  <span>·</span>
+  <span>© 2025 Guan-Yan Chen 陳冠言</span>
+</footer>
+<script>
+  window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+  const obs = new IntersectionObserver((entries) => { entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*100); obs.unobserve(e.target); } }); }, {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
+<!-- Photo Registry: 自動套用拍攝者資訊 -->
+<script src="photo-registry.js"></script>
+<script>document.addEventListener('DOMContentLoaded', applyProjectCaptions);</script>
+
+<script>
+(function imgFallbackBg() {
+  function checkBg(localSrc, fallbackSrc, cssSelector) {
+    var probe = new Image();
+    probe.onerror = function () {
+      document.querySelectorAll(cssSelector).forEach(function (el) {
+        el.style.backgroundImage = "url('" + fallbackSrc + "')";
+      });
+    };
+    probe.src = localSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    checkBg('images/project-demography_hero.jpg', 'https://images.unsplash.com/photo-1643130326512-23f28dda0aee?w=1800&q=85&auto=format&fit=crop', '.project-hero');
+  });
+})();
+</script>
+</body>
+</html>
