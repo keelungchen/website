@@ -728,29 +728,105 @@
       display: none;
       position: fixed;
       inset: 0;
-      background: rgba(0,0,0,0.92);
+      background: rgba(0,0,0,0.94);
       z-index: 9999;
       align-items: center;
       justify-content: center;
     }
     #lightbox.open { display: flex; }
-    #lightbox img {
+    #lightbox-content {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       max-width: 90vw;
-      max-height: 85vh;
+      max-height: 92vh;
+      position: relative;
+    }
+    #lightbox-content img {
+      max-width: 88vw;
+      max-height: 72vh;
       border-radius: 4px;
       box-shadow: 0 8px 60px rgba(0,0,0,0.8);
+      object-fit: contain;
+      transition: opacity 0.3s ease;
+    }
+    #lightbox-info {
+      text-align: center;
+      margin-top: 16px;
+      max-width: 680px;
+      animation: fadeInUp 0.4s ease;
+    }
+    #lightbox-desc {
+      color: rgba(255,255,255,0.92);
+      font-size: 0.95rem;
+      line-height: 1.6;
+      margin: 0 0 6px;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    #lightbox-photographer {
+      color: rgba(255,255,255,0.5);
+      font-size: 0.78rem;
+      margin: 0;
+      font-style: italic;
+      letter-spacing: 0.03em;
+    }
+    #lightbox-counter {
+      color: rgba(255,255,255,0.4);
+      font-size: 0.72rem;
+      margin-top: 10px;
+      letter-spacing: 0.12em;
     }
     #lightbox-close {
       position: absolute;
-      top: 20px; right: 24px;
+      top: 18px; right: 22px;
       color: #fff;
       font-size: 2rem;
       cursor: pointer;
-      opacity: 0.7;
+      opacity: 0.6;
       transition: opacity 0.2s;
       line-height: 1;
+      z-index: 10001;
+      background: none;
+      border: none;
     }
     #lightbox-close:hover { opacity: 1; }
+    #lightbox-prev, #lightbox-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: #fff;
+      font-size: 1.5rem;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.2s, background 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10001;
+    }
+    #lightbox-prev { left: 20px; }
+    #lightbox-next { right: 20px; }
+    #lightbox-prev:hover, #lightbox-next:hover {
+      opacity: 1;
+      background: rgba(255,255,255,0.16);
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 600px) {
+      #lightbox-prev, #lightbox-next { width: 38px; height: 38px; font-size: 1.2rem; }
+      #lightbox-prev { left: 8px; }
+      #lightbox-next { right: 8px; }
+      #lightbox-content img { max-width: 96vw; max-height: 60vh; }
+      #lightbox-info { max-width: 92vw; margin-top: 12px; }
+      #lightbox-desc { font-size: 0.85rem; }
+    }
 
     /* ── SCROLL ANIMATIONS ── */
     .fade-up {
@@ -1166,31 +1242,31 @@
     <!-- 🖼️ 圖片 | 照片牆：替換 src 換圖，修改 photo-caption 改說明文字 -->
     <!-- ➕ 新增 | 複製任一 <div class="photo-item"> 在此新增照片（可加 tall 或 wide class） -->
     <div class="photo-grid fade-up">
-      <div class="photo-item tall" onclick="openLightbox(this)">
+      <div class="photo-item tall" onclick="openLightbox(this)" data-desc="台灣東北角的珊瑚礁生態，豐富的硬珊瑚覆蓋與多樣的礁體結構。" data-photographer="Guan-Yan Chen">
         <img src="images/gallery_01_coral-reef.jpg" alt="Coral reef" loading="lazy" />
         <div class="photo-caption">Coral Reef · 珊瑚礁</div>
       </div>
-      <div class="photo-item" onclick="openLightbox(this)">
+      <div class="photo-item" onclick="openLightbox(this)" data-desc="近距離拍攝的珊瑚群體，可觀察到個別珊瑚蟲的觸手與骨骼紋理。" data-photographer="Guan-Yan Chen">
         <img src="images/gallery_02_coral-colony.jpg" alt="Coral colony" loading="lazy" />
         <div class="photo-caption">Coral Colony · 珊瑚群體</div>
       </div>
-      <div class="photo-item" onclick="openLightbox(this)">
+      <div class="photo-item" onclick="openLightbox(this)" data-desc="棲息於珊瑚礁區的礁魚，是珊瑚礁生態系中重要的組成成員。" data-photographer="Guan-Yan Chen">
         <img src="images/gallery_03_reef-fish.jpg" alt="Reef fish" loading="lazy" />
         <div class="photo-caption">Reef Fish · 礁魚</div>
       </div>
-      <div class="photo-item wide" onclick="openLightbox(this)">
+      <div class="photo-item wide" onclick="openLightbox(this)" data-desc="研究人員於水下進行珊瑚礁穿越線調查，記錄珊瑚覆蓋率與物種組成。" data-photographer="Guan-Yan Chen">
         <img src="images/gallery_04_underwater-survey.jpg" alt="Underwater survey" loading="lazy" />
         <div class="photo-caption">Underwater Survey · 水下調查</div>
       </div>
-      <div class="photo-item" onclick="openLightbox(this)">
+      <div class="photo-item" onclick="openLightbox(this)" data-desc="台灣周邊海域的遼闊太平洋景色，攝於田野調查航程中。" data-photographer="Guan-Yan Chen">
         <img src="images/gallery_05_ocean.jpg" alt="Ocean" loading="lazy" />
         <div class="photo-caption">Pacific Ocean · 太平洋</div>
       </div>
-      <div class="photo-item" onclick="openLightbox(this)">
+      <div class="photo-item" onclick="openLightbox(this)" data-desc="珊瑚白化現象，因海水溫度異常升高導致珊瑚排出共生藻而呈現白色。" data-photographer="Guan-Yan Chen">
         <img src="images/project-thermal_coral-bleaching.jpg" alt="Bleached coral" loading="lazy" />
         <div class="photo-caption">Bleaching Event · 白化事件</div>
       </div>
-      <div class="photo-item" onclick="openLightbox(this)">
+      <div class="photo-item" onclick="openLightbox(this)" data-desc="珊瑚礁區的海洋生物多樣性，展現礁體生態系的豐富面貌。" data-photographer="Guan-Yan Chen">
         <img src="images/gallery_07_marine-life.jpg" alt="Marine life" loading="lazy" />
         <div class="photo-caption">Marine Life · 海洋生物</div>
       </div>
@@ -1307,9 +1383,18 @@
 </footer>
 
 <!-- ── LIGHTBOX ── -->
-<div id="lightbox" onclick="closeLightbox()">
-  <span id="lightbox-close" onclick="closeLightbox()">×</span>
-  <img id="lightbox-img" src="" alt="" />
+<div id="lightbox" onclick="onLightboxClick(event)">
+  <span id="lightbox-close" onclick="closeLightbox()">&times;</span>
+  <button id="lightbox-prev" onclick="navigateLightbox(-1)" aria-label="Previous photo">&#10094;</button>
+  <div id="lightbox-content">
+    <img id="lightbox-img" src="" alt="" />
+    <div id="lightbox-info">
+      <p id="lightbox-desc"></p>
+      <p id="lightbox-photographer"></p>
+    </div>
+    <div id="lightbox-counter"></div>
+  </div>
+  <button id="lightbox-next" onclick="navigateLightbox(1)" aria-label="Next photo">&#10095;</button>
 </div>
 
 <!-- ── SCRIPTS ── -->
@@ -1346,19 +1431,75 @@
     document.getElementById(prefix + id).classList.add('active');
   }
 
-  // Lightbox
-  function openLightbox(el) {
+  // Lightbox with navigation
+  const photoItems = document.querySelectorAll('.photo-item');
+  let currentIndex = 0;
+  let touchStartX = 0;
+  let touchEndX = 0;
+
+  function showPhoto(index) {
+    const items = Array.from(photoItems);
+    // Circular: wrap around
+    currentIndex = ((index % items.length) + items.length) % items.length;
+    const el = items[currentIndex];
     const img = el.querySelector('img');
-    document.getElementById('lightbox-img').src = img.src.replace('w=600','w=1400');
-    document.getElementById('lightbox-img').alt = img.alt;
+    const desc = el.getAttribute('data-desc') || '';
+    const photographer = el.getAttribute('data-photographer') || '';
+    const caption = el.querySelector('.photo-caption')?.textContent || '';
+
+    const lbImg = document.getElementById('lightbox-img');
+    lbImg.src = img.src.replace('w=600','w=1400');
+    lbImg.alt = img.alt;
+    document.getElementById('lightbox-desc').textContent = desc;
+    document.getElementById('lightbox-photographer').textContent = photographer ? '📷 ' + photographer : '';
+    document.getElementById('lightbox-counter').textContent = (currentIndex + 1) + ' / ' + items.length;
+  }
+
+  function openLightbox(el) {
+    const items = Array.from(photoItems);
+    currentIndex = items.indexOf(el);
+    showPhoto(currentIndex);
     document.getElementById('lightbox').classList.add('open');
     document.body.style.overflow = 'hidden';
   }
+
   function closeLightbox() {
     document.getElementById('lightbox').classList.remove('open');
     document.body.style.overflow = '';
   }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  function navigateLightbox(dir) {
+    showPhoto(currentIndex + dir);
+  }
+
+  function onLightboxClick(e) {
+    // Only close if clicking the dark backdrop itself
+    if (e.target === document.getElementById('lightbox')) {
+      closeLightbox();
+    }
+  }
+
+  // Keyboard navigation
+  document.addEventListener('keydown', e => {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'Escape') closeLightbox();
+    if (e.key === 'ArrowLeft') navigateLightbox(-1);
+    if (e.key === 'ArrowRight') navigateLightbox(1);
+  });
+
+  // Touch swipe support for mobile
+  document.getElementById('lightbox').addEventListener('touchstart', e => {
+    touchStartX = e.changedTouches[0].screenX;
+  }, { passive: true });
+
+  document.getElementById('lightbox').addEventListener('touchend', e => {
+    touchEndX = e.changedTouches[0].screenX;
+    const diff = touchStartX - touchEndX;
+    if (Math.abs(diff) > 50) {
+      navigateLightbox(diff > 0 ? 1 : -1);
+    }
+  }, { passive: true });
 
   // Scroll animations
   const observer = new IntersectionObserver((entries) => {
