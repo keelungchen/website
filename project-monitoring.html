@@ -12,7 +12,8 @@
     .map-link-btn { display: inline-flex; align-items: center; gap: 8px; margin-top: 14px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.08em; color: #2a9d8f; border: 1.5px solid #2a9d8f; border-radius: 30px; padding: 8px 20px; transition: all 0.25s; }
     .map-link-btn:hover { background: #2a9d8f; color: #fff; }
     .map-link-btn svg { width: 16px; height: 16px; }
-    .collab-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0f7f6; border: 1px solid #d0e8e4; border-radius: 8px; padding: 10px 16px; margin-top: 12px; font-size: 0.85rem; color: #1a7a6e; line-height: 1.5; }
+    .collab-badge { display: inline-flex; align-items: center; gap: 8px; background: #f0f7f6; border: 1px solid #d0e8e4; border-radius: 8px; padding: 10px 16px; margin-top: 12px; font-size: 0.85rem; color: #1a7a6e; line-height: 1.5; text-decoration: none; transition: background 0.2s, border-color 0.2s; }
+    a.collab-badge:hover { background: #d9efec; border-color: #1a7a6e; cursor: pointer; }
     .collab-badge strong { font-weight: 700; }
     @media (max-width: 600px) { .map-embed-section iframe { height: 320px; } }
   </style>
@@ -95,13 +96,17 @@
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
       <p>Structural complexity is the hallmark of coral reef ecosystems — reef-building corals create intricate three-dimensional habitats that sustain biodiversity and deliver critical ecosystem services. Quantifying this complexity has historically been difficult, limited to subjective visual rankings or labour-intensive rugosity transects. Structure-from-Motion (SfM) photogrammetry now offers a non-destructive, image-based approach that generates high-resolution 3D models from densely overlapping underwater photographs, enabling precise measurement of coral cover, colony volume, surface area, and structural change over time.</p>
-      <p>In collaboration with <strong>Prof. Tung-Yung Fan's Fan Coral Lab</strong> at the National Museum of Marine Biology and Aquarium (NMMBA), I help develop and refine the <strong>Standard Operating Procedures (SOPs) for SfM-based underwater 3D reef surveys</strong> and <strong>GIS-based coral population dynamics analysis methods</strong>. This project extends across Taiwan — from the coral reefs of Kenting and the nuclear power plant outfall in the south, to Xiaoliuqiu, Green Island, Orchid Island, the northeast coast (Chaojing, Longdong), the east coast, and Penghu — building a comprehensive, standardised, multi-year 3D monitoring network for Taiwan's coral reef ecosystems.</p>
+      <p>In collaboration with <strong>Prof. Tung-Yung Fan's Fan Coral Lab</strong> at the National Museum of Marine Biology and Aquarium (NMMBA) and <strong>Prof. Crystal Mcrae's Macrae Marine Ecology Lab</strong> at National Sun Yat-sen University, I help develop and refine the <strong>Standard Operating Procedures (SOPs) for SfM-based underwater 3D reef surveys</strong> and <strong>GIS-based coral population dynamics analysis methods</strong>. This project extends across Taiwan — from the coral reefs of Kenting and the nuclear power plant outfall in the south, to Xiaoliuqiu, Green Island, Orchid Island, the northeast coast (Chaojing, Longdong), the east coast, and Penghu — building a comprehensive, standardised, multi-year 3D monitoring network for Taiwan's coral reef ecosystems.</p>
       <p class="zh-para">結構複雜度是珊瑚礁生態系最顯著的特徵——造礁珊瑚藉由生長與堆積碳酸鈣骨骼，形成複雜多樣的立體結構，提供眾多海洋生物棲息、繁殖與覓食的場所，維持生物多樣性並貢獻重要的生態系服務。傳統上量化珊瑚礁結構複雜度十分困難，多仰賴主觀的目視等級評估或費時費力的粗糙度穿越線法。運動恢復結構（SfM）攝影測量技術提供了一種非破壞性、基於影像的三維建模方法，透過密集拍攝高度重疊的水下照片，可產生高解析度 3D 模型，精確量測珊瑚覆蓋率、群體體積、表面積及結構隨時間的變化。</p>
-      <p class="zh-para">本計畫與<strong>國立海洋生物博物館（海生館）樊同雲老師的 Fan Coral Lab</strong> 合作，我協助發展與優化<strong>基於 SfM 的水下 3D 珊瑚礁調查標準作業流程（SOP）</strong>以及<strong>基於 GIS 的珊瑚礁族群動態分析方法</strong>。調查範圍遍及全台——從南部墾丁珊瑚礁與核三廠出水口、小琉球、綠島、蘭嶼、東北角（潮境、龍洞）、東部海岸，到澎湖——建立全台珊瑚礁生態系的標準化多年期 3D 監測網絡。</p>
-      <div class="collab-badge">
+      <p class="zh-para">本計畫與<strong>國立海洋生物博物館（海生館）樊同雲老師的 Fan Coral Lab</strong> 及<strong>國立中山大學水晶老師的 Macrae Marine Ecology Lab</strong> 合作，我協助發展與優化<strong>基於 SfM 的水下 3D 珊瑚礁調查標準作業流程（SOP）</strong>以及<strong>基於 GIS 的珊瑚礁族群動態分析方法</strong>。調查範圍遍及全台——從南部墾丁珊瑚礁與核三廠出水口、小琉球、綠島、蘭嶼、東北角（潮境、龍洞）、東部海岸，到澎湖——建立全台珊瑚礁生態系的標準化多年期 3D 監測網絡。</p>
+      <a href="https://fancorallab.weebly.com/" target="_blank" rel="noopener" class="collab-badge">
         <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1a7a6e" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
         <span><strong>Collaboration</strong> — Fan Coral Lab, National Museum of Marine Biology &amp; Aquarium（海生館 樊同雲老師團隊）</span>
-      </div>
+      </a>
+      <a href="https://mcraemarinelab.weebly.com/" target="_blank" rel="noopener" class="collab-badge">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#1a7a6e" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span><strong>Collaboration</strong> — Macrae Marine Ecology Lab, National Sun Yat-sen University（中山大學 水晶老師 Macrae Marine Ecology Lab）</span>
+      </a>
     </section>
 
     <!-- Survey Sites Map -->
