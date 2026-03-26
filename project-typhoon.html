@@ -2,10 +2,28 @@
 <html lang="zh-TW">
 <head>
   <meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Post-Typhoon Recovery — Guan-Yan Chen 陳冠言</title>
+  <title>SfM 3D Survey Workshop — Guan-Yan Chen 陳冠言</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="project-style.css" />
+  <style>
+    .github-btn { display: inline-flex; align-items: center; gap: 10px; margin-top: 18px; font-size: 0.82rem; font-weight: 700; letter-spacing: 0.06em; color: #fff; background: #1B2A4A; border-radius: 30px; padding: 10px 22px; transition: all 0.25s; }
+    .github-btn:hover { background: #2a9d8f; }
+    .github-btn svg { width: 18px; height: 18px; fill: currentColor; }
+    .workshop-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; }
+    .workshop-day { background: #f7fafc; border-radius: 10px; padding: 22px 24px; border: 1px solid #eef2f6; }
+    .workshop-day h3 { font-family: 'Playfair Display', serif; font-size: 1.05rem; font-weight: 700; color: #1B2A4A; margin-bottom: 12px; }
+    .workshop-day h3 .zh-label { font-family: 'Noto Serif TC', serif; font-size: 0.8rem; color: #8a96a8; font-weight: 400; margin-left: 8px; }
+    .workshop-day ul { list-style: none; padding: 0; }
+    .workshop-day ul li { font-size: 0.88rem; color: #3a4a5c; line-height: 1.7; padding: 3px 0 3px 16px; position: relative; }
+    .workshop-day ul li::before { content: '→'; position: absolute; left: 0; color: #2a9d8f; font-weight: 700; }
+    .tool-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+    .tool-tag { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em; color: #2a9d8f; background: rgba(42,157,143,0.08); border: 1px solid rgba(42,157,143,0.2); padding: 4px 12px; border-radius: 20px; }
+    .host-list { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+    .host-chip { display: inline-flex; align-items: center; gap: 6px; font-size: 0.82rem; color: #1B2A4A; background: #f0f4f8; border-radius: 20px; padding: 6px 14px; border: 1px solid #dde4ec; }
+    .host-chip svg { width: 14px; height: 14px; stroke: #2a9d8f; fill: none; stroke-width: 2; }
+    @media (max-width: 680px) { .workshop-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
 <body>
 <nav id="navbar">
@@ -22,91 +40,136 @@
   </div>
 </nav>
 
-<!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片網址 -->
-<!-- ✏️ 文字 | 計畫標題（英文 h1 + 中文 p）、狀態（ongoing/completed）、年份 -->
 <div class="project-hero" style="background-image: url('images/project-typhoon_hero-coral.jpg');">
   <div class="project-hero-overlay"></div>
   <div class="project-hero-content">
-    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Post-Typhoon Recovery</div>
-    <div class="project-theme-badge theme-recovery">Disturbance &amp; Recovery</div>
-    <!-- ✏️ 文字 | 計畫英文標題 -->
-    <h1 class="project-hero-title">Post-Typhoon Recovery Trajectories of Coral Reef Communities</h1>
-    <!-- ✏️ 文字 | 計畫中文標題 -->
-    <p class="project-hero-title-zh">颱風後珊瑚礁群聚恢復軌跡</p>
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; 3D Survey Workshop</div>
+    <div class="project-theme-badge theme-recovery">Education &amp; Outreach</div>
+    <h1 class="project-hero-title">Underwater 3D Survey Outreach Workshops</h1>
+    <p class="project-hero-title-zh">水下 3D 調查推廣工作坊</p>
     <div class="project-hero-meta">
-      <!-- ✏️ 文字 | 狀態：ongoing 或 completed -->
-      <span class="status-badge completed">Completed · 已完成</span>
-      <!-- ✏️ 文字 | 計畫年份範圍 -->
-      <span class="year-badge">2019 – 2022</span>
+      <span class="status-badge ongoing">Ongoing · 進行中</span>
+      <span class="year-badge">2024 – Present</span>
     </div>
   </div>
 </div>
 
 <div class="project-body">
-  <!-- ✏️ 文字 | 側欄資訊：期間、狀態、主題、研究地點、方法，直接修改各 sidebar-value 文字 -->
   <aside class="project-sidebar">
-    <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2019 – 2022</div></div>
-    <div class="sidebar-block"><div class="sidebar-label">Status 狀態</div><div class="sidebar-value">Completed 已完成</div></div>
-    <div class="sidebar-block"><div class="sidebar-label">Theme 主題</div><div class="sidebar-value">Disturbance &amp; Recovery<br/><span class="zh-small">干擾與恢復</span></div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Duration 期間</div><div class="sidebar-value">2024 – Present</div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Status 狀態</div><div class="sidebar-value ongoing-text">Ongoing 進行中</div></div>
+    <div class="sidebar-block"><div class="sidebar-label">Theme 主題</div><div class="sidebar-value">Education &amp; Outreach<br/><span class="zh-small">教育推廣</span></div></div>
     <div class="sidebar-block">
-      <div class="sidebar-label">Study Sites 研究地點</div>
-      <div class="sidebar-value">Kenting National Park, Penghu<br/><span class="zh-small">墾丁國家公園、澎湖</span></div>
+      <div class="sidebar-label">Hosted For 舉辦對象</div>
+      <div class="sidebar-value">
+        NMMBA (Fan Coral Lab)<br/>
+        Delta Electronics Foundation<br/>
+        National Sun Yat-sen University<br/>
+        <span class="zh-small">海生館（Fan Coral Lab）、台達電子文教基金會、國立中山大學</span>
+      </div>
     </div>
     <div class="sidebar-block">
-      <div class="sidebar-label">Methods 研究方法</div>
+      <div class="sidebar-label">Tools 使用工具</div>
       <ul class="sidebar-list">
-        <li>Before-after-control-impact (BACI) 前後對照衝擊設計</li>
-        <li>Photo-transects 相片樣線</li>
-        <li>3D photogrammetry 三維攝影測量</li>
-        <li>Herbivore fish surveys 草食性魚類調查</li>
+        <li>Agisoft Metashape Professional</li>
+        <li>R + RStudio</li>
+        <li>QGIS</li>
+        <li>Sketchfab</li>
+        <li>MeshLab / CloudCompare</li>
       </ul>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Open Source 開源教材</div>
+      <div class="sidebar-value"><a href="https://github.com/keelungchen/sfm_workshop" target="_blank" style="color:#2a9d8f; font-weight:700;">GitHub Repository →</a></div>
     </div>
     <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
   </aside>
 
-  <!-- ✏️ 文字 | 主內容各段落：修改 <p> 與 <p class="zh-para"> 的文字 -->
   <main class="project-main">
+    <!-- Overview -->
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
-      <p>Typhoons are a recurrent natural disturbance in Taiwan's marine environment, but their ecological footprint varies widely across reef sites. This project tracked recovery trajectories at six reef sites following a series of typhoon impacts in 2019–2020, testing whether pre-disturbance herbivore biomass predicts the rate and trajectory of coral recovery.</p>
-      <p class="zh-para">颱風是台灣海洋環境中反覆發生的自然干擾，但其生態衝擊在各礁點差異懸殊。本計畫追蹤 2019–2020 年一系列颱風衝擊後，六個礁點的恢復軌跡，驗證干擾前的草食性生物量是否能預測珊瑚的恢復速率與軌跡。</p>
+      <p>Structure-from-Motion (SfM) photogrammetry is transforming how we document and analyse coral reef ecosystems, yet the technique remains inaccessible to many researchers and conservation practitioners in Taiwan. This workshop series aims to bridge that gap — providing hands-on training in underwater 3D survey techniques, 3D model generation, and quantitative analysis, so that more teams across Taiwan can adopt standardised, internationally comparable methods for reef monitoring and research.</p>
+      <p>By making Taiwan's coral reef survey methodology and data compatible with international standards, we contribute to the growing global effort of reef monitoring using 3D photogrammetry — as practised by institutions such as the Scripps Institution of Oceanography (100 Island Challenge), NOAA, and the University of Hawai'i.</p>
+      <p class="zh-para">運動恢復結構（SfM）攝影測量正在改變珊瑚礁生態系的記錄與分析方式，但這項技術在台灣對許多研究者與保育實務工作者而言仍有門檻。本工作坊系列旨在填補這個落差——提供水下 3D 調查技術、三維模型建構與定量分析的實作訓練，讓台灣更多團隊能夠採用標準化、與國際接軌的珊瑚礁監測與研究方法。</p>
+      <p class="zh-para">透過讓台灣珊瑚礁的調查方法與資料與國際標準接軌，我們也為全球日益成長的 3D 攝影測量珊瑚礁監測工作做出貢獻——與 Scripps 海洋學研究所（100 Island Challenge）、NOAA、夏威夷大學等機構的研究方法一致。</p>
+
+      <div class="host-list">
+        <div class="host-chip"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><path d="M9 21v-4h6v4"/></svg> NMMBA 海生館</div>
+        <div class="host-chip"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><path d="M9 21v-4h6v4"/></svg> Delta Foundation 台達電基金會</div>
+        <div class="host-chip"><svg viewBox="0 0 24 24"><path d="M3 21h18M5 21V7l8-4 8 4v14"/><path d="M9 21v-4h6v4"/></svg> NSYSU 中山大學</div>
+      </div>
+
+      <a href="https://github.com/keelungchen/sfm_workshop" target="_blank" class="github-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        Open Source Materials on GitHub · 開源教材
+      </a>
     </section>
 
+    <!-- Workshop Curriculum -->
     <section class="project-section fade-up">
-      <h2 class="section-h2"><span class="en">Key Findings</span><span class="zh">主要發現</span></h2>
-      <ul class="project-list">
-        <li>Sites with higher pre-disturbance herbivorous fish biomass showed significantly faster rates of coral recovery, particularly for branching <em>Acropora</em>.<br/><span class="zh-inline">干擾前草食性魚類生物量較高的礁點，珊瑚（尤其是枝狀鹿角珊瑚）的恢復速率顯著較快。</span></li>
-        <li>Structural complexity loss was the primary driver of fish assemblage changes post-typhoon, overriding direct effects of coral cover reduction.<br/><span class="zh-inline">颱風後結構複雜度的喪失是魚類群聚變化的主要驅動因素，其影響超過了珊瑚覆蓋率降低的直接效應。</span></li>
-        <li>Two of six sites showed no net recovery over three years, likely due to recurring storm disturbance combined with chronic anthropogenic stressors.<br/><span class="zh-inline">六個礁點中有兩個在三年內未呈現淨恢復，可能源於反覆風暴干擾與慢性人為壓力的疊加。</span></li>
-      </ul>
+      <h2 class="section-h2"><span class="en">Workshop Curriculum</span><span class="zh">工作坊課程內容</span></h2>
+      <p>The workshop is structured as a two-day intensive programme (3 hours per day), combining lectures with hands-on exercises. Participants bring their own laptops, cameras, and even a personal object to practise 3D scanning. All course materials — slides, scripts, sample data — are open-sourced on GitHub.</p>
+      <p class="zh-para">工作坊為期兩天密集課程（每天 3 小時），結合講座與實作練習。學員自備筆電、相機，甚至可攜帶個人物品進行 3D 掃描練習。所有課程教材——簡報、程式碼、範例資料——皆開源於 GitHub。</p>
+
+      <div class="workshop-grid">
+        <div class="workshop-day">
+          <h3>Day 1<span class="zh-label">第一天</span></h3>
+          <ul>
+            <li>Introduction to 3D survey &amp; SfM principles<br/><span style="font-size:0.78rem;color:#8a96a8;">3D 調查方法與 SfM 原理介紹</span></li>
+            <li>Colony-scale photography practice<br/><span style="font-size:0.78rem;color:#8a96a8;">群體尺度攝影實作</span></li>
+            <li>Habitat-scale photography practice<br/><span style="font-size:0.78rem;color:#8a96a8;">棲地尺度攝影實作</span></li>
+            <li>Metashape software operation (90 min)<br/><span style="font-size:0.78rem;color:#8a96a8;">Metashape 軟體操作（90 分鐘）</span></li>
+            <li>3D model export &amp; Sketchfab visualisation<br/><span style="font-size:0.78rem;color:#8a96a8;">3D 模型輸出與 Sketchfab 視覺化</span></li>
+          </ul>
+        </div>
+        <div class="workshop-day">
+          <h3>Day 2<span class="zh-label">第二天</span></h3>
+          <ul>
+            <li>Georeferencing, DEM &amp; Orthomosaic generation<br/><span style="font-size:0.78rem;color:#8a96a8;">地理參照、DEM 與正射影像生成</span></li>
+            <li>Real-world case studies &amp; analysis techniques<br/><span style="font-size:0.78rem;color:#8a96a8;">實際案例與分析技術</span></li>
+            <li>Colony-scale model refinement in Metashape<br/><span style="font-size:0.78rem;color:#8a96a8;">群體尺度模型精修</span></li>
+            <li>R-based 3D complexity analysis (habtools)<br/><span style="font-size:0.78rem;color:#8a96a8;">R 語言 3D 複雜度分析（habtools）</span></li>
+            <li>QGIS + R for habitat-scale spatial analysis<br/><span style="font-size:0.78rem;color:#8a96a8;">QGIS + R 棲地尺度空間分析</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="tool-tags" style="margin-top:20px;">
+        <span class="tool-tag">Agisoft Metashape</span>
+        <span class="tool-tag">R / RStudio</span>
+        <span class="tool-tag">QGIS</span>
+        <span class="tool-tag">Sketchfab</span>
+        <span class="tool-tag">habtools</span>
+        <span class="tool-tag">MeshLab</span>
+        <span class="tool-tag">CloudCompare</span>
+      </div>
     </section>
 
-    <!-- 🖼️ 圖片 ✏️ 文字 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
-    <div class="project-photo-pair fade-up">
-      <div class="photo-item">
-        <img src="images/project-typhoon_coral-recovery.jpg" alt="Post-typhoon reef" loading="lazy" />
-        <p class="photo-caption">Rubble field two months post-typhoon · 颱風後兩個月的碎礁區</p>
-      </div>
-      <div class="photo-item">
-        <img src="images/project-typhoon_juvenile-coral.jpg" alt="Recovering reef" loading="lazy" />
-        <p class="photo-caption">Juvenile coral recruitment at 18 months · 18 個月後的珊瑚幼苗補充</p>
-      </div>
+    <!-- Photo -->
+    <div class="project-photo-full fade-up">
+      <img src="images/project-typhoon_coral-recovery.jpg" alt="Workshop session" loading="lazy" />
+      <p class="photo-caption">Hands-on 3D modelling session during the workshop · 工作坊實作 3D 建模課程</p>
     </div>
 
+    <!-- Impact & Goals -->
     <section class="project-section fade-up">
-      <h2 class="section-h2"><span class="en">Related Publications</span><span class="zh">相關發表</span></h2>
-      <!-- ✏️ 文字 🔗 連結 | 相關發表：修改 pub-title、pub-meta 引用格式、pub-doi 的 href -->
-      <!-- ➕ 新增 | 複製下方 <div class="related-pub"> 區塊新增發表 -->
-      <div class="related-pub">
-        <div class="pub-title">Herbivore biomass mediates coral recovery following disturbance on Taiwanese reefs</div>
-        <div class="pub-meta"><strong>Chen, G.-Y.</strong>, Huang, S.-F., Wu, M.-H., &amp; Dai, C.-F. (2023). <em>Marine Ecology Progress Series</em>, 715, 57–73.</div>
-        <a href="#" class="pub-doi">DOI →</a>
-      </div>
-      <div class="related-pub">
-        <div class="pub-title">Structural complexity loss following typhoon disturbance reduces reef fish diversity on southern Taiwan reefs</div>
-        <div class="pub-meta">Lin, C.-H., <strong>Chen, G.-Y.</strong>, &amp; Wang, T.-Y. (2022). <em>Journal of Experimental Marine Biology and Ecology</em>, 552, 151749.</div>
-        <a href="#" class="pub-doi">DOI →</a>
-      </div>
+      <h2 class="section-h2"><span class="en">Impact &amp; Goals</span><span class="zh">影響與目標</span></h2>
+      <p>The workshop series has been delivered to researchers and students from the National Museum of Marine Biology and Aquarium (Fan Coral Lab), the Delta Electronics Foundation's coral monitoring team, and National Sun Yat-sen University's Macrae Marine Ecology Lab. By training multiple research groups in the same standardised workflow, we ensure data interoperability and build a growing community of practice around 3D reef survey in Taiwan.</p>
+      <p>Our broader goals are threefold: first, to lower the technical barrier so that more Taiwanese marine researchers can adopt SfM photogrammetry in their work; second, to align Taiwan's reef survey data with international standards (WGS 84 georeferencing, Agisoft Metashape workflows, open data formats) so that datasets can be directly compared with global coral monitoring programmes; and third, to promote open science by releasing all teaching materials, code, and sample data publicly on GitHub.</p>
+      <p class="zh-para">本工作坊系列已為國立海洋生物博物館（Fan Coral Lab）、台達電子文教基金會珊瑚監測團隊、以及國立中山大學 Macrae Marine Ecology Lab 的研究人員與學生提供培訓。透過讓多個研究團隊學習相同的標準化流程，我們確保資料的互通性，並在台灣建立日益壯大的 3D 珊瑚礁調查實踐社群。</p>
+      <p class="zh-para">我們的更廣泛目標有三：第一，降低技術門檻，讓更多台灣海洋研究者能在工作中採用 SfM 攝影測量；第二，讓台灣珊瑚礁調查資料與國際標準接軌（WGS 84 地理參照、Agisoft Metashape 工作流程、開放資料格式），使資料集能直接與全球珊瑚監測計畫進行比較；第三，推動開放科學，將所有教材、程式碼與範例資料公開發布於 GitHub。</p>
+    </section>
+
+    <!-- Open Source Materials -->
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Open Source Materials</span><span class="zh">開源教材</span></h2>
+      <p>All workshop materials are freely available on GitHub, including presentation slides, Metashape SOP documentation, R analysis scripts (using habtools, rgl, Rvcg, raster, sf, ggplot2), QGIS quick-start guides, and sample datasets. The repository is designed so that anyone — even those new to GitHub — can download the materials and work through the exercises independently.</p>
+      <p class="zh-para">所有工作坊教材皆免費公開於 GitHub，包括簡報投影片、Metashape SOP 文件、R 分析腳本（使用 habtools、rgl、Rvcg、raster、sf、ggplot2）、QGIS 快速入門指南，以及範例資料集。教材設計讓任何人——即使是 GitHub 新手——都能下載並獨立完成練習。</p>
+      <a href="https://github.com/keelungchen/sfm_workshop" target="_blank" class="github-btn">
+        <svg viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+        github.com/keelungchen/sfm_workshop
+      </a>
     </section>
   </main>
 </div>
@@ -121,7 +184,7 @@
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
 </script>
 
-<!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
+<!-- Image Fallback -->
 <script>
 (function imgFallbackBg() {
   function checkBg(localSrc, fallbackSrc, cssSelector) {
