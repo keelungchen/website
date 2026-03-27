@@ -147,6 +147,7 @@
     .theme-monitoring          { background: rgba(42,157,143,0.9);  color: #fff; }
     .theme-biodiversity        { background: rgba(100,140,180,0.9); color: #fff; }
     .theme-population-ecology  { background: rgba(126,87,194,0.9);  color: #fff; }
+    .theme-morphology          { background: rgba(214,120,40,0.9);  color: #fff; }
     .theme-outreach            { background: rgba(38,70,83,0.85);   color: #fff; }
 
     .project-body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
@@ -251,6 +252,9 @@
     <button class="filter-btn" onclick="filterProjects('population-ecology', this)">
       <span>Population Ecology</span><span class="zh">族群生態學</span>
     </button>
+    <button class="filter-btn" onclick="filterProjects('morphology', this)">
+      <span>Morphology</span><span class="zh">形態學</span>
+    </button>
     <button class="filter-btn" onclick="filterProjects('biodiversity', this)">
       <span>Biodiversity</span><span class="zh">生物多樣性</span>
     </button>
@@ -265,13 +269,12 @@
   <div class="projects-grid" id="projectsGrid">
 
     <!-- PROJECT — Reef Crevice & Juvenile Recruitment 2026–Present -->
-    <div class="project-card featured fade-up" data-tags="population-ecology monitoring biodiversity">
+    <div class="project-card featured fade-up" data-tags="population-ecology">
       <div class="project-img">
         <img src="images/project-crevice_survey.jpg" alt="Natural reef crevice survey" loading="lazy" />
         <div class="project-year-badge">2026 – Present</div>
         <div class="badge-stack">
           <div class="project-theme-badge theme-population-ecology">Population Ecology</div>
-          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
         </div>
       </div>
       <div class="project-body">
@@ -296,13 +299,13 @@
 
     <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 1（最新，全寬 featured）：修改 img src、標題、摘要、href -->
     <!-- PROJECT 1 — 2022–Present -->
-    <div class="project-card featured fade-up" data-tags="population-ecology monitoring">
+    <div class="project-card featured fade-up" data-tags="population-ecology morphology">
       <div class="project-img">
         <img src="images/project-demography_colony-morphology.jpg" alt="Coral colony morphology" loading="lazy" />
         <div class="project-year-badge">2022 – Present</div>
         <div class="badge-stack">
           <div class="project-theme-badge theme-population-ecology">Population Ecology</div>
-          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
+          <div class="project-theme-badge theme-morphology">Morphology</div>
         </div>
       </div>
       <div class="project-body">
