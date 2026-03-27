@@ -128,6 +128,11 @@ const PHOTO_DB = {
   },
 
   // ── 額外 Lightbox 照片 ──
+  'project-octocoral_newrecord2_sclerite.jpg': {
+    caption:      'Aldersladum jengi Sclerites · 鄭氏艾達軟珊瑚骨針',
+    desc:         'Distinctive figure-8 shaped sclerites of Aldersladum jengi · 鄭氏艾達軟珊瑚的特殊八字形骨針顯微攝影。',
+    photographer: 'Guan-Yan Chen',
+  },
   'gallery_08_kenting-3d-survey.jpg': {
     caption:      'Kenting 3D Reef Survey · 墾丁 3D 珊瑚礁調查',
     desc:         'Fully geared up for an underwater 3D photogrammetric survey at Kenting with Tony Ye (宗旻). Every dive a data point.',
@@ -241,6 +246,7 @@ const LIGHTBOX_PHOTOS = [
   { file: 'project-octocoral_field.jpg' },
   { file: 'hero_research-page-survey.jpg' },
   // ── 額外照片（只在 lightbox 出現，格子不顯示）── ✏️ 在這裡新增
+  { file: 'project-octocoral_newrecord2_sclerite.jpg' },
   { file: 'gallery_08_kenting-3d-survey.jpg' },
   { file: 'gallery_09_chaojing-surge.jpg' },
   { file: 'gallery_10_urchin-spawning.jpg' },
