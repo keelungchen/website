@@ -95,7 +95,7 @@
         <li>SfM photogrammetry 運動恢復結構攝影測量</li>
         <li>Agisoft Metashape 3D modelling 三維建模</li>
         <li>GIS-based population dynamics GIS 族群動態分析</li>
-        <li>WGS 84 georeferencing 地理坐標系校正</li>
+        <li>Georeferencing SOP (WGS 84 / UTM / TWD97) 地理坐標系 SOP 建立</li>
         <li>Orthomosaic &amp; DEM analysis 正射影像與數值高程分析</li>
       </ul>
     </div>
@@ -152,19 +152,19 @@
       <h2 class="section-h2"><span class="en">SOP Development</span><span class="zh">標準作業流程開發</span></h2>
       <p>We developed a comprehensive Standard Operating Procedure (SOP) for image-based underwater 3D coral reef surveys, synthesising protocols from the Scripps Institution of Oceanography (Kodera et al. 2020), NOAA (Suka et al. 2019), and University of Hawai'i (Fukunaga et al. 2019; Miller et al. 2021), integrated with our own field experience in Taiwan. The workflow is divided into three major phases: <strong>underwater survey</strong>, <strong>3D modelling</strong>, and <strong>data analysis</strong>.</p>
       <p>In the field, divers capture densely overlapping photographs following a boustrophedon (lawnmower) pattern over a 5 × 5 m plot, with ≥80% forward overlap and ≥60% lateral overlap. Ground Control Points (GCPs) are deployed for georeferencing, with compass orientation verified to ensure north alignment. We use Olympus TG-6 cameras (dual-camera rig for efficiency) or Nikon D7500 DSLRs, configured to avoid wide-angle distortion and flash shadows.</p>
-      <p>For 3D reconstruction, we use Agisoft Metashape Professional with standardised parameter settings. A key methodological improvement I introduced is the <strong>coordinate system conversion workflow</strong> — transforming models from local coordinates to the WGS 84 (EPSG:4326) geographic coordinate system. This involves measuring at least three marker positions with known longitude, latitude, and depth, using ArcGIS Pro for triangulation and coordinate transformation. The WGS 84 standard eliminates georeferencing errors and removes the need for auxiliary coordinate transformation files when sharing data across teams.</p>
+      <p>For 3D reconstruction, we use Agisoft Metashape Professional with standardised parameter settings. A key contribution I made was <strong>building a georeferencing workflow from the ground up</strong> — developing the team’s first standardised protocol for transforming 3D models from local coordinates into internationally recognised geographic coordinate systems. The SOP supports multiple coordinate systems — including WGS…84 (EPSG:4326), UTM, and TWD97 — selected according to application needs and data-sharing requirements. The workflow involves deploying Ground Control Points (GCPs) with precisely measured positions, then using ArcGIS Pro for triangulation and coordinate transformation. This standardisation eliminates projection errors, ensures cross-site and cross-team data interoperability, and enables accurate spatial comparison between repeat surveys. The georeferencing protocol has since been <strong>continuously updated</strong> as new survey sites and methodological needs have emerged.</p>
       <p class="zh-para">我們建立了完整的基於影像水下 3D 珊瑚礁調查標準作業流程，綜合參考 Scripps 海洋學研究所（Kodera et al. 2020）、NOAA（Suka et al. 2019）及夏威夷大學（Fukunaga et al. 2019; Miller et al. 2021）的方法，結合本團隊在台灣的實際調查經驗。流程分為三大階段：<strong>水下調查</strong>、<strong>三維建模</strong>、<strong>資料分析</strong>。</p>
       <p class="zh-para">水下調查時，潛水員以牛耕式路徑在 5×5 公尺樣區內密集拍攝，照片前後重疊度 ≥80%、左右 ≥60%。現場佈設地面控制點（GCP）進行地理參照，並確認指北針方位。使用 Olympus TG-6（雙機並聯框架）或 Nikon D7500 單眼相機，避免廣角畸變與閃光燈陰影。</p>
-      <p class="zh-para">三維建模使用 Agisoft Metashape Professional，搭配標準化參數設定。我引入的關鍵改進是<strong>坐標系轉換流程</strong>——將模型從在地坐標系轉換為 WGS 84（EPSG:4326）地理坐標系。此流程需取得至少三個標記點的經緯度與深度資訊，利用 ArcGIS Pro 進行三角測量與坐標轉換。統一使用 WGS 84 標準可消除地理參照投影錯誤，也無需在團隊間分享資料時附帶坐標轉換檔案。</p>
+      <p class="zh-para">三維建模使用 Agisoft Metashape Professional，搭配標準化參數設定。我的重要貢獻之一是<strong>從零到有建立了符合國際標準的地理坐標系參照流程</strong>——開發團隊首套地理參照 SOP，支援 WGS…84（EPSG:4326）、UTM 及 TWD97 等多種坐標系統，依應用場景與資料共享需求彈性選用。流程透過現場佈設地面控制點（GCP）並精確量測其坐標，再以 ArcGIS Pro 進行三角測量與坐標轉換。標準化地理參照有效消除投影誤差，確保跨站點與跨團隊的資料互通性，並支援重複調查間的精確空間比對。此地理參照 SOP 持續隨新調查點位與方法需求<strong>迭代更新</strong>。</p>
     </section>
 
     <!-- GIS-based Analysis -->
     <section class="project-section fade-up">
       <h2 class="section-h2"><span class="en">GIS-based Reef Analysis</span><span class="zh">基於 GIS 的珊瑚礁分析</span></h2>
       <p>Beyond 3D reconstruction, we developed a GIS-integrated analytical pipeline for coral reef population dynamics. Orthomosaics and Digital Elevation Models (DEMs) exported from Agisoft Metashape are imported into ArcGIS Pro for spatial analysis, including coral cover mapping, colony-level demographic tracking, and structural complexity quantification across repeat surveys.</p>
-      <p>By georeferencing all survey plots in WGS 84, we enable direct spatial comparison between time points — detecting colony growth, partial mortality, recruitment, and subtle structural changes caused by human activities such as anchor damage and recreational diving (Chen &amp; Dai 2021). Demographic analyses integrating colony size and morphology draw on findings from Chen et al. (2025, <em>The American Naturalist</em>), which demonstrated that coral shape contributes independently to survival and growth rates beyond what size alone can explain, enabling more accurate population trajectory forecasts under future disturbance scenarios.</p>
+      <p>By georeferencing all survey plots using our standardised coordinate system protocol (WGS…84, UTM, or TWD97 as appropriate), we enable direct spatial comparison between time points — detecting colony growth, partial mortality, recruitment, and subtle structural changes caused by human activities such as anchor damage and recreational diving (Chen &amp; Dai 2021). Demographic analyses integrating colony size and morphology draw on findings from Chen et al. (2025, <em>The American Naturalist</em>), which demonstrated that coral shape contributes independently to survival and growth rates beyond what size alone can explain, enabling more accurate population trajectory forecasts under future disturbance scenarios.</p>
       <p class="zh-para">除了三維重建，我們還開發了整合 GIS 的珊瑚礁族群動態分析流程。從 Agisoft Metashape 輸出的正射影像（Orthomosaic）與數值高程模型（DEM）匯入 ArcGIS Pro 進行空間分析，包括珊瑚覆蓋率製圖、群體層級族群動態追蹤、以及跨時序重複調查的結構複雜度量化。</p>
-      <p class="zh-para">透過將所有調查樣區統一以 WGS 84 進行地理參照，我們可直接比較不同時間點的空間資料——偵測群體生長、部分死亡、新加入，以及人為活動（如拋錨損傷與休憩潛水）造成的微細結構變化（Chen &amp; Dai 2021）。結合群體大小與形態的族群動態分析，參照 Chen et al.（2025，<em>The American Naturalist</em>）的發現：珊瑚形態對存活率與生長率的貢獻獨立於體型大小，使未來干擾情境下的族群動態預測更為精確。</p>
+      <p class="zh-para">透過我們建立的標準化坐標系參照流程（依場景選用 WGS…84、UTM 或 TWD97），我們可直接比較不同時間點的空間資料——偵測群體生長、部分死亡、新加入，以及人為活動（如拋錨損傷與休憩潛水）造成的微細結構變化（Chen &amp; Dai 2021）。結合群體大小與形態的族群動態分析，參照 Chen et al.（2025，<em>The American Naturalist</em>）的發現：珊瑚形態對存活率與生長率的貢獻獨立於體型大小，使未來干擾情境下的族群動態預測更為精確。</p>
     </section>
 
     <!-- Project Scope -->
@@ -195,6 +195,11 @@
         <div class="pub-title">Using 3D photogrammetry to quantify the subtle differences of coral reefs under the impacts of marine activities</div>
         <div class="pub-meta"><strong>Chen, G.K.</strong>, &amp; Dai, C.F. (2021). <em>Marine Pollution Bulletin</em>, 173, 113032.</div>
         <a href="https://doi.org/10.1016/j.marpolbul.2021.113032" target="_blank" class="pub-doi">DOI →</a>
+      </div>
+      <div class="related-pub">
+        <div class="pub-title">Groundtruthing Assessments of Lab-based Coral Thermal Tolerance with Large-area Imaging</div>
+        <div class="pub-meta">McRae, C.J., Hanna Holloway, N., <strong>Chen, G.K.</strong>, Connelly, M.T., Chen, H.-K., Ye, Z.-M., Chancellor, K.S., Chang, Y.-C., Jiang, M.-Q., Lam, K.W., Qiu, Y.-T., Fan, T.-Y., &amp; Sandin, S.A. (2025). <em>Coral Reefs</em>, 44, 31–47.</div>
+        <a href="https://doi.org/10.1007/s00338-024-02582-w" target="_blank" class="pub-doi">DOI →</a>
       </div>
       <div class="related-pub">
         <div class="pub-title">基於影像的水下 3D 珊瑚礁調查方法——標準作業流程 V1.0</div>
