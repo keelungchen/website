@@ -135,16 +135,19 @@
       color: #fff; font-size: 0.68rem; font-weight: 700;
       letter-spacing: 0.12em; padding: 4px 12px; border-radius: 20px;
     }
-    .project-theme-badge {
+    .badge-stack {
       position: absolute; top: 14px; right: 14px;
+      display: flex; flex-direction: column; align-items: flex-end; gap: 5px;
+    }
+    .project-theme-badge {
       font-size: 0.63rem; font-weight: 700; letter-spacing: 0.1em;
       padding: 4px 10px; border-radius: 20px;
       text-transform: uppercase;
     }
-    .theme-climate   { background: rgba(231,111,81,0.9);  color: #fff; }
-    .theme-monitoring { background: rgba(42,157,143,0.9); color: #fff; }
-    .theme-recovery  { background: rgba(38,70,83,0.85);   color: #fff; }
-    .theme-biodiversity { background: rgba(100,140,180,0.9); color: #fff; }
+    .theme-monitoring          { background: rgba(42,157,143,0.9);  color: #fff; }
+    .theme-biodiversity        { background: rgba(100,140,180,0.9); color: #fff; }
+    .theme-population-ecology  { background: rgba(126,87,194,0.9);  color: #fff; }
+    .theme-outreach            { background: rgba(38,70,83,0.85);   color: #fff; }
 
     .project-body { padding: 24px 26px 28px; display: flex; flex-direction: column; flex: 1; }
     .project-meta { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
@@ -242,17 +245,17 @@
     <button class="filter-btn active" onclick="filterProjects('all', this)">
       <span>All Projects</span><span class="zh">全部計畫</span>
     </button>
-    <button class="filter-btn" onclick="filterProjects('climate', this)">
-      <span>Climate &amp; Bleaching</span><span class="zh">氣候與白化</span>
-    </button>
     <button class="filter-btn" onclick="filterProjects('monitoring', this)">
-      <span>Long-term Monitoring</span><span class="zh">長期監測</span>
+      <span>3D Monitoring</span><span class="zh">3D 監測</span>
     </button>
-    <button class="filter-btn" onclick="filterProjects('recovery', this)">
-      <span>Disturbance &amp; Recovery</span><span class="zh">干擾與恢復</span>
+    <button class="filter-btn" onclick="filterProjects('population-ecology', this)">
+      <span>Population Ecology</span><span class="zh">族群生態學</span>
     </button>
     <button class="filter-btn" onclick="filterProjects('biodiversity', this)">
       <span>Biodiversity</span><span class="zh">生物多樣性</span>
+    </button>
+    <button class="filter-btn" onclick="filterProjects('outreach', this)">
+      <span>Education &amp; Outreach</span><span class="zh">教育推廣</span>
     </button>
   </div>
 
@@ -261,13 +264,46 @@
   <!-- Projects grid -->
   <div class="projects-grid" id="projectsGrid">
 
+    <!-- PROJECT — Reef Crevice & Juvenile Recruitment 2026–Present -->
+    <div class="project-card featured fade-up" data-tags="population-ecology monitoring biodiversity">
+      <div class="project-img">
+        <img src="images/project-crevice_survey.jpg" alt="Natural reef crevice survey" loading="lazy" />
+        <div class="project-year-badge">2026 – Present</div>
+        <div class="badge-stack">
+          <div class="project-theme-badge theme-population-ecology">Population Ecology</div>
+          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
+        </div>
+      </div>
+      <div class="project-body">
+        <div class="project-meta">
+          <span class="project-status status-ongoing">Ongoing · 進行中</span>
+        </div>
+        <div class="project-title-en">Natural Reef Crevice Geometry as a Driver of Juvenile Invertebrate Recruitment</div>
+        <div class="project-title-zh">自然礁體縫隙幾何特徵對無脊椎動物幼生補充的影響</div>
+        <div class="project-excerpt">
+          Applying SfM photogrammetry and GIS analysis to quantify crevice geometry on natural reefs — width, depth, rugosity, fractal dimension — and linking these structural metrics to juvenile invertebrate density and post-settlement survival. Bridging the gap between artificial-substrate experiments and natural reef recruitment dynamics.
+          <span class="zh">利用 SfM 攝影測量與 GIS 分析量化自然礁體縫隙幾何特徵（寬度、深度、粗糙度、碎形維度），並連結至幼生密度與定著後存活率。填補人工基質實驗與自然礁體幼生補充動態之間的知識缺口。</span>
+        </div>
+        <div class="project-footer">
+          <span class="project-year-text">2026 – Present</span>
+          <a href="project-crevice.html" class="project-link">
+            View Project 查看計畫
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+
     <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 1（最新，全寬 featured）：修改 img src、標題、摘要、href -->
     <!-- PROJECT 1 — 2022–Present -->
-    <div class="project-card featured fade-up" data-theme="biodiversity">
+    <div class="project-card featured fade-up" data-tags="population-ecology monitoring">
       <div class="project-img">
         <img src="images/project-demography_colony-morphology.jpg" alt="Coral colony morphology" loading="lazy" />
         <div class="project-year-badge">2022 – Present</div>
-        <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
+        <div class="badge-stack">
+          <div class="project-theme-badge theme-population-ecology">Population Ecology</div>
+          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-meta">
@@ -291,11 +327,14 @@
 
     <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 2：修改 img src、標題、摘要、href -->
     <!-- PROJECT 2 — 2022–Present -->
-    <div class="project-card fade-up" data-theme="monitoring">
+    <div class="project-card fade-up" data-tags="monitoring biodiversity">
       <div class="project-img">
         <img src="images/project-monitoring_reef-survey.jpg" alt="Reef monitoring" loading="lazy" />
         <div class="project-year-badge">2022 – Present</div>
-        <div class="project-theme-badge theme-monitoring">3D Photogrammetry</div>
+        <div class="badge-stack">
+          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
+          <div class="project-theme-badge theme-biodiversity">Biodiversity</div>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-meta">
@@ -318,11 +357,13 @@
     </div>
 
     <!-- PROJECT — Octocoral Field Guide 2020–2022 -->
-    <div class="project-card fade-up" data-theme="biodiversity">
+    <div class="project-card fade-up" data-tags="biodiversity">
       <div class="project-img">
         <img src="images/project-octocoral_field.jpg" alt="Octocoral field guide" loading="lazy" />
         <div class="project-year-badge">2020 – 2022</div>
-        <div class="project-theme-badge theme-biodiversity">Biodiversity &amp; Taxonomy</div>
+        <div class="badge-stack">
+          <div class="project-theme-badge theme-biodiversity">Biodiversity &amp; Taxonomy</div>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-meta">
@@ -346,11 +387,14 @@
 
     <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 3：修改 img src、標題、摘要、href -->
     <!-- PROJECT 3 — SfM Workshop 2024–Present -->
-    <div class="project-card fade-up" data-theme="recovery">
+    <div class="project-card fade-up" data-tags="outreach monitoring">
       <div class="project-img">
         <img src="images/project-sfmworkshop_delta-volunteers.jpg" alt="SfM 3D Survey Workshop" loading="lazy" />
         <div class="project-year-badge">2024 – Present</div>
-        <div class="project-theme-badge theme-recovery">Education &amp; Outreach</div>
+        <div class="badge-stack">
+          <div class="project-theme-badge theme-outreach">Education &amp; Outreach</div>
+          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-meta">
@@ -374,11 +418,13 @@
 
     <!-- 🖼️ 圖片 ✏️ 文字 🔗 連結 | 計畫 4：修改 img src、標題、摘要、href -->
     <!-- PROJECT 4 — 2019 -->
-    <div class="project-card fade-up" data-theme="monitoring">
+    <div class="project-card fade-up" data-tags="monitoring">
       <div class="project-img">
         <img src="images/project-coral3d_chaojing-reef.jpg" alt="Coral reef 3D structure" loading="lazy" />
         <div class="project-year-badge">2019</div>
-        <div class="project-theme-badge theme-monitoring">Monitoring</div>
+        <div class="badge-stack">
+          <div class="project-theme-badge theme-monitoring">3D Monitoring</div>
+        </div>
       </div>
       <div class="project-body">
         <div class="project-meta">
@@ -424,9 +470,9 @@
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     document.querySelectorAll('.project-card').forEach(card => {
-      const match = theme === 'all' || card.dataset.theme === theme;
+      const tags = (card.dataset.tags || '').split(' ');
+      const match = theme === 'all' || tags.includes(theme);
       card.style.display = match ? '' : 'none';
-      // Featured card: restore grid-column when visible
       if (card.classList.contains('featured')) {
         card.style.gridColumn = match ? '1 / -1' : '';
       }

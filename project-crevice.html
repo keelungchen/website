@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reef Crevice &amp; Juvenile Recruitment — Guan-Yan Chen 陳冠言</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&family=Noto+Serif+TC:wght@400;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="project-style.css" />
+</head>
+<body>
+<nav id="navbar">
+  <div class="nav-left">
+    <a href="index.html#about" class="nav-link"><span>About</span><span class="zh">關於</span></a>
+    <a href="research.html" class="nav-link active"><span>Research</span><span class="zh">研究</span></a>
+    <a href="index.html#publications" class="nav-link"><span>Publications</span><span class="zh">發表</span></a>
+  </div>
+  <a href="index.html" class="nav-brand"><span class="en">GUAN-YAN CHEN</span><span class="zh">陳冠言</span></a>
+  <div class="nav-right">
+    <a href="journal.html" class="nav-link"><span>Journal</span><span class="zh">日誌</span></a>
+    <a href="index.html#photos" class="nav-link"><span>Photos</span><span class="zh">照片</span></a>
+    <a href="index.html#contact" class="nav-link"><span>Contact</span><span class="zh">聯絡</span></a>
+  </div>
+  <button class="nav-toggle" onclick="document.querySelector('.nav-toggle').classList.toggle('open');document.querySelector('.nav-mobile-menu').classList.toggle('open');" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<div class="nav-mobile-menu">
+  <a href="index.html#about"><span>About</span><span class="zh">關於</span></a>
+  <a href="research.html"><span>Research</span><span class="zh">研究</span></a>
+  <a href="index.html#publications"><span>Publications</span><span class="zh">發表</span></a>
+  <a href="journal.html"><span>Journal</span><span class="zh">日誌</span></a>
+  <a href="index.html#photos"><span>Photos</span><span class="zh">照片</span></a>
+  <a href="index.html#contact"><span>Contact</span><span class="zh">聯絡</span></a>
+</div>
+
+<!-- 🖼️ 圖片 | Hero 背景圖：修改 url('...') 內的圖片路徑 -->
+<div class="project-hero" style="background-image: url('images/project-crevice_hero.jpg');">
+  <div class="project-hero-overlay"></div>
+  <div class="project-hero-content">
+    <div class="breadcrumb"><a href="index.html">Home</a> &nbsp;/&nbsp; <a href="research.html">Research</a> &nbsp;/&nbsp; Reef Crevice &amp; Recruitment</div>
+    <div class="project-theme-badge theme-population-ecology">Population Ecology</div>
+    <h1 class="project-hero-title">Natural Reef Crevice Geometry as a Driver of Juvenile Invertebrate Recruitment</h1>
+    <p class="project-hero-title-zh">自然礁體縫隙幾何特徵對無脊椎動物幼生補充的影響</p>
+    <div class="project-hero-meta">
+      <span class="status-badge ongoing">Ongoing · 進行中</span>
+      <span class="year-badge">2026 – Present</span>
+    </div>
+  </div>
+</div>
+
+<div class="project-body">
+  <aside class="project-sidebar">
+    <div class="sidebar-block">
+      <div class="sidebar-label">Duration 期間</div>
+      <div class="sidebar-value">2026 – Present</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Status 狀態</div>
+      <div class="sidebar-value ongoing-text">Ongoing 進行中</div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Theme 主題</div>
+      <div class="sidebar-value">Reef Microhabitat &amp; Recruitment Ecology<br/><span class="zh-small">礁體微棲地與幼生補充生態學</span></div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Study Sites 研究地點</div>
+      <div class="sidebar-value">Coral reefs of Taiwan<br/><span class="zh-small">台灣珊瑚礁礁體</span></div>
+    </div>
+    <div class="sidebar-block">
+      <div class="sidebar-label">Methods 研究方法</div>
+      <ul class="sidebar-list">
+        <li>SfM photogrammetry 運動恢復結構攝影測量</li>
+        <li>GIS crevice geometry analysis GIS 縫隙幾何分析</li>
+        <li>Rugosity &amp; fractal dimension 粗糙度與碎形維度</li>
+        <li>Juvenile invertebrate density surveys 幼生密度調查</li>
+        <li>Post-settlement survival tracking 定著後存活追蹤</li>
+      </ul>
+    </div>
+    <a href="research.html" class="back-btn">← All Projects 所有計畫</a>
+  </aside>
+
+  <main class="project-main">
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Overview</span><span class="zh">計畫概述</span></h2>
+      <p>Reef crevices — the cracks, overhangs, and void spaces woven throughout the three-dimensional architecture of coral reefs — are consistently identified as preferential settlement and survival hotspots for invertebrate juveniles. Their rugose surfaces and cryptic interiors offer physical refuge from predation, reduced hydrodynamic stress, and concentrated crustose coralline algae (CCA), a potent chemical settlement cue for coral and invertebrate larvae. Yet the vast majority of experimental evidence linking crevice geometry to juvenile recruitment has come from artificial substrates: settlement plates, grooved tiles, and 3D-printed structural modules deployed in controlled or mesocosm settings. Whether the same geometric principles that drive recruitment on engineered surfaces also govern juvenile distribution across the architecturally complex surface of a natural reef has rarely been tested in the field.</p>
+      <p class="zh-para">縫隙——散布於珊瑚礁三維架構中的裂縫、懸垂面與空隙——一直被認為是無脊椎動物幼生定著與存活的優先熱點微棲地。其粗糙表面與隱密內部能提供免於捕食的物理庇護、降低水動力壓力，並富集珊瑚及無脊椎動物幼生的重要化學定著誘引物——殼狀珊瑚藻（CCA）。然而，目前將縫隙幾何特徵與幼生補充連結的實驗證據，絕大多數來自人工基質：附著板、溝槽磁磚，以及在受控或中型生態系統環境中部署的 3D 列印結構模組。縫隙幾何原則是否同樣主導自然礁體複雜表面上幼生的分布格局，目前在野外幾乎尚未經過驗證。</p>
+      <p>This project bridges that gap by deploying high-resolution SfM photogrammetry and GIS spatial analysis to quantify the crevice geometry of natural reef surfaces — capturing metrics such as crevice width, depth, aspect ratio, rugosity index, and fractal dimension — and linking these structural variables to in situ juvenile invertebrate density and post-settlement survival measured through repeated field surveys.</p>
+      <p class="zh-para">本計畫藉由高解析度 SfM 攝影測量與 GIS 空間分析，量化自然礁體表面的縫隙幾何特徵——包括縫隙寬度、深度、長寬比、粗糙度指數與碎形維度——並透過重複野外調查，將這些結構變量與現地幼生密度及定著後存活率加以連結，以填補此知識缺口。</p>
+    </section>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Background &amp; Motivation</span><span class="zh">研究背景與動機</span></h2>
+      <p>The recruitment bottleneck — the period immediately following larval settlement, during which mortality is highest — represents one of the most critical and poorly understood phases of coral reef population dynamics. Post-settlement survival is mediated by a constellation of biotic and abiotic factors, but microhabitat geometry has emerged as a particularly powerful determinant. Laboratory and mesocosm experiments have demonstrated that even millimetre-scale crevices can elevate coral spat survivorship dramatically: juveniles on plain flat surfaces frequently suffer 100% mortality within months, while those sheltered in micro-crevices can persist for over a year. Engineering-inspired studies have pushed this further, demonstrating that specifically designed helical recesses on cylindrical restoration modules can achieve juvenile settlement densities 50 to 300 times higher than those recorded on adjacent natural reef surfaces.</p>
+      <p class="zh-para">幼生補充瓶頸期——幼蟲定著後死亡率最高的時期——是珊瑚礁族群動態中最關鍵且最難以理解的階段之一。定著後存活率受一系列生物與非生物因子共同調控，其中微棲地幾何特徵已成為特別關鍵的決定因子。實驗室與中型生態系統試驗已證明，即使是毫米尺度的縫隙也能大幅提升珊瑚幼體的存活率：在平坦表面上的幼體往往在數月內全數死亡，而受縫隙庇護者可存活超過一年。工程導向的研究更進一步表明，在圓柱形復育模組上設計螺旋狀凹槽，可使幼生定著密度達到鄰近自然礁體表面的 50 至 300 倍。</p>
+      <p>However, this body of work leaves a fundamental question unanswered: do natural reef crevices — with all their geometric irregularity, biological fouling, and microhabitat diversity — generate the same recruitment-enhancing effect, and if so, which geometric properties drive it? Addressing this question has direct implications not only for understanding reef demography, but also for translating engineering insights from artificial reef design back into a predictive framework for natural reef recovery and restoration target-setting.</p>
+      <p class="zh-para">然而，這些研究留下了一個根本性的問題尚待解答：自然礁體縫隙——具有各種幾何不規則性、生物附著與微棲地多樣性——是否也能產生相同的補充促進效應？若能，又是哪些幾何特性在驅動此效應？解答這個問題不僅對理解礁體族群動態具有直接意義，也有助於將人工礁體設計的工程洞見轉化回自然礁體恢復的預測框架，並為復育目標的設定提供科學依據。</p>
+    </section>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Research Questions</span><span class="zh">研究問題</span></h2>
+      <ul class="project-list">
+        <li>How does natural reef crevice geometry — width, depth, aspect ratio, rugosity, and fractal dimension — vary across reef zones and depth gradients?<br/><span class="zh-inline">自然礁體縫隙的幾何特徵（寬度、深度、長寬比、粗糙度、碎形維度）在不同礁區與深度梯度間如何變化？</span></li>
+        <li>Which crevice geometric metrics are most strongly associated with juvenile invertebrate density and post-settlement survival across natural reef habitats?<br/><span class="zh-inline">在自然礁體棲地中，哪些縫隙幾何指標與無脊椎動物幼生密度及定著後存活率的關聯性最強？</span></li>
+        <li>Does the density–survival relationship in natural reef crevices exhibit the density-dependent dynamics documented on artificial substrates and deployment devices?<br/><span class="zh-inline">自然礁體縫隙中的密度—存活關係是否呈現人工基質與復育裝置上所記錄的密度依賴動態？</span></li>
+        <li>Can 3D-derived crevice geometry metrics predict juvenile recruitment hotspots at the reef scale, enabling spatially targeted reef management?<br/><span class="zh-inline">以 3D 重建所得的縫隙幾何指標，能否在礁體尺度上預測幼生補充熱點，從而支持空間精準的礁體管理？</span></li>
+      </ul>
+    </section>
+
+    <!-- 🖼️ 圖片 | 計畫照片（並排兩張）：修改 src 換圖、photo-caption 改說明文字 -->
+    <div class="project-photo-pair fade-up">
+      <div class="photo-item">
+        <img src="images/project-crevice_survey.jpg" alt="3D reef crevice survey" loading="lazy" />
+        <p class="photo-caption">High-resolution 3D crevice mapping · 高解析度 3D 縫隙測繪</p>
+      </div>
+      <div class="photo-item">
+        <img src="images/project-crevice_juvenile.jpg" alt="Juvenile invertebrates in reef crevice" loading="lazy" />
+        <p class="photo-caption">Juvenile invertebrates inside a natural reef crevice · 自然礁體縫隙中的幼生無脊椎動物</p>
+      </div>
+    </div>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Approach</span><span class="zh">研究方法</span></h2>
+      <p>Natural reef surfaces are reconstructed at centimetre resolution using Structure-from-Motion (SfM) photogrammetry, generating dense 3D point clouds and digital elevation models (DEMs) that capture the full topographic complexity of the reef. From these models, crevice geometry is extracted and quantified using GIS-based spatial analysis: rugosity indices, fractal dimension, surface curvature, vector ruggedness measures, and crevice-specific dimensional metrics (width, depth, and aspect ratio) are computed across spatial scales ranging from millimetres to metres.</p>
+      <p class="zh-para">自然礁體表面透過運動恢復結構（SfM）攝影測量，以公分級解析度進行三維重建，生成高密度點雲與數值高程模型（DEM），完整捕捉礁體的地形複雜性。再由這些模型出發，運用基於 GIS 的空間分析提取並量化縫隙幾何特徵：在毫米至米的多尺度空間中，計算粗糙度指數、碎形維度、表面曲率、向量粗糙度指標，以及縫隙專屬的尺寸指標（寬度、深度與長寬比）。</p>
+      <p>These structural metrics are paired with repeated in situ field surveys of juvenile invertebrate density and survivorship conducted at matching spatial scales, enabling multivariate modelling of the relationship between crevice geometry and recruitment outcomes. The approach builds on multi-scale frameworks established in reef morphology research, extending them to the previously uncharacterised crevice microhabitat.</p>
+      <p class="zh-para">這些結構指標將與在相同空間尺度下重複進行的現地幼生密度及存活率調查數據配對，從而對縫隙幾何特徵與補充結果之間的關係進行多變量建模。本計畫的方法奠基於礁體形態研究中已建立的多尺度框架，並將其延伸至先前尚未被系統性描述的縫隙微棲地。</p>
+    </section>
+
+    <section class="project-section fade-up">
+      <h2 class="section-h2"><span class="en">Related Publications</span><span class="zh">相關文獻</span></h2>
+      <div class="related-pub">
+        <div class="pub-title">Cylindrical, pylon-like structures with helix recesses enhance coral larval recruitment</div>
+        <div class="pub-meta">Reichert, J., Jorissen, H., Rottmueller, M.E., Nims, A.D., &amp; Madin, J.S. (2026). <em>Ecological Engineering</em>, 226, 107912.</div>
+        <a href="https://doi.org/10.1016/j.ecoleng.2026.107912" target="_blank" class="pub-doi">DOI →</a>
+      </div>
+      <div class="related-pub">
+        <div class="pub-title">The effect of reef morphology on coral recruitment at multiple spatial scales</div>
+        <div class="pub-meta">Carlson, R.R., et al. (2024). <em>Proceedings of the National Academy of Sciences</em>, 121(4).</div>
+        <a href="https://doi.org/10.1073/pnas.2311661121" target="_blank" class="pub-doi">DOI →</a>
+      </div>
+      <div class="related-pub">
+        <div class="pub-title">Micro-crevice structure enhances coral spat survivorship</div>
+        <div class="pub-meta">Nozawa, Y. (2008). <em>Journal of Experimental Marine Biology and Ecology</em>, 367(2), 127–130.</div>
+        <a href="https://doi.org/10.1016/j.jembe.2008.09.004" target="_blank" class="pub-doi">DOI →</a>
+      </div>
+      <div class="related-pub">
+        <div class="pub-title">Enhancing coral survival on deployment devices with microrefugia</div>
+        <div class="pub-meta">Randall, C.J., et al. (2021). <em>Frontiers in Marine Science</em>.</div>
+        <a href="https://doi.org/10.3389/fmars.2021.662263" target="_blank" class="pub-doi">DOI →</a>
+      </div>
+    </section>
+  </main>
+</div>
+
+<footer>
+  <span><a href="research.html">← Back to Research 回到研究計畫</a></span>
+  <span>·</span>
+  <span>© 2025 Guan-Yan Chen 陳冠言</span>
+</footer>
+<script>
+  window.addEventListener('scroll', () => { document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50); });
+  const obs = new IntersectionObserver((entries) => { entries.forEach((e,i) => { if(e.isIntersecting){ setTimeout(()=>e.target.classList.add('visible'), i*100); obs.unobserve(e.target); } }); }, {threshold:0.1});
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+</script>
+
+<!-- Image Fallback -->
+<script>
+(function imgFallbackBg() {
+  function checkBg(localSrc, fallbackSrc, cssSelector) {
+    var probe = new Image();
+    probe.onerror = function () {
+      document.querySelectorAll(cssSelector).forEach(function (el) {
+        el.style.backgroundImage = "url('" + fallbackSrc + "')";
+      });
+    };
+    probe.src = localSrc;
+  }
+  document.addEventListener('DOMContentLoaded', function () {
+    checkBg('images/project-crevice_hero.jpg', 'https://images.unsplash.com/photo-1518020382113-a7e8fc38eac9?w=1800&q=85&auto=format&fit=crop', '.project-hero');
+  });
+})();
+</script>
+
+<script src="photo-registry.js"></script>
+<script>document.addEventListener('DOMContentLoaded', applyProjectCaptions);</script>
+</body>
+</html>
