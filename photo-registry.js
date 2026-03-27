@@ -127,6 +127,23 @@ const PHOTO_DB = {
     photographer: 'Guan-Yan Chen',
   },
 
+  // ── 額外 Lightbox 照片 ──
+  'gallery_08_kenting-3d-survey.jpg': {
+    caption:      'Kenting 3D Reef Survey · 墾丁 3D 珊瑚礁調查',
+    desc:         'Fully geared up for an underwater 3D photogrammetric survey at Kenting with Tony Ye (宗旻). Every dive a data point.',
+    photographer: '名祺',
+  },
+  'gallery_09_chaojing-surge.jpg': {
+    caption:      'Firework Surge · 潮境煙火浪況',
+    desc:         'The surge at Chaojing Marine Protected Area erupting like fireworks — a reminder that the reef lives on the edge of calm and chaos.',
+    photographer: 'Guan-Yan Chen',
+  },
+  'gallery_10_urchin-spawning.jpg': {
+    caption:      'Sea Urchin Spawning · 海膽生殖',
+    desc:         'A chance encounter with a spawning sea urchin — gametes billowing into the water column in a fleeting, unrepeatable moment.',
+    photographer: 'Guan-Yan Chen',
+  },
+
   // ── Journal 照片 ──
   'journal_entry1_survey.jpg': {
     caption:      'Field Survey · 野外調查',
@@ -205,6 +222,30 @@ const GALLERY_PHOTOS = [
   { file: 'hero_research-page-survey.jpg',            layout: 'normal' },
 ];
 
+/* ══════════════════════════════════════════════════════════════
+ *  🖼️ LIGHTBOX 照片清單 — 控制點進去後可以左右滑動的所有照片
+ *  ──────────────────────────────────────────────────────────
+ *  ✏️ 編輯方式：
+ *    • 把想在 lightbox 裡瀏覽的照片加進這個陣列
+ *    • 順序 = 滑動順序；前七張對應格子裡的照片，保持一致
+ *    • 新增照片時同步在 PHOTO_DB 補上說明即可
+ *    • 新照片命名建議：gallery_08_描述.jpg、gallery_09_描述.jpg …
+ * ═══════════════════════════════════════════════════════════ */
+const LIGHTBOX_PHOTOS = [
+  // ── 格子裡的七張（固定，保持與 GALLERY_PHOTOS 相同順序）──
+  { file: 'project-monitoring_reef-survey.jpg' },
+  { file: 'project-sfmworkshop_delta-volunteers.jpg' },
+  { file: 'project-sfmworkshop_session.jpg' },
+  { file: 'project-sfmworkshop_hero.jpg' },
+  { file: 'journal_entry1_survey.jpg' },
+  { file: 'project-octocoral_field.jpg' },
+  { file: 'hero_research-page-survey.jpg' },
+  // ── 額外照片（只在 lightbox 出現，格子不顯示）── ✏️ 在這裡新增
+  { file: 'gallery_08_kenting-3d-survey.jpg' },
+  { file: 'gallery_09_chaojing-surge.jpg' },
+  { file: 'gallery_10_urchin-spawning.jpg' },
+];
+
 
 /* ── 🔧 工具函式 ── */
 
@@ -229,7 +270,8 @@ function renderGallery() {
 
     const div = document.createElement('div');
     div.className = 'photo-item' + layoutClass;
-    div.setAttribute('data-index', i);
+    const lbIndex = LIGHTBOX_PHOTOS.findIndex(p => p.file === entry.file);
+    div.setAttribute('data-index', lbIndex >= 0 ? lbIndex : i);
     div.onclick = function () { openLightbox(this); };
     div.innerHTML =
       '<img src="images/' + entry.file + '" alt="' + (info.caption || '') + '" loading="lazy" />' +

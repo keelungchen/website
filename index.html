@@ -1548,15 +1548,15 @@
   // Render gallery from registry
   renderGallery();
 
-  // Lightbox with navigation (reads from GALLERY_PHOTOS + PHOTO_DB)
+  // Lightbox with navigation (reads from LIGHTBOX_PHOTOS + PHOTO_DB)
   let currentIndex = 0;
   let touchStartX = 0;
   let touchEndX = 0;
 
   function showPhoto(index) {
-    const total = GALLERY_PHOTOS.length;
+    const total = LIGHTBOX_PHOTOS.length;
     currentIndex = ((index % total) + total) % total;
-    const entry = GALLERY_PHOTOS[currentIndex];
+    const entry = LIGHTBOX_PHOTOS[currentIndex];
     const info = getPhotoInfo(entry.file);
 
     const lbImg = document.getElementById('lightbox-img');
