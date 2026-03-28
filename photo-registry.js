@@ -280,11 +280,84 @@ function renderGallery() {
     div.setAttribute('data-index', lbIndex >= 0 ? lbIndex : i);
     div.onclick = function () { openLightbox(this); };
     div.innerHTML =
-      '<img src="images/' + entry.file + '" alt="' + (info.caption || '') + '" loading="lazy" />' +
+      '<img class="img-a active" src="images/' + entry.file + '" alt="' + (info.caption || '') + '" />' +
+      '<img class="img-b" src="images/' + entry.file + '" alt="' + (info.caption || '') + '" />' +
       '<div class="photo-caption">' + info.caption + '</div>';
 
     grid.appendChild(div);
   });
+}
+
+/** 照片牆格子輪播 — 每次只換一個格子，crossfade 過渡，不重複顯示同張照片 */
+function startGalleryCycle() {
+  var pool = LIGHTBOX_PHOTOS.map(function(p) { return p.file; });
+  var cells = Array.from(document.querySelectorAll('#photo-grid .photo-item'));
+
+  // 每格的狀態：currentFile、useA、imgA、imgB
+  var states = cells.map(function(cell) {
+    return {
+      cell: cell,
+      imgA: cell.querySelector('.img-a'),
+      imgB: cell.querySelector('.img-b'),
+      currentFile: cell.querySelector('.img-a').src.split('/').pop(),
+      useA: true,
+    };
+  });
+
+  // 追蹤目前所有格子正在顯示的照片，避免重複
+  var activeFiles = new Set(states.map(function(s) { return s.currentFile; }));
+
+  function cycleOne() {
+    // 隨機挑一個格子
+    var s = states[Math.floor(Math.random() * states.length)];
+
+    // 排除所有格子當前顯示的照片
+    var candidates = pool.filter(function(f) { return !activeFiles.has(f); });
+    if (!candidates.length) {
+      candidates = pool.filter(function(f) { return f !== s.currentFile; });
+    }
+    if (!candidates.length) { scheduleNext(); return; }
+
+    var nextFile = candidates[Math.floor(Math.random() * candidates.length)];
+
+    // 立即更新共享 Set
+    activeFiles.delete(s.currentFile);
+    activeFiles.add(nextFile);
+    s.currentFile = nextFile;
+
+    var hiddenImg = s.useA ? s.imgB : s.imgA;
+    var activeImg = s.useA ? s.imgA : s.imgB;
+
+    var preload = new Image();
+    preload.onload = function() {
+      hiddenImg.src = 'images/' + nextFile;
+      hiddenImg.alt = getPhotoInfo(nextFile).caption || '';
+
+      setTimeout(function() {
+        hiddenImg.classList.add('active');
+        activeImg.classList.remove('active');
+        s.useA = !s.useA;
+
+        var info = getPhotoInfo(nextFile);
+        var captionEl = s.cell.querySelector('.photo-caption');
+        if (captionEl) captionEl.textContent = info.caption || '';
+
+        var lbIndex = LIGHTBOX_PHOTOS.findIndex(function(p) { return p.file === nextFile; });
+        s.cell.setAttribute('data-index', lbIndex >= 0 ? lbIndex : 0);
+      }, 50);
+    };
+    preload.src = 'images/' + nextFile;
+
+    scheduleNext();
+  }
+
+  function scheduleNext() {
+    // 每隔 4–7 秒換一個格子
+    setTimeout(cycleOne, Math.random() * 3000 + 4000);
+  }
+
+  // 初始延遲 3 秒後開始
+  setTimeout(cycleOne, 3000);
 }
 
 /** 在 project 分頁中，自動為 img 補上拍攝者資訊 */

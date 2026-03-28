@@ -621,11 +621,15 @@
     .photo-item.tall { grid-row: span 2; }
     .photo-item.wide { grid-column: span 2; }
     .photo-item img {
+      position: absolute;
+      inset: 0;
       width: 100%; height: 100%;
       object-fit: cover;
-      transition: transform 0.5s;
+      transition: opacity 1s ease, transform 0.5s ease;
     }
-    .photo-item:hover img { transform: scale(1.07); }
+    .photo-item img.active { opacity: 1; z-index: 1; }
+    .photo-item img:not(.active) { opacity: 0; z-index: 0; }
+    .photo-item:hover img.active { transform: scale(1.07); }
     .photo-caption {
       position: absolute;
       bottom: 0; left: 0; right: 0;
@@ -637,6 +641,7 @@
       text-transform: uppercase;
       opacity: 0;
       transition: opacity 0.3s;
+      z-index: 2;
     }
     .photo-item:hover .photo-caption { opacity: 1; }
     .photo-note {
@@ -1547,6 +1552,7 @@
 
   // Render gallery from registry
   renderGallery();
+  startGalleryCycle();
 
   // Lightbox with navigation (reads from LIGHTBOX_PHOTOS + PHOTO_DB)
   let currentIndex = 0;
