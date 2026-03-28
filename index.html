@@ -797,6 +797,52 @@
       margin-bottom: -8px;
     }
 
+    /* ── BUY ME A COFFEE ── */
+    .bmc-section {
+      margin-top: 56px;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 16px;
+    }
+    .bmc-title {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: 0.04em;
+    }
+    .bmc-desc {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.6);
+      max-width: 520px;
+      line-height: 1.7;
+    }
+    .bmc-desc .zh {
+      display: block;
+      margin-top: 6px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.38);
+    }
+    .bmc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 28px;
+      background: #FFDD00;
+      color: #1a1a2e;
+      border-radius: 30px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      margin-top: 4px;
+    }
+    .bmc-btn:hover { background: #f5d000; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,221,0,0.25); }
+
     /* ── FOOTER ── */
     footer {
       background: #0f1a2e;
@@ -1486,6 +1532,18 @@
           </div>
         </div>
       </div>
+    </div>
+    <!-- ── BUY ME A COFFEE ── -->
+    <div class="bmc-section fade-up">
+      <div class="bmc-title">☕ Support the Science</div>
+      <div class="bmc-desc">
+        Coral reefs take years to grow — so does good science writing.
+        If my GitHub code or articles helped you, buy me a coffee and keep the reef research going!
+        <span class="zh">珊瑚礁需要多年才能生長——好的科普寫作也是。如果我的 GitHub 或文章對你有幫助，請我喝杯咖啡，讓珊瑚礁研究繼續下去！</span>
+      </div>
+      <a href="https://buymeacoffee.com/keelungchen" target="_blank" rel="noopener" class="bmc-btn">
+        ☕ &nbsp;Buy Me a Coffee
+      </a>
     </div>
   </div>
 </section>
