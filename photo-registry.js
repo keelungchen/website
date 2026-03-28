@@ -127,6 +127,28 @@ const PHOTO_DB = {
     photographer: 'Guan-Yan Chen',
   },
 
+  // ── 額外 Gallery 輪播照片 ──
+  'gallery_11_northcoast-fish.jpg': {
+    caption:      'North Coast · 北海岸',
+    desc:         'Murky green waters and schooling fish along the north coast of Taiwan · 北海岸濁綠的海水與魚群，展現台灣北部海域獨特的生態景觀。',
+    photographer: 'Guan-Yan Chen',
+  },
+  'gallery_12_waimushan-pool.jpg': {
+    caption:      'Waimushan Tidal Pool · 外木山海興游泳池',
+    desc:         'Haixing tidal pool at Waimushan — where my journey in marine science began · 外木山海興游泳池，是我踏入海洋科學的啟蒙之地。',
+    photographer: 'Guan-Yan Chen',
+  },
+  'gallery_13_pumice.jpg': {
+    caption:      'Volcanic Pumice · 火山浮石',
+    desc:         'Volcanic pumice drifted from Japan to the north coast of Taiwan · 從日本飄洋過海抵達台灣北海岸的火山浮石。',
+    photographer: 'Guan-Yan Chen',
+  },
+  'gallery_14_nmmba-transect.jpg': {
+    caption:      'NMMBA Coral Transect · 海生館珊瑚調查',
+    desc:         'Coral belt-transect survey conducted with the NMMBA team · 與國立海洋生物博物館團隊共同執行的珊瑚穿越線調查。',
+    photographer: 'Guan-Yan Chen',
+  },
+
   // ── 額外 Lightbox 照片 ──
   'project-octocoral_newrecord2_sclerite.jpg': {
     caption:      'Aldersladum jengi Sclerites · 鄭氏艾達軟珊瑚骨針',
@@ -250,6 +272,10 @@ const LIGHTBOX_PHOTOS = [
   { file: 'gallery_08_kenting-3d-survey.jpg' },
   { file: 'gallery_09_chaojing-surge.jpg' },
   { file: 'gallery_10_urchin-spawning.jpg' },
+  { file: 'gallery_11_northcoast-fish.jpg' },
+  { file: 'gallery_12_waimushan-pool.jpg' },
+  { file: 'gallery_13_pumice.jpg' },
+  { file: 'gallery_14_nmmba-transect.jpg' },
 ];
 
 
