@@ -673,7 +673,7 @@
   </div>
 
   <div class="load-more-wrap fade-up">
-    <button class="load-more-btn" onclick="alert('更多日誌紀錄陸續更新中 · More entries coming soon')">
+    <button class="load-more-btn" onclick="loadMore()">
       Load More 載入更多
       <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
     </button>
@@ -695,15 +695,6 @@
     document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 50);
   });
 
-  // Filter
-  function filterJournal(type, btn) {
-    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    document.querySelectorAll('.journal-card').forEach(card => {
-      card.style.display = (type === 'all' || card.dataset.type === type) ? '' : 'none';
-    });
-  }
-
   // Scroll animations
   const obs = new IntersectionObserver((entries) => {
     entries.forEach((e, i) => {
@@ -714,6 +705,60 @@
     });
   }, { threshold: 0.08 });
   document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+
+  // ── Load More & Filter ──
+  const BATCH = 3;
+  let shown = BATCH;
+  let currentFilter = 'all';
+
+  function getMatchingCards() {
+    const all = Array.from(document.querySelectorAll('.journal-card'));
+    return currentFilter === 'all' ? all : all.filter(c => c.dataset.type === currentFilter);
+  }
+
+  function applyView() {
+    const all = Array.from(document.querySelectorAll('.journal-card'));
+    const matching = getMatchingCards();
+    all.forEach(c => {
+      const idx = matching.indexOf(c);
+      if (idx === -1) {
+        c.style.display = 'none';
+      } else if (currentFilter === 'all' && idx >= shown) {
+        c.style.display = 'none';
+      } else {
+        c.style.display = '';
+      }
+    });
+    const loadMoreWrap = document.querySelector('.load-more-wrap');
+    loadMoreWrap.style.display = (currentFilter === 'all' && shown < matching.length) ? '' : 'none';
+  }
+
+  function filterJournal(type, btn) {
+    document.querySelectorAll('.fbtn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = type;
+    shown = BATCH;
+    applyView();
+    getMatchingCards().forEach((c, i) => {
+      if (!c.classList.contains('visible')) {
+        setTimeout(() => c.classList.add('visible'), i * 80);
+      }
+    });
+  }
+
+  function loadMore() {
+    const matching = getMatchingCards();
+    const toReveal = matching.slice(shown, shown + BATCH);
+    shown += BATCH;
+    applyView();
+    toReveal.forEach((c, i) => {
+      if (!c.classList.contains('visible')) {
+        setTimeout(() => c.classList.add('visible'), i * 80);
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', applyView);
 </script>
 
 <!-- Image Fallback: 若本地 images/ 圖片不存在，自動顯示 Unsplash 範例圖 -->
